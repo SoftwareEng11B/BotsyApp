@@ -245,11 +245,11 @@ exports.removeOAuthProvider = function (req, res, next) {
 
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
- service: 'gmail',
- auth: {
-        user: 'kemleynieva@gmail.com',
-        pass: 'Anieva14'
-    }
+  service: 'gmail',
+  auth: {
+    user: 'kemleynieva@gmail.com',
+    pass: 'Anieva14'
+  }
 });
 
 exports.sendMail = function(req, res) {
