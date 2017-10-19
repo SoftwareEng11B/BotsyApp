@@ -261,7 +261,11 @@ exports.sendMail = function(req, res) {
     to: 'kemleynieva@gmail.com',
     subject: 'Message from ' + data.contactName,
     text: data.contactMsg,
-    attachments:[{filename: 'botsy.png', path: 'http://gnvurbanart.com/wp-content/uploads/2017/02/DSC01378.jpg', cid:'botsy.png'}]
+    attachments:[
+      { filename: 'botsy.png',
+      path: 'http://gnvurbanart.com/wp-content/uploads/2017/02/DSC01378.jpg',
+      cid:'botsy.png' }
+    ]
   });
 
   res.json(data);
