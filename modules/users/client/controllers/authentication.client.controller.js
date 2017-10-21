@@ -82,7 +82,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $http.post('/api/auth/contact-us', data).
         success(function(data, status, headers, config) {
           console.log(1);
-          $state.go($state.previous.state.name || 'home', $state.previous.params);
+          $state.go('home', $state.previous.params);
         }).
         error(function(data, status, headers, config) {
           console.log(0);
