@@ -1,0 +1,26 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.wall.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.wall.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="walls.edit({ wallId: vm.wall._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.wall.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.wall.user"
+            ng-bind="vm.wall.user.displayName"></span>
+      <span ng-if="!vm.wall.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.wall.content"></p>
+</section>
