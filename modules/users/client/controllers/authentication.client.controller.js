@@ -62,5 +62,32 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       // Effectively call OAuth authentication route:
       $window.location.href = url;
     };
+
+    $scope.contactform = function(isValid){
+
+      $scope.error = null;
+
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'userForm');
+
+        return false;
+      }
+
+      var data = ({
+        contactName : $scope.userForm.firstName.$$rawModelValue,
+        contactEmail : $scope.userForm.email.$$rawModelValue,
+        contactMsg : $scope.userForm.message.$$rawModelValue
+      });
+
+      $http.post('/api/auth/contact-us', data).
+        success(function(data, status, headers, config) {
+          console.log(1);
+          $state.go('home', $state.previous.params);
+        }).
+        error(function(data, status, headers, config) {
+          console.log(0);
+        });
+
+    };
   }
 ]);
