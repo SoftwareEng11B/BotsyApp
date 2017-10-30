@@ -3,17 +3,21 @@
     <h1>Walls</h1>
   </div>
   <div class="list-group">
-    <a ng-repeat="wall in vm.walls"
-       ui-sref="walls.view({ wallId: wall._id })"
+   <div class="col-sm-6" data ng-repeat="wall in vm.walls">
+   <a data-ng-href="walls.view({ wallId: wall._id })"
        class="list-group-item">
-      <small class="list-group-item-text">
+    <i class="glyphicon glyphicon-home"></i>
+    
+      <h4 class="list-group-item-heading" ng-bind="wall.name"></h4>
+      <small class="list-group-item-text text-muted">
         Posted on
         <span ng-bind="wall.created | date:'mediumDate'"></span>
         by
         <span ng-if="wall.user" ng-bind="wall.user.displayName"></span>
         <span ng-if="!wall.user">Deleted User</span>
       </small>
-      <h4 class="list-group-item-heading" ng-bind="wall.name"></h4>
+    </div>
+      
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.walls.$resolved && !vm.walls.length">
