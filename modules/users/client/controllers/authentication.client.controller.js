@@ -27,7 +27,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        $state.go('customer-homepage');
+          $state.go('home');
+
       }).error(function (response) {
         $scope.error = response.message;
       });
@@ -46,8 +47,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
 
+
         // And redirect to the previous or home page
-        $state.go('customer-homepage');
+        if($scope.authentication.user.roles[0] === "user"){
+          $state.go('customer-homepage');
+        }
+        else if($scope.authentication.user.roles[0] === "artist"){
+          $state.go('artist-homepage');
+        }else{
+          $state.go('home');
+        }
       }).error(function (response) {
         $scope.error = response.message;
       });

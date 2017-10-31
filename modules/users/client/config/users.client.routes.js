@@ -87,6 +87,15 @@ angular.module('users').config(['$stateProvider',
       .state('preview-request', {
         url: '/mural-request-preview',
         templateUrl: 'modules/users/client/views/mural_request/preview-information.html'
+      })
+      .state('current-request', {
+        url: '/mural-request-current',
+        templateUrl: 'modules/users/client/views/mural_request/current-requests.html'
+      })
+      .state('artist-homepage',{
+        url:'/artist-homepage',
+        templateUrl:'modules/artists/client/views/artist-home-page.html'
       });
+
   }
 ]);
