@@ -44,6 +44,30 @@ angular.module('users.admin.routes').config(['$stateProvider',
             });
           }]
         }
+      })
+      .state('admin.user-quote', {
+        url: '/users/:userId/quote',
+        templateUrl: 'modules/users/client/views/admin/quote-user.client.view.html',
+        controller: 'UserListController',
+        resolve: {
+          userResolve: ['$stateParams', 'Admin', function ($stateParams, Admin) {
+            return Admin.get({
+              userId: $stateParams.userId
+            });
+          }]
+        }
+      })
+      .state('admin.user-give-quote', {
+        url: '/users/:userId/quote',
+        templateUrl: 'modules/users/client/views/admin/give-quote-user.client.view.html',
+        controller: 'UserController',
+        resolve: {
+          userResolve: ['$stateParams', 'Admin', function ($stateParams, Admin) {
+            return Admin.get({
+              userId: $stateParams.userId
+            });
+          }]
+        }
       });
   }
 ]);

@@ -27,7 +27,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        $state.go('home');
+        if($scope.authentication.user.roles[0] === 'user'){
+          $state.go('customer-homepage');
+        }
+        else if($scope.authentication.user.roles[0] === 'artist'){
+          $state.go('artist-homepage');
+        }else if($scope.authentication.user.roles[0] === 'admin'){
+          $state.go('admin-homepage');
+        }else{
+          $state.go('home');
+        }
 
       }).error(function (response) {
         $scope.error = response.message;

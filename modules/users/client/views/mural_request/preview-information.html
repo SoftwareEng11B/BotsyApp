@@ -3,29 +3,19 @@
   <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
     <form name="userForm" ng-submit="contactform(userForm.$valid)" class="contactus" novalidate autocomplete="off">
       <fieldset>
-        <div class="form-group" show-errors>
+        <div class="form-group" >
           <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="credentials.firstName" placeholder="First Name" required>
-          <div ng-messages="userForm.firstName.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">First name is required.</p>
-          </div>
+          <p type="text" id="firstName" name="firstName" class="form-control" ng-model="credentials.firstName" placeholder="First Name" >Kemley Nieva</p>
         </div>
 
-        <div class="form-group" show-errors>
+        <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" ng-model="credentials.email" placeholder="Email"  required>
-          <div ng-messages="userForm.email.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Email address is required.</p>
-            <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
-          </div>
+          <p type="email" id="email" name="email" class="form-control" ng-model="credentials.email" placeholder="Email"  > kemleynieva@gmail.com</p>
         </div>
 
-        <div class="form-group" show-errors>
+        <div class="form-group">
           <label for="message">Message</label>
-          <input type="text" id="message" name="message" class="form-control" ng-model="credentials.message" placeholder="message" required>
-          <div ng-messages="userForm.message.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Message is required.</p>
-          </div>
+          <p type="text" id="message" name="message" class="form-control" ng-model="credentials.message" placeholder="message" > My request</p>
         </div>
 
         <div class="text-center form-group">

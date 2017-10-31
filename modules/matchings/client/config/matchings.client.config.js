@@ -23,10 +23,10 @@
     });
 
     // Add the dropdown create item
-    menuService.addSubMenuItem('topbar', 'matchings', {
+  /*  menuService.addSubMenuItem('topbar', 'matchings', {
       title: 'Create Matching',
       state: 'matchings.create',
       roles: ['admin']
-    });
+    });*/
   }
 }());

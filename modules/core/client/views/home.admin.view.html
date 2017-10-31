@@ -1,5 +1,5 @@
-<!DOCTYPE html> 
-<!-- user dashboard --> 
+<!DOCTYPE html>
+<!-- user dashboard -->
 <head>
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -29,7 +29,7 @@
         chart.draw(data, options);
       }
 
-      
+
       function drawQuoteChart() {
 
         var data = new google.visualization.arrayToDataTable([
@@ -122,9 +122,9 @@ border-radius: 22.5px;
       <td>
         <h1>Customers needing to be quoted: 2</h1>
         <br>
-        <center><a class="btn btn-primary btn-round btn" ui-sref="admin.user-match({userId: user._id})"> 
-        ' Quote Now '  
-        </a></center> 
+        <center><a class="btn btn-primary btn-round btn" ui-sref="admin.user-quote">
+        Quote Now
+        </a></center>
       </td>
       <td><center><div id="Quote_chart_div"></div><center></td>
     </tr>
@@ -133,9 +133,9 @@ border-radius: 22.5px;
       <td>
         <h1>Customers needing to be matched: 1</h1>
         <br>
-        <center><a class="btn btn-primary btn-round btn" ui-sref="admin.user-match"> 
-        Match Now   
-        </a></center> 
+        <center><a class="btn btn-primary btn-round btn" ui-sref="admin.user-match">
+        Match Now
+        </a></center>
       </td>
     <tr>
       <td>

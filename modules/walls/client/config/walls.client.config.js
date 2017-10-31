@@ -13,7 +13,7 @@
       title: 'Walls',
       state: 'walls',
       type: 'dropdown',
-      roles: ['user']
+      roles: ['admin']
     });
 
     // Add the dropdown list item
@@ -26,7 +26,7 @@
     menuService.addSubMenuItem('topbar', 'walls', {
       title: 'Create Wall',
       state: 'walls.create',
-      roles: ['user']
+      roles: ['admin']
     });
   }
 }());
