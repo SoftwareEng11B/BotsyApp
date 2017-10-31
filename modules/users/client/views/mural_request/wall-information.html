@@ -1,77 +1,144 @@
-<div ng-controller="MuralRequestController">
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <style>
-    article, aside, figure, footer, header, hgroup,
-    menu, nav, section { display: block; }
-    h1 {
-      font-family: 'Lato', sans-serif;
-      font-size: 32px;
-      font-weight: 700;
-      color: #e05e60;
-      text-align: center;
-    }
-    h2 {
-      font-family: 'Lato', sans-serif;
-      font-size: 16px;
-      color: #52595d;
-    }
-    input {
-      font-family: 'Lato', sans-serif;
-      font-size: 14px;
-    }
-    </style>
-  </head>
-  <header>
-    <div class="row">
-      <h1>WALL INFO</h1><br>
-    </div>
-  </header>
-  <body class="ng-scope">
-    <div class="container">
+<section>
+  <div class="page-header">
+    <h1>{{vm.wall._id ? 'Edit Wall' : 'New Wall'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.wallForm" class="form-horizontal" ng-submit="vm.save(vm.form.wallForm.$valid)" novalidate>
+      <fieldset>
+
         <div class="row">
-          <form>
-            <h2>Wall Image: </h2>
-            <input type="file" id="wall" accept="image/*" />
-            <h2>Dimensions:<br>
-            Length<input type="text" placeholder="10', 3m" name="length"> Height<input type="text" placeholder="7ft, 84in" name="height"></h2>
-            <h2>Mural Address: </h2>
-            <input type="text" name="address"><br>
-            <h2>Location Type: </h2>
-            <input type="radio" name="loc_type" value="business"> Business<br>
-            <input type="radio" name="loc_type" value="personal"> Personal<br>
-            <h2>Wall Material: </h2>
-            <select>
-              <option value="brick">Brick</option>
-              <option value="concrete">Concrete</option>
-              <option value="block">Cinder Block</option>
-              <option value="drywall">Drywall</option>
-              <option value="wood">Wood</option>
-              <option value="smooth">Other: Smooth</option>
-              <option value="rough">Other: Rough</option>
-            </select><br>
-            <h2>Finish: </h2>
-            <select>
-              <option value="matte">Matte</option>
-              <option value="semi-gloss">Semi-Gloss</option>
-              <option value="Gloss">Gloss</option>
-            </select><br>
-            <h2>Paint Brand/Name: </h2>
-            <input type="text" name="paint"><br>
-            <h2>Paint Type: </h2>
-            <input type="text" placeholder="Oil, Acrylic" name="paint_type"><br>
-            <h2>Wall Prep Required?</h2>
-            <input type="radio" name="prep_req" value="yes"> Yes:
-            <input type="text" placeholder="Sanding, Peeling" name="prep"><br>
-            <input type="radio" name="prep_req" value="no"> No<br>
-            <h2>Repainting?</h2>
-            <input type="radio" name="paint_req" value="yes"> Yes:
-            <input type="text" placeholder="Color" name="recolor"><br>
-            <input type="radio" name="paint_req" value="no"> No<br>
-            <br><input ui-sref-active="active"  ui-sref="custom-form" type="submit" value="Submit">
-          </form>
+
+                    <div class="form-group">
+                        <div data-ng-show="error" class="text-center text-danger">
+                            <div class="alert alert-danger" role="alert">
+                                <strong data-ng-bind="error"></strong>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6 text-center">
+                        <p>Wall Image: </p>
+                        <img src="modules/walls/client/img/defaultWall.png">
+                        <input type="file" id="wall" accept="image/*" />
+                    </div>
+
+
+
+                    <div class="col-sm-6">
+                        <div class="form-group" show-errors>
+                          <label class="control-label" for="name">Name</label>
+                          <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
+                              <div ng-messages="vm.form.wallForm.name.$error" role="alert">
+                                <p class="help-block error-text" ng-message="required">Wall name is required.</p>
+                              </div>
+                        </div>
+                               <!-- wall info -->
+                        <div class="form-group">
+                            <label class="control-label" for="wall_info.length">Width</label>
+                            <input name="wall_info" type="text" ng-model="vm.wall.wall_info.length" id="wall_info.length" class="form-control" placeholder="9', 3m, 108in" required>
+
+                        </div>
+
+                        <div class="form-group" >
+                            <label class="control-label" for="wall_info.height">Height</label>
+                            <input name="wall_info.height" type="text" ng-model="vm.wall.wall_info.height" id="wall_info.height" class="form-control" placeholder="7ft, 84in" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="loc_type">Location Type</label>
+                            <input name="loc_type" type="text" ng-model="vm.wall.wall_info.loc_type" id="loc_type" class="form-control" placeholder="Business/Personal">
+                        </div>
+                      </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-3 col-sm-push-3">
+                        <div class="form-group">
+                            <label class="control-label" for="material">Material</label>
+                            <input name="material" type="text" ng-model="vm.wall.wall_info.material" id="material" class="form-control" placeholder="Brick, Concrete, Wood" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="finish">Finish</label>
+                            <input name="finish" type="text" ng-model="vm.wall.wall_info.finish" id="finish" class="form-control" placeholder="Matte, Semi-Gloss, or Gloss" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-sm-pull-3">
+                        <div class="form-group">
+                              <label class="control-label" for="paint">Paint Brand/Name</label>
+                            <input name="paint" type="text" ng-model="vm.wall.wall_info.paint" id="paint" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="paint_type">Paint Type</label>
+                            <input name="paint_type" type="text" ng-model="vm.wall.wall_info.paint_type" id="paint_type" class="form-control" required>
+                        </div>
+                    </div>
+               </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-6 col-sm-push-6">
+                        <div class="form-group">
+                            <label class="control-label" for="prep_req">Preparation Required:</label>
+                            <input name="prep_req" type="text" ng-model="vm.wall.wall_info.prep_req" id="prep_req" class="form-control" placeholder="Sanding, Scraping, etc. (or none)" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-sm-pull-6">
+                        <div class="form-group">
+                              <label class="control-label" for="paint_req">Repainting Required:</label>
+                            <input name="paint_req" type="text" ng-model="vm.wall.wall_info.paint_req" id="paint_req" class="form-control" placeholder="yes/no" required>
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="recolor">New Color:</label>
+                            <input name="recolor" type="text" ng-model="vm.wall.wall_info.recolor" id="recolor" class="form-control" placeholder="Red, Blue, etc." required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div class="form-group">
+                            <label class="control-label" for="Wall_type">Wall_type</label>
+                            <input name="Wall_type" type="text" ng-model="vm.wall.Wall_type" id="Wall_type" class="form-control" placeholder="Wall_type" required>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+          <!--
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
+
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
+
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
+          -->
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default" ui-sref="custom-form">{{vm.wall._id ? 'Update' : 'Create'}}</button>
         </div>
-    </div>
-  </body>
-</div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</section>
