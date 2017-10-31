@@ -32,6 +32,18 @@ angular.module('users.admin.routes').config(['$stateProvider',
             });
           }]
         }
+      })
+      .state('admin.user-match', {
+        url: '/users/:userId/match',
+        templateUrl: 'modules/users/client/views/admin/match-user.client.view.html',
+        controller: 'UserController',
+        resolve: {
+          userResolve: ['$stateParams', 'Admin', function ($stateParams, Admin) {
+            return Admin.get({
+              userId: $stateParams.userId
+            });
+          }]
+        }
       });
   }
 ]);

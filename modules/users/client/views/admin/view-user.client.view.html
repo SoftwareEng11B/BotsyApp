@@ -1,16 +1,62 @@
+<!DOCTYPE html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+table {
+    font-family: lato;
+    color: #52595d;
+    border-collapse: collapse;
+    width: 100%;
+}
+th{font-size: 20px;}
+
+td, th {
+    border: 1px solid #52595d;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f3f3;
+}
+td.redish{color: #e05e60;}
+td.mint{color: #3ac397;}
+
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+
+.btn-primary {
+    border-radius: 15px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+
+strong{
+  font-family: lato-bold;
+  font-size: 16px;
+  color: #52595d;
+}
+
+</style>
+</head>
+<body>
+
 <section>
   <div class="page-header">
     <div class="row">
       <div class="col-md-6">
         <h1 ng-bind="user.username"></h1>
-      </div>
-      <div class="col-md-4">
-        <a class="btn btn-primary" ui-sref="admin.user-edit({userId: user._id})">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a>
-        <a class="btn btn-primary" ng-click="remove();" ng-if="user._id !== authentication.user._id">
-          <i class="glyphicon glyphicon-trash"></i>
-        </a>
       </div>
     </div>
   </div>
@@ -48,4 +94,17 @@
       </div>
     </div>
   </div>
+  <br>
+  <div class="span">
+        <a class="btn btn-primary btn-round btn" ui-sref="admin.user-edit({userId: user._id})">
+          <i class="glyphicon glyphicon-pencil"></i>
+           Edit 
+        </a>
+        <a class="btn btn-primary" ng-click="remove();" ng-if="user._id !== authentication.user._id">
+        <!-- ensures you can't delete yourself -->
+          <i class="glyphicon glyphicon-trash"></i>
+          Delete
+        </a>
+      </div>
+
 </section>
