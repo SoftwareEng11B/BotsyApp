@@ -29,70 +29,71 @@ var WallSchema = new Schema({
 
   wall_info: {
     
-      length: {
-        type: String, 
-        required: true,
-        default:"1"
-      },
+    length: {
+      type: String, 
+      required: true,
+      default:'1'
+    },
 
-      height: {
-        type: String, 
-        required: true,
-        default:"1"
-      },
+    height: {
+      type: String, 
+      required: true,
+      default:'1'
+    },
 
-      loc_type: {
-        type: String, 
-        required: true,
-        default: 'home',
-      },
+    loc_type: {
+      type: String, 
+      required: true,
+      default: 'home',
+    },
 
-      material: {
-        type: String, 
-        required: true,
-        default:"none"
-      },
+    material: {
+      type: String, 
+      required: true,
+      default:'none'
+    },
 
-      finish: {
-        type: String, 
-        required: true,
-        default:"none"
-      },
+    finish: {
+      type: String, 
+      required: true,
+      default:'none'
+    },
 
-      paint: {
-        type: String, 
-        required: true,
-        default:"none"
-      },
+    paint: {
+      type: String, 
+      required: true,
+      default:'none'
+    },
 
-      paint_type: {
-        type: String, 
-        required: true,
-        default:"none"
-      },
+    paint_type: {
+      type: String, 
+      required: true,
+      default:'none'
+    },
 
-      prep_req: {
-        type: String, 
-        required: false,
-        default:"none"
-      },
+    prep_req: {
+      type: String, 
+      required: false,
+      default:'none'
+    },
 
-      prep: {
-        type: String, 
-        required: true,
-        default:"none"
-      },
+    prep: {
+      type: String, 
+      required: true,
+      default:'none'
+    },
 
-      paint_req: {
-          type: String, 
-          required: true,
-          default:"none"
-      },
-      recolor: {
-        type: String, 
-        required: true,
-      default:"none"
-      },
+    paint_req: {
+      type: String, 
+      required: true,
+      default:'none'
+    },
+    
+    recolor: {
+      type: String, 
+      required: true,
+      default:'none'
+    },
       
   },
   
@@ -116,7 +117,7 @@ var WallSchema = new Schema({
     },
 
     Wall_with_SVG_Img: {
-     type: String,
+      type: String,
       default: 'modules/walls/client/img/defaultWall.png'
     },
 
@@ -128,30 +129,30 @@ var WallSchema = new Schema({
 
   status: {
     
-      paid: {
-        type: Boolean,
-        default: false,
-      },
+    paid: {
+      type: Boolean,
+      default: false,
+    },
       
-      matched: {
-        type: Boolean,
-        default: false,
-      },  
+    matched: {
+      type: Boolean,
+      default: false,
+    },  
       
-      completed: {
-        type: Boolean,
-        default: false,
-      },
+    completed: {
+      type: Boolean,
+      default: false,
+    },
 
-      hasQuote: {
-        type: Boolean,
-        default: false,
-      },
+    hasQuote: {
+      type: Boolean,
+      default: false,
+    },
 
-      comment: {
-        type: String, 
-        default:''
-      },
+    comment: {
+      type: String, 
+      default:''
+    },
     
   },
 
@@ -159,7 +160,7 @@ var WallSchema = new Schema({
    
 
   Artist: {
-   type: Schema.ObjectId,
+    type: Schema.ObjectId,
     ref: 'User'
   },
 
