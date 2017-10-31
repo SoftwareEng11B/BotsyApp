@@ -71,6 +71,31 @@ angular.module('users').config(['$stateProvider',
       .state('password.reset.form', {
         url: '/:token',
         templateUrl: 'modules/users/client/views/password/reset-password.client.view.html'
+      })
+      .state('customer-homepage', {
+        url: '/customer-homepage',
+        templateUrl: 'modules/users/client/views/customer_homepage.html'
+      })
+      .state('wall-information', {
+        url: '/mural-request-wall-information',
+        templateUrl: 'modules/users/client/views/mural_request/wall-information.html'
+      })
+      .state('custom-form', {
+        url: '/mural-request-custom-form',
+        templateUrl: 'modules/users/client/views/mural_request/custom-form.html'
+      })
+      .state('preview-request', {
+        url: '/mural-request-preview',
+        templateUrl: 'modules/users/client/views/mural_request/preview-information.html'
+      })
+      .state('current-request', {
+        url: '/mural-request-current',
+        templateUrl: 'modules/users/client/views/mural_request/current-requests.html'
+      })
+      .state('artist-homepage',{
+        url:'/artist-homepage',
+        templateUrl:'modules/artists/client/views/artist-home-page.html'
       });
+
   }
 ]);

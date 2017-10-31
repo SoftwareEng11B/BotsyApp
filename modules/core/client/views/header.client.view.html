@@ -6,7 +6,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a ui-sref="home" class="navbar-brand" style="
+    <a ui-sref="customer-homepage" class="navbar-brand" style="
           height: 100%;
           margin: 0;
           font-family: Lato,sans-serif;
@@ -65,7 +65,14 @@
             <a href="/api/auth/signout" target="_self">Signout</a>
           </li>
         </ul>
-      </li>
-    </ul>
+      </ul>
+      <ul class="nav navbar-nav navbar-left" ng-show="authentication.user">
+        <li ui-sref-active="active">
+          <a ui-sref="wall-information"style="color: #51595D;">Start Mural Request</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="current-request"style="color: #51595D;">Current Mural Request</a>
+        </li>
+      </ul>
   </nav>
 </div>
