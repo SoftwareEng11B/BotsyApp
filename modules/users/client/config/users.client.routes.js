@@ -75,7 +75,7 @@ angular.module('users').config(['$stateProvider',
       .state('admin-homepage', {
         url:'/admin',
         templateUrl: '/modules/core/client/views/home.admin.view.html'
-       })
+      })
       .state('customer-homepage', {
         url: '/customer-homepage',
         templateUrl: 'modules/users/client/views/customer_homepage.html'

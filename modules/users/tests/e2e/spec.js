@@ -24,24 +24,24 @@ describe('Users E2E Tests:', function () {
     browser.driver.manage().deleteAllCookies();
   };
   describe('Landing Page functionality', function() {
-      beforeEach(function() {
-        browser.get('http://localhost:3000');
-        browser.sleep(3000);
-      });
-  
+    beforeEach(function() {
+      browser.get('http://localhost:3000');
+      browser.sleep(3000);
+    });
+
     it('should redirect to the sign-up page', function () {
       element(by.id('signup')).click();
       expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/authentication/signup');
     });
-  it('should redirect to the sign-in page', function () {
-    element(by.id('signin')).click();
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/authentication/signin');
-  });
+    it('should redirect to the sign-in page', function () {
+      element(by.id('signin')).click();
+      expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/authentication/signin');
+    });
   /*it('should redirect to the botsy about page', function () {
     element(by.id('about')).click();
     expect(browser.getCurrentUrl()).toEqual('https://www.botsy.com/pages/about-us');
   });*/
-});
+  });
 
   describe('Signup Validation', function () {
     it('Should report missing first name', function () {
