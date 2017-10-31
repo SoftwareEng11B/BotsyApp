@@ -1,0 +1,77 @@
+<div ng-controller="MuralRequestController">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+    article, aside, figure, footer, header, hgroup,
+    menu, nav, section { display: block; }
+    h1 {
+      font-family: 'Lato', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #e05e60;
+      text-align: center;
+    }
+    h2 {
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      color: #52595d;
+    }
+    input {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+    }
+    </style>
+  </head>
+  <header>
+    <div class="row">
+      <h1>WALL INFO</h1><br>
+    </div>
+  </header>
+  <body class="ng-scope">
+    <div class="container">
+        <div class="row">
+          <form>
+            <h2>Wall Image: </h2>
+            <input type="file" id="wall" accept="image/*" />
+            <h2>Dimensions:<br>
+            Length<input type="text" placeholder="10', 3m" name="length"> Height<input type="text" placeholder="7ft, 84in" name="height"></h2>
+            <h2>Mural Address: </h2>
+            <input type="text" name="address"><br>
+            <h2>Location Type: </h2>
+            <input type="radio" name="loc_type" value="business"> Business<br>
+            <input type="radio" name="loc_type" value="personal"> Personal<br>
+            <h2>Wall Material: </h2>
+            <select>
+              <option value="brick">Brick</option>
+              <option value="concrete">Concrete</option>
+              <option value="block">Cinder Block</option>
+              <option value="drywall">Drywall</option>
+              <option value="wood">Wood</option>
+              <option value="smooth">Other: Smooth</option>
+              <option value="rough">Other: Rough</option>
+            </select><br>
+            <h2>Finish: </h2>
+            <select>
+              <option value="matte">Matte</option>
+              <option value="semi-gloss">Semi-Gloss</option>
+              <option value="Gloss">Gloss</option>
+            </select><br>
+            <h2>Paint Brand/Name: </h2>
+            <input type="text" name="paint"><br>
+            <h2>Paint Type: </h2>
+            <input type="text" placeholder="Oil, Acrylic" name="paint_type"><br>
+            <h2>Wall Prep Required?</h2>
+            <input type="radio" name="prep_req" value="yes"> Yes:
+            <input type="text" placeholder="Sanding, Peeling" name="prep"><br>
+            <input type="radio" name="prep_req" value="no"> No<br>
+            <h2>Repainting?</h2>
+            <input type="radio" name="paint_req" value="yes"> Yes:
+            <input type="text" placeholder="Color" name="recolor"><br>
+            <input type="radio" name="paint_req" value="no"> No<br>
+            <br><input ui-sref-active="active"  ui-sref="custom-form" type="submit" value="Submit">
+          </form>
+        </div>
+    </div>
+  </body>
+</div>

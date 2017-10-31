@@ -1,0 +1,12 @@
+'use strict';
+ describe('Landing Page functionality', function() {
+      beforeEach(function() {
+        browser.get('http://localhost:3000');
+        browser.sleep(3000);
+      });
+  
+    it('should redirect to the sign-up page', function () {
+      element(by.id('signup')).click();
+      expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/authentication/signup');
+    });
+  });

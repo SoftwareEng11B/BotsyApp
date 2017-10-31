@@ -42,6 +42,10 @@ angular.module('users').config(['$stateProvider',
         url: '/signin?err',
         templateUrl: 'modules/users/client/views/authentication/signin.client.view.html'
       })
+      .state('contact-us', {
+        url: '/contact-us',
+        templateUrl: 'modules/users/client/views/contact-us.client.view.html'
+      })
       .state('password', {
         abstract: true,
         url: '/password',
@@ -71,6 +75,31 @@ angular.module('users').config(['$stateProvider',
       .state('admin-homepage', {
         url:'/admin',
         templateUrl: '/modules/core/client/views/home.admin.view.html'
+       })
+      .state('customer-homepage', {
+        url: '/customer-homepage',
+        templateUrl: 'modules/users/client/views/customer_homepage.html'
+      })
+      .state('wall-information', {
+        url: '/mural-request-wall-information',
+        templateUrl: 'modules/users/client/views/mural_request/wall-information.html'
+      })
+      .state('custom-form', {
+        url: '/mural-request-custom-form',
+        templateUrl: 'modules/users/client/views/mural_request/custom-form.html'
+      })
+      .state('preview-request', {
+        url: '/mural-request-preview',
+        templateUrl: 'modules/users/client/views/mural_request/preview-information.html'
+      })
+      .state('current-request', {
+        url: '/mural-request-current',
+        templateUrl: 'modules/users/client/views/mural_request/current-requests.html'
+      })
+      .state('artist-homepage',{
+        url:'/artist-homepage',
+        templateUrl:'modules/artists/client/views/artist-home-page.html'
       });
+
   }
 ]);

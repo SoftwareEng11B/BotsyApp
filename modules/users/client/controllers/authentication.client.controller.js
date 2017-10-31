@@ -27,7 +27,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
+          $state.go('home');
+
       }).error(function (response) {
         $scope.error = response.message;
       });
@@ -46,14 +47,19 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
 
+
         // And redirect to the previous or home page
-        if(response.roles == "admin"){
+        if($scope.authentication.user.roles[0] === "user"){
+          $state.go('customer-homepage');
+        }
+        else if($scope.authentication.user.roles[0] === "artist"){
+          $state.go('artist-homepage');
+        }else if($scope.authentication.user.roles[0] === "admin"){
           $state.go('admin-homepage');
         }else{
-          $state.go($state.previous.state.name || 'home', $state.previous.params);
+          $state.go('home');
         }
-
-        }).error(function (response) {
+      }).error(function (response) {
         $scope.error = response.message;
       });
     };
@@ -66,6 +72,33 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       // Effectively call OAuth authentication route:
       $window.location.href = url;
+    };
+
+    $scope.contactform = function(isValid){
+
+      $scope.error = null;
+
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'userForm');
+
+        return false;
+      }
+
+      var data = ({
+        contactName : $scope.userForm.firstName.$$rawModelValue,
+        contactEmail : $scope.userForm.email.$$rawModelValue,
+        contactMsg : $scope.userForm.message.$$rawModelValue
+      });
+
+      $http.post('/api/auth/contact-us', data).
+        success(function(data, status, headers, config) {
+          console.log(1);
+          $state.go('home', $state.previous.params);
+        }).
+        error(function(data, status, headers, config) {
+          console.log(0);
+        });
+
     };
   }
 ]);

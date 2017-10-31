@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Matchings</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="matching in vm.matchings"
+       ui-sref="matchings.view({ matchingId: matching._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="matching.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="matching.user" ng-bind="matching.user.displayName"></span>
+        <span ng-if="!matching.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="matching.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.matchings.$resolved && !vm.matchings.length">
+    No Matchings yet, why don't you <a ui-sref="matchings.create">create one</a>?
+  </div>
+</section>
