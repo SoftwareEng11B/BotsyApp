@@ -36,5 +36,12 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
         $scope.error = errorResponse.data.message;
       });
     };
+    $scope.match = function (user) {
+      if(user){
+        $state.go('admin.match', {
+          userId: user._id
+        });
+      }
+    }; 
   }
 ]);

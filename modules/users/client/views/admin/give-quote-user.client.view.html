@@ -1,0 +1,35 @@
+  <h3 class="col-md-12 text-center">Give a quote</h3>
+  <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
+    <form name="userForm" ng-submit="contactform(userForm.$valid)" class="contactus" novalidate autocomplete="off">
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="firstName">Total Balance</label>
+          <input type="text"  class="form-control" placeholder="example: $180" required>
+          <div ng-messages="userForm.firstName.$error" role="alert">
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="email">First Deposit</label>
+          <input type="text" class="form-control" placeholder="example: $49"  required>
+          <div ng-messages="userForm.email.$error" role="alert">
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label for="message">Deadline</label>
+          <input type="text" class="form-control" placeholder="example: By end of September" required>
+          <div ng-messages="userForm.message.$error" role="alert">
+                    </div>
+        </div>
+
+        <div class="text-center form-group">
+          <button type="submit" class="btn btn-primary">Submit quote</button>
+        </div>
+        <div ng-show="error" class="text-center text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>

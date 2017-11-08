@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!-- user dashboard -->
+<head>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawMatchChart);
+      google.charts.setOnLoadCallback(drawQuoteChart);
+      function drawMatchChart() {
+        //match table
+        var data = new google.visualization.arrayToDataTable([
+          ['client', 'match status'],
+          ['Matched', 3],
+          ['unmatched', 1],
+        ]);
+        var options = {
+                       pieHole: 0.4,
+                       legend: 'none',
+                       width:300,
+                       height:300,
+                       colors: ['#3ac397' , '#e05e60' ],
+                       backgroundColor:'transparent',
+                      };
+
+        var chart = new google.visualization.PieChart(document.getElementById('Match_chart_div'));
+        chart.draw(data, options);
+      }
+
+
+      function drawQuoteChart() {
+
+        var data = new google.visualization.arrayToDataTable([
+          ['Client', 'Quote Status'],
+          ['Quoted', 2],
+          ['Unquoted', 2],
+        ]);
+
+        var options = {
+                       pieHole: 0.4,
+                       legend: 'none',
+                       width:300,
+                       height:300,
+                       colors: ['#3ac397' , '#e05e60' ],
+                       backgroundColor:'transparent',
+                     }
+
+        var chart = new google.visualization.PieChart(document.getElementById('Quote_chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+<style>
+table {
+    font-family: lato;
+    color: #52595d;
+    border-collapse: collapse;
+    width: 100%;
+}
+th{font-size: 20px;}
+
+td, th {
+    border: 1px;
+    border-color: color|transparent|;
+    text-align: left;
+    padding: 8px
+}
+tr:nth-child(even) {
+    background-color: #f2f3f3;
+}
+td.redish{color: #e05e60;}
+td.mint{color: #3ac397;}
+
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+h4{
+  color:#3ac397;
+}
+.btn-primary {
+    border-radius: 22.5px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn-round-lg{
+border-radius: 22.5px;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+    padding: 2px 16px;
+}
+.spaced{
+  display:flex;
+  justify-content: space-between;
+
+}
+</style>
+</head>
+
+<body>
+<div class = span>
+  <table>
+    <tr>
+      <td>
+        <h1>Customers needing to be quoted: 2</h1>
+        <br>
+        <center><a class="btn btn-primary btn-round btn" ui-sref="admin.user-quote">
+        Quote Now
+        </a></center>
+      </td>
+      <td><center><div id="Quote_chart_div"></div><center></td>
+    </tr>
+    <tr>
+      <td><center><div id="Match_chart_div"></div><center></td>
+      <td>
+        <h1>Customers needing to be matched: 1</h1>
+        <br>
+        <center><a class="btn btn-primary btn-round btn" ui-sref="admin.user-match">
+        Match Now
+        </a></center>
+      </td>
+    <tr>
+      <td>
+        <h1>
+
+  </table>
+</div>
+
+
+</body>

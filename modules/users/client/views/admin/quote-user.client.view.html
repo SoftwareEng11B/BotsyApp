@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+table {
+    font-family: lato;
+    color: #52595d;
+    border-collapse: collapse;
+    width: 100%;
+}
+th{font-size: 20px;}
+
+td, th {
+    border: 1px solid #52595d;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f3f3;
+}
+td.redish{color: #e05e60;}
+td.mint{color: #3ac397;}
+
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+
+.btn-primary {
+    border-radius: 15px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+
+
+</style>
+</head>
+<body>
+<!-- <div class="change-color"
+            ng-repeat="button"
+            ng-mouseover="hoverActive=true"
+            ng-mouseleave="hoverActive=false"
+            ng-style="hoverActive ? {'background-color': e05e60} : {}"
+> -->
+
+<h1>Customers</h1>
+<div class="span" style="margin-top: 2em">
+  <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
+</div>
+
+<div class=span style = "margin-top: 2em">
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>User Role</th>
+    <th>Quote Status</th>
+  </tr>
+
+  <tr ng-repeat="user in pagedItems">
+    <td ui-sref="admin.user({userId: user._id})" ng-bind="user.firstName + ' ' + user.lastName"></td>
+    <td ui-sref="admin.user({userId: user._id})" ng-bind="user.email"></td>
+    <td ui-sref="admin.user({userId: user._id})" ng-bind="user.roles"></td>
+    <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
+    <td align = "center">
+    <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-give-quote({userId: user._id})">
+    Quote
+    </a>
+     </center> </td>
+  </tr>
+</table>
+<br>
+</body>
+
+ <!-- <pagination boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength" ng-model="currentPage" ng-change="pageChanged()"></pagination> -->

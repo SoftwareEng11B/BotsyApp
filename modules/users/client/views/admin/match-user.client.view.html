@@ -1,0 +1,180 @@
+<!DOCTYPE html>  
+<head>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+table {
+    font-family: lato;
+    color: #52595d;
+    border-collapse: collapse;
+    width: 100%;
+}
+th{font-size: 20px;}
+
+td, th {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px
+}
+tr:nth-child(even) {
+    background-color: #f2f3f3;
+}
+td.redish{color: #e05e60;}
+td.mint{color: #3ac397;}
+
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+h4{
+  color:#3ac397;
+}
+.btn-primary {
+    border-radius: 15px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+    padding: 2px 16px;
+}
+.spaced{
+  display:flex;
+  justify-content: space-between;
+
+}
+
+
+
+</style>
+</head>
+<h1><center>Make a match</center></h1>
+<div>
+<table>
+  <td>
+    <div class="card">
+      <div class="container">
+        <center><h3 ng-bind="user.firstName + ' ' + user.lastName"></h3></center>
+        <h4>Services Wanted </h4> 
+          <h5> ng-bind="user.wall.serviceRequested"</h5> 
+        <h4>Project Specifications</h4>
+          <h5> ng-bind="user.wall.location" 
+            <br>
+            ng-bind="user.wall.size"
+            <br>
+            ng-bind="user.wall.materials"
+            <br>
+            ng-bind="user.wall.completeByDate"
+          </h5>  
+        <center><h4>Image_of_wall.png</h4></center>
+
+      </div>
+    </div>
+  </td>
+  <td>
+    <h1><center>+</center></h1>
+  </td>
+  <td>
+    <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Skills</th> 
+          <th>Location</th> 
+          <th>Match?</th>
+        </tr>
+
+          <!-- <tr ng-repeat="user in pagedItems">
+            <td> ng-bind="artist.firstName + ' ' + artist.lastName"></td>
+            <td> ng-bind="artist.skills"></td>
+            <td> ng-bind="artist.location"></td>
+          -->
+        <tr>
+          <td>Jake, from StateFarm</td>
+          <td>Painter</td>
+          <td>Gainesville</td>
+          <td align = "center"> 
+            <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> Preview</a></center> 
+          </td>
+        </tr>
+        <tr>
+          <td>Henry Designz</td>
+          <td>Graphic Designer + Botsy Artist</td>
+          <td>Gainesville</td>
+          <td align = "center"> 
+            <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> 
+            Preview
+            </a></center> 
+          </td>
+          </tr>
+          <tr>
+            <td>Henry Designz</td>
+            <td>Graphic Designer + Botsy Artist</td>
+            <td>Gainesville</td>
+            <td align = "center"> 
+            <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> 
+            Preview
+            </a></center> </td>
+          </tr>
+        </tr>
+      </table>
+    </td>
+  </table>
+</div>
+
+  <h1><center>Preview</center></h1>
+    <table>
+      <td>
+        <div class="card">
+          <div class="container">
+            <center><h3 ng-bind="user.firstName + ' ' + user.lastName"></h3></center>
+            <h4>Services Wanted </h4> 
+              <h5> ng-bind="user.wall.serviceRequested"</h5> 
+            <h4>Project Specifications</h4>
+              <h5> ng-bind="user.wall.location" 
+                <br>
+                ng-bind="user.wall.size"
+                <br>
+                ng-bind="user.wall.materials"
+                <br>
+                ng-bind="user.wall.completeByDate"
+              </h5>  
+            <center><h4>Image_of_wall.png</h4></center>
+
+          </div>
+        </div>
+      </td>
+      <td>
+      <h1><center>+</center></h1>
+      </td>
+  <td>
+  <div class="card">
+    <div class="container">
+       <center><h3> ng-bind="artist.firstName + ' ' + artist.lastName"></h3></center>
+        <h4>Services Provided</h4>  
+          <h5> ng-bind="artist.services"</h5>
+        <h4>Location</h4>  
+          <h5> ng-bind="artist.location"</h5>
+        <h4>Schedule</h4>  
+          <h5> ng-bind="artist.schedule"</h5>
+      </div>
+    </div>
+  <td><h1><center>=</center></h1></td>
+  <td> 
+    <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> Match!</a></center> </td>
+  </td>

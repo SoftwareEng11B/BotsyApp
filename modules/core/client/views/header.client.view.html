@@ -6,6 +6,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
+    <!--Conditional for admin/artist and reroute to said header-->
     <a ui-sref="home" class="navbar-brand" style="
           height: 100%;
           margin: 0;
@@ -13,8 +14,30 @@
     font-size: 28px;
     font-weight: 700;
     color: #e05e60;"
-    >
+    ng-hide="authentication.user">
         BOTSY</a>
+
+        <ul class="nav navbar-nav navbar-left" ng-show="authentication.user.roles[0]=='admin'">
+          <a ui-sref="admin-homepage" class="navbar-brand" style="
+                height: 100%;
+                margin: 0;
+                font-family: Lato,sans-serif;
+          font-size: 28px;
+          font-weight: 700;
+          color: #e05e60;">
+              BOTSY</a>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-left" ng-show="authentication.user.roles[0]=='artist'">
+          <a ui-sref="artist-homepage" class="navbar-brand" style="
+                height: 100%;
+                margin: 0;
+                font-family: Lato,sans-serif;
+          font-size: 28px;
+          font-weight: 700;
+          color: #e05e60;">
+              BOTSY</a>
+        </ul>
   </div>
   <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
     <ul class="nav navbar-nav" ng-if="menu.shouldRender(authentication.user);">
@@ -30,11 +53,11 @@
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signup" style="color: #51595D;">Sign Up</a>
+        <a ui-sref="authentication.signup" id= "signup" style="color: #51595D;">Sign Up</a>
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signin" style="color: #51595D;">Sign In</a>
+        <a ui-sref="authentication.signin" id = "signin" style="color: #51595D;">Sign In</a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref="contact-us" style="color: #51595D;">Contact Us</a>
@@ -62,10 +85,26 @@
           </li>
           <li class="divider"></li>
           <li>
-            <a href="/api/auth/signout" target="_self">Signout</a>
+            <a href="/api/auth/signout" target="_self">Sign Out</a>
           </li>
         </ul>
-      </li>
-    </ul>
+      </ul>
+      <ul class="nav navbar-nav navbar-left" ng-show="authentication.user.roles[0]=='user'">
+        <a ui-sref="customer-homepage" class="navbar-brand" style="
+              height: 100%;
+              margin: 0;
+              font-family: Lato,sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #e05e60;">
+            BOTSY</a>
+        <li ui-sref-active="active">
+          <a ui-sref="wall-information"style="color: #51595D;">Start Mural Request</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="current-request"style="color: #51595D;">Current Mural Request</a>
+        </li>
+      </ul>
+
   </nav>
 </div>

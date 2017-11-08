@@ -60,6 +60,10 @@
         data: {
           pageTitle: 'Artist {{ artistResolve.name }}'
         }
+      })
+      .state('artists.current-jobs', {
+        url: '/:artistId/current-jobs',
+        templateUrl: 'modules/artists/client/views/current-jobs.html'
       });
   }
 
