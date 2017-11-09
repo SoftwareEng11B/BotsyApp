@@ -82,7 +82,7 @@ exports.delete = function(req, res) {
  */
 exports.list = function(req, res) {
   Wall.find().sort('-created').populate('user', 'displayName').exec(function(err, walls) {
-    if (err) {
+    if (err) { 
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
@@ -103,7 +103,7 @@ exports.wallByID = function(req, res, next, id) {
     });
   }
 
-  Wall.findById(id).populate('user', 'displayName').exec(function (err, wall) {
+  Wall.findById(id).populate('user').exec(function (err, wall) {
     if (err) {
       return next(err);
     } else if (!wall) {
