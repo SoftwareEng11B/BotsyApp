@@ -42,14 +42,11 @@
             </div>
           </div>
         </div>
-        
+
         <div class="form-group" show-errors>
-          <label for="account_type">Type of Account: </label>
-            <input type ="radio" name="user_type" style="margin-right: 0"> Customer </input>
-            <input type ="radio" name="user_type" style="margin-right: 0"> Artist</input>
-          <div ng-messages="userForm.password.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">User Type is required.</p>
-          </div>
+          <label for="roles">Type of Account: </label>
+            <input type ="radio" name="roles" ng-model="credentials.roles" id="roles" style="margin-right: 0" value="user">Customer</input>
+            <input type ="radio" name="roles" ng-model="credentials.roles" id="roles" style="margin-right: 0" value ="artist">Artist</input>
         </div>
 
 
