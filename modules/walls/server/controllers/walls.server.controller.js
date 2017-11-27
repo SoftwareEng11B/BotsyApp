@@ -77,7 +77,7 @@ exports.delete = function(req, res) {
  * List of Walls
  */
 exports.list = function(req, res) {
-  Wall.find({ 'user':req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, walls) {
+  Wall.find({ 'user':req.user.id }).sort('-created').populate('user','displayName').exec(function(err, walls) {
     if (err) { 
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)

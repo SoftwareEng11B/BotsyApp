@@ -1,11 +1,13 @@
 'use strict';
 
-angular.module('users.admin').controller('UserListController', ['$scope', '$filter', 'Admin',
-  function ($scope, $filter, Admin) {
+angular.module('users.admin').controller('UserListController', ['$scope', '$filter','Admin','WallsService',
+  function ($scope, $filter, Admin,WallsService) {
     Admin.query(function (data) {
       $scope.users = data;
       $scope.buildPager();
     });
+
+     $scope.wall = WallsService.query();
 
     $scope.buildPager = function () {
       $scope.pagedItems = [];
@@ -23,6 +25,7 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
       var end = begin + $scope.itemsPerPage;
       $scope.pagedItems = $scope.filteredItems.slice(begin, end);
     };
+    //add to list users
 
     $scope.pageChanged = function () {
       $scope.figureOutItemsToDisplay();

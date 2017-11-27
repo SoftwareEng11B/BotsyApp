@@ -26,6 +26,24 @@
     </div>
   </div>
 
+  <div class="list-group">
+   <div class="col-sm-6" data ng-repeat="user in vm.users">
+   <div
+       class="list-group-item">
+
+    <i class="glyphicon glyphicon-home"></i>
+      
+      <h4 class="list-group-item-heading" ng-bind="user.firstName"></h4>
+      <small class="list-group-item-text text-muted">
+
+        Posted on
+        <span ng-bind="user.created | date:'mediumDate'"></span>
+      </small>
+    </div>
+    <br>
+    </div>
+  </div>
+
 
 
   <div class="alert alert-warning text-center" ng-if="vm.walls.$resolved && !vm.walls.length">

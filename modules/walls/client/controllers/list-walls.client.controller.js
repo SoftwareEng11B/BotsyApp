@@ -5,11 +5,13 @@
     .module('walls')
     .controller('WallsListController', WallsListController);
 
-  WallsListController.$inject = ['WallsService'];
+  WallsListController.$inject = ['WallsService', 'Users'];
 
-  function WallsListController(WallsService) {
+  function WallsListController(WallsService, Users) {
+
     var vm = this;
 
     vm.walls = WallsService.query();
+    vm.users = Users.query();
   }
 }());
