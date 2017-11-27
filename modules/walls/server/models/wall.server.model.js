@@ -28,72 +28,72 @@ var WallSchema = new Schema({
 
 
   wall_info: {
-
     length: {
-      type: String,
+      type: String, 
       required: true,
       default:'1'
     },
 
     height: {
-      type: String,
+      type: String, 
       required: true,
       default:'1'
     },
 
     loc_type: {
-      type: String,
+      type: String, 
       required: true,
       default: 'home',
     },
 
     material: {
-      type: String,
+      type: String, 
       required: true,
       default:'none'
     },
 
     finish: {
-      type: String,
+      type: String, 
       required: true,
       default:'none'
     },
 
     paint: {
-      type: String,
+      type: String, 
       required: true,
       default:'none'
     },
 
     paint_type: {
-      type: String,
+      type: String, 
       required: true,
       default:'none'
     },
 
     prep_req: {
-      type: String,
+      type: String, 
       required: false,
       default:'none'
     },
 
     prep: {
-      type: String,
+      type: String, 
       required: true,
       default:'none'
     },
 
     paint_req: {
-      type: String,
+      type: String, 
       required: true,
       default:'none'
     },
+    
     recolor: {
-      type: String,
+      type: String, 
       required: true,
       default:'none'
     },
-
+      
   },
 
 
@@ -127,17 +127,16 @@ var WallSchema = new Schema({
   },
 
   status: {
-
     paid: {
       type: Boolean,
       default: false,
     },
-
+      
     matched: {
       type: Boolean,
       default: false,
-    },
-
+    },  
+      
     completed: {
       type: Boolean,
       default: false,
@@ -149,10 +148,10 @@ var WallSchema = new Schema({
     },
 
     comment: {
-      type: String,
+      type: String, 
       default:''
     },
-
+    
   },
 
 
