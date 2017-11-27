@@ -116,10 +116,4 @@ Breaks entire wall section of menu, controller won't route properly
   function newWall(WallsService) {
     return new WallsService();
   }
-
-  function getUserIds($stateParams, WallsService){
-    return WallService.get({
-      userId: $stateParams.wallId
-    })
-  }
 }());

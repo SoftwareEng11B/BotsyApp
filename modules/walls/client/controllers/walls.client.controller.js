@@ -6,9 +6,9 @@
     .module('walls')
     .controller('WallsController', WallsController, ['$scope', '$filter']);
 
-  WallsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'wallResolve'];
+  WallsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'wallResolve', 'Users'];
 
-  function WallsController ($scope, $state, $window, Authentication, wall) {
+  function WallsController ($scope, $state, $window, Authentication, wall, Users) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -17,6 +17,7 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.userList = Users.query();
 
     // Remove existing Wall
     function remove() {
@@ -48,22 +49,12 @@
       function errorCallback(res) {
         vm.error = res.data.message;
       }
+      function matchUpdate(){
+        var user = new Users(vm.user);
+        vm.wall.Artist = user;
+        vm.wall.$save();
+      }
     }
   }
-  /*
-  function($scope, $filter){
-    query(function(data){
-      $scope.walls = data;
-    })
-    $scope.figureOutItemsToDisplay = function () {
-      $scope.filteredItems = $filter('filter')($scope.walls, {
-        $: $scope.search
-      });
-      $scope.filterLength = $scope.filteredItems.length;
-      var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
-      var end = begin + $scope.itemsPerPage;
-      $scope.pagedItems = $scope.filteredItems.slice(begin, end);
-    };
-  }
-  Working on search functionality */
+  
 }());
