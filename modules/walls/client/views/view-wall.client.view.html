@@ -14,7 +14,9 @@
   </div>
   <small>
     <em class="text-muted">
+      {{vm.wall.created}}
       Posted on
+      {{vm.wall.user.provider}}
       <span ng-bind="vm.wall.created | date:'mediumDate'"></span>
       by
       <span ng-if="vm.wall.user"

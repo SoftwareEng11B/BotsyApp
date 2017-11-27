@@ -15,7 +15,6 @@ var path = require('path'),
 exports.create = function(req, res) {
   var wall = new Wall(req.body);
   wall.user = req.user;
-
   wall.save(function(err) {
     if (err) {
       return res.status(400).send({
@@ -46,9 +45,7 @@ exports.read = function(req, res) {
  */
 exports.update = function(req, res) {
   var wall = req.wall;
-
   wall = _.extend(wall, req.body);
-
   wall.save(function(err) {
     if (err) {
       return res.status(400).send({
@@ -65,7 +62,6 @@ exports.update = function(req, res) {
  */
 exports.delete = function(req, res) {
   var wall = req.wall;
-
   wall.remove(function(err) {
     if (err) {
       return res.status(400).send({
@@ -81,8 +77,8 @@ exports.delete = function(req, res) {
  * List of Walls
  */
 exports.list = function(req, res) {
-  Wall.find().sort('-created').populate('user', 'displayName').exec(function(err, walls) {
-    if (err) {
+  Wall.find({ 'user':req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, walls) {
+    if (err) { 
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
@@ -103,7 +99,7 @@ exports.wallByID = function(req, res, next, id) {
     });
   }
 
-  Wall.findById(id).populate('user', 'displayName').exec(function (err, wall) {
+  Wall.findById(id).populate('user').exec(function (err, wall) {
     if (err) {
       return next(err);
     } else if (!wall) {

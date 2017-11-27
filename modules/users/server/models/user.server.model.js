@@ -97,7 +97,8 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
-  }
+  },
+  wallList: [{ type: Schema.Types.ObjectId, ref: 'Wall' }]
 });
 
 /**
