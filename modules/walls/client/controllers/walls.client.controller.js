@@ -4,7 +4,7 @@
   // Walls controller
   angular
     .module('walls')
-    .controller('WallsController', WallsController);
+    .controller('WallsController', WallsController, ['$scope', '$filter']);
 
   WallsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'wallResolve'];
 
@@ -50,4 +50,20 @@
       }
     }
   }
+  /*
+  function($scope, $filter){
+    query(function(data){
+      $scope.walls = data;
+    })
+    $scope.figureOutItemsToDisplay = function () {
+      $scope.filteredItems = $filter('filter')($scope.walls, {
+        $: $scope.search
+      });
+      $scope.filterLength = $scope.filteredItems.length;
+      var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
+      var end = begin + $scope.itemsPerPage;
+      $scope.pagedItems = $scope.filteredItems.slice(begin, end);
+    };
+  }
+  Working on search functionality */
 }());

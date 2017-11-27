@@ -61,6 +61,20 @@
           pageTitle: 'Wall {{ wallResolve.name }}'
         }
       });
+/*
+      .state('walls.match',{
+        url:'/walls/:wallId/match',
+        templateUrl: '/modules/walls/client/views/quote-wall.client.view.html',
+        controller: 'WallsController',
+        controllerAs: 'vm',
+        resolve:{
+          wallResolve: ['$stateParams', function($stateParams){
+            return get({wallId: $stateParams.wallId});
+          }]
+        }
+      });
+Breaks entire wall section of menu, controller won't route properly
+*/
   }
 
   getWall.$inject = ['$stateParams', 'WallsService'];

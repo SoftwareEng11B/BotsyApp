@@ -112,35 +112,41 @@ border-radius: 22.5px;
   justify-content: space-between;
 
 }
+.vertical-align{
+	display: inline-block;
+	vertical-align: middle;
+}
+
 </style>
 </head>
 
 <body>
 <div class = span>
-  <table>
-    <tr>
-      <td>
-        <h1>Customers needing to be quoted: 2</h1>
+  <div class= "row">
+    <div class= "col-md-6 vertical-align">
+        <center><h1>Customers needing to be quoted: 2</h1></center>
         <br>
         <center><a class="btn btn-primary btn-round btn" ui-sref="admin.user-quote">
         Quote Now
         </a></center>
-      </td>
-      <td><center><div id="Quote_chart_div"></div><center></td>
-    </tr>
-    <tr>
-      <td><center><div id="Match_chart_div"></div><center></td>
-      <td>
-        <h1>Customers needing to be matched: 1</h1>
-        <br>
-        <center><a class="btn btn-primary btn-round btn" ui-sref="admin.user-match">
-        Match Now
-        </a></center>
-      </td>
-    <tr>
-      <td>
-        <h1>
-
+    </div>
+    <div class= col-md-6>
+      <center><div id="Quote_chart_div"></div></center>
+    </div>
+   </div>
+   <div class = "row">
+   <div class = col-md-6>
+      <td><center><div id="Match_chart_div"></div></center></td>
+   </div>
+   <div class = col-md-6>
+      <center><h1>Customers needing to be matched: 1</h1></center>
+       <br>
+       <center><a class="btn btn-primary btn-round btn" ui-sref="admin.user-match">
+       Match Now
+       </a></center>
+       </h1>
+    </div>
+   </div>
   </table>
 </div>
 
