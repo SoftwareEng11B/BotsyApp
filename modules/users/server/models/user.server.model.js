@@ -84,6 +84,21 @@ var UserSchema = new Schema({
     default: ['user'],
     required: 'Please provide at least one role'
   },
+  artistType:{
+    type: [{
+      type: String,
+      enum: ['graphic designer','botsy owner','painter','graphic designer,botsy owner','botsy owner, painter','graphic designer, painter','graphic designer, botsy owner, painter']
+    }]
+  },
+  artistAvailability:{
+    type: [{
+      type: String,
+      enum: ['Very Flexible','Flexible','Moderate','Strict','Very Strict']
+    }]
+  },
+  artistLocation:{
+    type: String,
+  },
   updated: {
     type: Date
   },
