@@ -29,5 +29,16 @@ angular.module('users').controller('MuralRequestController', ['$scope', '$state'
         });
 
     };
+
   }
 ]);
+
+angular.module('users').controller('DnDController', ['$scope', '$state', '$http', '$window',
+function ($scope, $state, $http, $window) {
+
+  // $window.onload = function(){
+  $scope.message('pls work');      
+        
+  // };
+    
+}]);
