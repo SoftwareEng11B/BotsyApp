@@ -3,8 +3,6 @@
     <h1>Walls</h1>
   </div>
 
-
-
   <div class="list-group">
    <div class="col-sm-6" data ng-repeat="wall in vm.walls">
    <a ui-sref="walls.view({ wallId: wall._id })"
@@ -27,8 +25,7 @@
   </div>
 
 
-
   <div class="alert alert-warning text-center" ng-if="vm.walls.$resolved && !vm.walls.length">
-    No Walls yet, why don't you <a ui-sref="walls.create">create one</a>?
+    No Walls yet, Botsy Team is working hard to find jobs in a location for you!
   </div>
 </section>

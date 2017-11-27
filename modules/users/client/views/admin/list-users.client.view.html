@@ -46,8 +46,8 @@ h1{
 </style>
 </head>
 <body>
-<!-- <div class="change-color" 
-            ng-repeat="button" 
+<!-- <div class="change-color"
+            ng-repeat="button"
             ng-mouseover="hoverActive=true"
             ng-mouseleave="hoverActive=false"
             ng-style="hoverActive ? {'background-color': e05e60} : {}"
@@ -62,7 +62,7 @@ h1{
 <table>
   <tr>
     <th>Name</th>
-    <th>Email</th> 
+    <th>Email</th>
     <th>User Role</th>
     <th>Match Status</th>
   </tr>
@@ -72,14 +72,14 @@ h1{
     <td ui-sref="admin.user({userId: user._id})" ng-bind="user.email"></td>
     <td ui-sref="admin.user({userId: user._id})" ng-bind="user.roles"></td>
     <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
-    <td align = "center"> 
-    <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> 
+    <td align = "center">
+    <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})">
     Match
     </a>
      </center> </td>
   </tr>
 </table>
 <br>
-</body>  
+</body>
 
  <!-- <pagination boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength" ng-model="currentPage" ng-change="pageChanged()"></pagination> -->

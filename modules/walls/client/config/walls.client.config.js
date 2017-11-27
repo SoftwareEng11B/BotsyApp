@@ -13,7 +13,7 @@
       title: 'Walls',
       state: 'walls',
       type: 'dropdown',
-      roles: ['admin','user']
+      roles: ['admin']
     });
 
     // Add the dropdown list item
