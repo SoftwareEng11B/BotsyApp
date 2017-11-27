@@ -49,10 +49,10 @@ h1{
   <div class = "page-header">
     <h1>Projects Waiting to Be Quoted</h1>
   </div>
-  <div class="span" style="margin-top: 2em">
+  <!-- <div class="span" style="margin-top: 2em">
     <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
-  </div>
-  <br>
+  </div> 
+  <br> -->
   <table>
     <tr>
     <br>
@@ -63,7 +63,7 @@ h1{
     </tr>
 
     <tr ng-repeat="wall in vm.walls">
-      <td ng-bind="vm.wall.user.firstName + ' ' + vm.wall.user.lastName"></td>
+      <td ng-bind="wall.user.displayName"></td>
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
       <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
@@ -111,7 +111,7 @@ h1{
     </tr>
 
     <tr ng-repeat="wall in vm.walls">
-      <td ng-bind="vm.wall.user.firstName + ' ' + vm.wall.user.lastName"></td>
+      <td ng-bind="wall.user.displayName"></td>
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
       <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
@@ -136,7 +136,7 @@ h1{
     </tr>
 
     <tr ng-repeat="wall in vm.walls">
-      <td ng-bind="vm.wall.User.firstName + ' ' + vm.wall.User.lastName"></td>
+      <td ng-bind="wall.user.displayName"></td>
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
       <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
