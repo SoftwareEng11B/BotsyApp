@@ -5,12 +5,13 @@
     .module('walls')
     .controller('WallsListController', WallsListController/*, ['$scope', '$state', 'wallsResolve']*/);
 
-  WallsListController.$inject = ['WallsService'];
+  WallsListController.$inject = ['WallsService', 'Users'];
 
-  function WallsListController(WallsService) {
+  function WallsListController(WallsService, Users) {
     var vm = this;
 
     vm.walls = WallsService.query();
+    vm.users = Users.query();
   }
   /*function($scope, $state, wallsResolve){
   	$scope.walls = wallsResolve;

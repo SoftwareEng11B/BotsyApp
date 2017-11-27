@@ -60,7 +60,33 @@
         data: {
           pageTitle: 'Wall {{ wallResolve.name }}'
         }
-      });
+      })
+      .state('walls.quote', {
+        url: '/:wallId/quote',
+        templateUrl: 'modules/walls/client/views/quote-wall.client.view.html',
+        controller: 'WallsController',
+        controllerAs: 'vm',
+        resolve: {
+          wallResolve: getWall
+        },
+        data: {
+          pageTitle: 'Wall quote'
+        }
+      })
+
+      .state('walls.match', {
+        url:'/:wallId/match',
+        templateUrl: 'modules/walls/client/views/match-wall.client.view.html',
+        controller: 'WallsController',
+        controllerAs: 'vm',
+        resolve: {
+          wallResolve: getWall
+        },
+        data: {
+          pageTitle: 'Quote Project'
+        }
+      })
+      ;
 /*
       .state('walls.match',{
         url:'/walls/:wallId/match',
@@ -89,5 +115,11 @@ Breaks entire wall section of menu, controller won't route properly
 
   function newWall(WallsService) {
     return new WallsService();
+  }
+
+  function getUserIds($stateParams, WallsService){
+    return WallService.get({
+      userId: $stateParams.wallId
+    })
   }
 }());

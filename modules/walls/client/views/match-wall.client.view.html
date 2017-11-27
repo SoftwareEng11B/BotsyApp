@@ -70,11 +70,14 @@ h4{
   <div class = "col-md-4">
 		<div class="card col-md-12">
       <div class="container col-md-12">
-        <center><h3 ng-bind="user.firstName + ' ' + user.lastName"></h3></center>
+        <center><h3 ng-bind="'Project: ' + vm.wall.name"></h3></center>
+        <center><h5 ng-bind="'Customer: ' + vm.wall.user.firstName + ' ' + vm.wall.user.lastName"></h5></center>
         	<h4>Services Wanted </h4> 
             <h5> ng-bind="user.wall.serviceRequested"</h5> 
         	<h4>Project Specifications</h4>
-          	<h5> ng-bind="user.wall.location" 
+          	<h5 ng-bind="'Height: ' + vm.wall.wall_info.height">
+            <h5 ng-bind="'Width: ' + vm.wall.wall_info.length">
+            <h5 ng-bind="'Price: ' + vm.wall.wall_info.height"> 
           <br>
           ng-bind="user.wall.size"
           <br>
@@ -91,22 +94,29 @@ h4{
   </div>
     <div class = col-md-7>
     	<input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
-      
       <table>
         <tr>
+        <br>
           <th>Name</th>
-          <th>Match?</th>
+          <th>Skills</th> 
+          <th>Location</th>
+          <th>Flexibility</th>
         </tr>
 
-        <tr ng-repeat="user in pagedItems">
-          <td ng-bind="user.firstName + ' hello ' + user.lastName"></td>
+        <tr ng-repeat="users in vm.users">
+          <td ng-bind="vm.users.firstName + ' ' + vm.users.lastName"></td>
+          <td ng-bind="vm.users.email"></td>
+          <td ng-bind="vm.users.roles"></td>
+          <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
           <td align = "center"> 
-            <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> Preview</a> 
-          </td>
+          <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user({userId: user._id})"> 
+          Edit User
+          </a>
+           </center> </td>
         </tr>
-      </table>
-
-    </div>
+    </table>
+    <br>
+  </div>
 </div>
     
     </td>
@@ -120,16 +130,19 @@ h4{
   <div class = "col-md-4">
     <div class="card col-md-12">
       <div class="container col-md-12">
-        <center><h3 ng-bind="user.firstName + ' ' + user.lastName"></h3></center>
+        <center><h3 ng-bind="'Project: ' + vm.wall.name"></h3></center>
+        <center><h5 ng-bind="'Customer: ' + vm.wall.user.firstName + ' ' + vm.wall.user.lastName"></h5></center>
           <h4>Services Wanted </h4> 
             <h5> ng-bind="user.wall.serviceRequested"</h5> 
           <h4>Project Specifications</h4>
-            <h5> ng-bind="user.wall.location" 
+            <h5 ng-bind="'Height: ' + vm.wall.wall_info.height">
+            <h5 ng-bind="'Width: ' + vm.wall.wall_info.length">
+            <h5 ng-bind="'Price: ' + vm.wall.wall_info.height"> 
           <br>
-            ng-bind="user.wall.size"
+          ng-bind="user.wall.size"
           <br>
             ng-bind="user.wall.materials"
-          <br>
+          <br>  
             ng-bind="user.wall.completeByDate"
           </h5>  
           <center><h4>Image_of_wall.png</h4></center>
