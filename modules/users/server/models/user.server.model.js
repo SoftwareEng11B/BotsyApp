@@ -79,10 +79,25 @@ var UserSchema = new Schema({
   roles: {
     type: [{
       type: String,
-      enum: ['user', 'admin']
+      enum: ['user', 'admin','artist']
     }],
     default: ['user'],
     required: 'Please provide at least one role'
+  },
+  artistType:{
+    type: [{
+      type: String,
+      enum: ['graphic designer','botsy owner','painter','graphic designer,botsy owner','botsy owner, painter','graphic designer, painter','graphic designer, botsy owner, painter']
+    }]
+  },
+  artistAvailability:{
+    type: [{
+      type: String,
+      enum: ['Very Flexible','Flexible','Moderate','Strict','Very Strict']
+    }]
+  },
+  artistLocation:{
+    type: String,
   },
   updated: {
     type: Date
@@ -97,7 +112,8 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
-  }
+  },
+  wallList: [{ type: Schema.Types.ObjectId, ref: 'Wall' }]
 });
 
 /**
@@ -133,6 +149,7 @@ UserSchema.pre('validate', function (next) {
 UserSchema.methods.hashPassword = function (password) {
   if (this.salt && password) {
     return crypto.pbkdf2Sync(password, new Buffer(this.salt, 'base64'), 10000, 64).toString('base64');
+    //return crypto.pbkdf2Sync(password, new Buffer(this.salt, 'base64'), 10000, 64, 'sha512').toString('base64');
   } else {
     return password;
   }
@@ -177,7 +194,7 @@ UserSchema.statics.generateRandomPassphrase = function () {
     var password = '';
     var repeatingCharacters = new RegExp('(.)\\1{2,}', 'g');
 
-    // iterate until the we have a valid passphrase. 
+    // iterate until the we have a valid passphrase.
     // NOTE: Should rarely iterate more than once, but we need this to ensure no repeating characters are present.
     while (password.length < 20 || repeatingCharacters.test(password)) {
       // build the random password

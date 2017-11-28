@@ -1,0 +1,96 @@
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+table {
+    font-family: lato;
+    color: #52595d;
+    border-collapse: collapse;
+    width: 100%;
+}
+form{
+  font-family: lato;
+  color: #52595d;
+}
+th{font-size: 20px;}
+
+td, th {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px
+}
+tr:nth-child(even) {
+    background-color: #f2f3f3;
+}
+td.redish{color: #e05e60;}
+td.mint{color: #3ac397;}
+
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+h4{
+  color:#3ac397;
+}
+.btn-primary {
+    border-radius: 15px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+
+</style> 
+
+  <div class="col-md-12 text-center">
+    <center><h1 ng-bind= "'Quote for ' + user.firstName + ' ' + user.lastName"></h1></center>
+
+
+  <div class= "row">
+  <br>
+  <br>
+  <h1>Image of wall with dimensions here</h1>
+  <br>
+  <br>
+  <h3>Deatils of wall here: 
+  <br>
+        paint type
+  <br>
+        wall type
+  <br>
+        size
+  </h3>
+  <br>
+  <br>
+  <h1>Image of wall with mural design here</h1>
+  <br>
+  <br>
+
+  </div>
+
+  </div>
+  <div class="row">
+    <div class= "container col-md-6 col-md-offset-3">
+    <form name="userForm" ng-submit="contactform(userForm.$valid)" class="contactus" novalidate autocomplete="off">
+      <fieldset>
+        <div class="form-group" show-errors>
+          <center><label for="firstName">Total Mural Cost</label></center>
+          <input type="text"  class="form-control" placeholder="example: $180" required>
+          <div ng-messages="userForm.firstName.$error" role="alert">
+          </div>
+        </div>
+        <div class="text-center form-group">
+          <button type="submit" class="btn btn-primary">Submit quote</button>
+        </div>
+        <div ng-show="error" class="text-center text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>

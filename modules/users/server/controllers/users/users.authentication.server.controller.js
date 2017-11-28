@@ -20,7 +20,7 @@ var noReturnUrls = [
  */
 exports.signup = function (req, res) {
   // For security measurement we remove the roles from the req.body object
-  delete req.body.roles;
+  /*delete req.body.roles;*/
 
   // Init Variables
   var user = new User(req.body);
@@ -29,6 +29,7 @@ exports.signup = function (req, res) {
   // Add missing user fields
   user.provider = 'local';
   user.displayName = user.firstName + ' ' + user.lastName;
+  user.roles = req.body.roles;
 
   // Then save the user
   user.save(function (err) {
@@ -241,4 +242,32 @@ exports.removeOAuthProvider = function (req, res, next) {
       });
     }
   });
+};
+
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'kemleynieva@gmail.com',
+    pass: 'Anieva14'
+  }
+});
+
+exports.sendMail = function(req, res) {
+
+  var data = req.body;
+
+  transporter.sendMail({
+    from: data.contactEmail,
+    to: 'kemleynieva@gmail.com',
+    subject: 'Message from ' + data.contactName,
+    text: data.contactMsg,
+    attachments:[
+      { filename: 'botsy.png',
+      path: data.contactPNG,
+      cid:'botsy.png' }
+    ]
+  });
+
+  res.json(data);
 };

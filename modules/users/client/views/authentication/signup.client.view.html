@@ -1,5 +1,18 @@
+<script>
+$(document).ready(function() {
+  $('#ForArtistOnly').hide();
+  $('input[type="radio"]#roles-Artist').click(function() {
+   if($(this).attr('id') == 'roles-Artist') {
+     $('#ForArtistOnly').show();
+   }else{
+     $('#ForArtistOnly').hide();
+   }
+ });
+});
+</script>
+
 <div ng-controller="AuthenticationController">
-  <h3 class="col-md-12 text-center">Or sign up using your email</h3>
+  <h3 class="col-md-12 text-center">Sign up using your email</h3>
   <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
     <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
@@ -42,6 +55,36 @@
             </div>
           </div>
         </div>
+
+        <div class="form-group" show-errors>
+          <label for="roles">Type of Account: </label>
+            <input type ="radio" name="roles" ng-model="credentials.roles" id="roles" style="margin-right: 0" value="user">Customer</input>
+            <input type ="radio" name="roles" ng-model="credentials.roles" id="roles-Artist" style="margin-right: 0" value ="artist">Artist</input>
+        </div>
+
+        <div class="form-group" id="ForArtistOnly" show-errors>
+          <label for="roles">Type of Artist: </label><br>
+            <input type ="radio"  name ="artistType" class ="artistType" ng-model ="credentials.artistType" id="artistType" style="margin-right: 0" value="graphic designer"> Graphic Designer  </input>
+            <input type ="radio"  name ="artistType" class ="artistType" ng-model ="credentials.artistType" id="artistType" style="margin-right: 0" value ="botsy owner">  Botsy Owner  </input>
+            <input type ="radio"  name ="artistType" class ="artistType" ng-model ="credentials.artistType" id="artistType" style="margin-right: 0" value ="painter">  Painter  </input> <br>
+            <input type ="radio"  name ="artistType" class ="artistType" ng-model ="credentials.artistType" id="artistType" style="margin-right: 0" value="graphic designer,botsy owner"> Graphic Designer and Botsy Owner</input><br>
+            <input type ="radio"  name ="artistType" class ="artistType" ng-model ="credentials.artistType" id="artistType" style="margin-right: 0" value ="botsy owner, painter"> Botsy Owner and Painter</input><br>
+            <input type ="radio"  name ="artistType" class ="artistType" ng-model ="credentials.artistType" id="artistType" style="margin-right: 0" value ="graphic designer, painter"> Graphic Designer and Painter</input><br>
+            <input type ="radio"  name ="artistType" class ="artistType" ng-model ="credentials.artistType" id="artistType" style="margin-right: 0" value ="graphic designer, botsy owner,painter"> Graphic Designer, Botsy Owner and Painter</input><br>
+
+            <p>
+          <label for="roles" >Work Avalibility: </label><br>
+            <input type ="radio" name="artistAvailability" ng-model="credentials.artistAvailability" id="artistAvailability" style="margin-right: 0" value="Very Flexible"> Very Flexible (able to work outside of regular busniess hours and weekends)</input><br>
+            <input type ="radio" name="artistAvailability" ng-model="credentials.artistAvailability" id="artistAvailability" style="margin-right: 0" value ="Flexible"> Flexible (able to work regular busniess hours)</input><br>
+            <input type ="radio" name="artistAvailability" ng-model="credentials.artistAvailability" id="artistAvailability" style="margin-right: 0" value ="Moderate"> Moderate (only able to work with advance notice, will work outside of busniess hours and weekends)</input><br>
+            <input type ="radio" name="artistAvailability" ng-model="credentials.artistAvailability" id="artistAvailability" style="margin-right: 0" value ="Strict"> Strict (only able to work with advance notice, will work only during regular busniess hours)</input><br>
+            <input type ="radio" name="artistAvailability" ng-model="credentials.artistAvailability" id="artistAvailability" style="margin-right: 0" value ="Very Strict"> Very Strict (only able to work with advance notice on select times upto discrition of the artist)</input><br>
+            <p>
+          <label for="username">Artist Location:</label>
+          <input type="text" id="artistLocation" name="location" class="form-control" ng-model="credentials.artistLocation" placeholder="City,State" >
+        </div>
+
+
         <div class="form-group" ng-show="!userForm.password.$error.required">
           <label>Password Requirements</label>
           <progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></progressbar>

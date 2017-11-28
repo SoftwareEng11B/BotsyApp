@@ -1,7 +1,39 @@
+<!DOCTYPE html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+
+.btn-primary {
+    border-radius: 17px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+
+label{
+  font-family: lato;
+  font-size: 15px;
+  color: #52595d;
+}
+
+</style>
+</head>
+
+<body>
 <section>
-  <div class="page-header">
-    <h1>User <span ng-bind="user.username"></span></h1>
-  </div>
+  <h1>Edit User: <span ng-bind="user.username"></span></h1>
   <div class="col-md-12">
     <form name="userForm" ng-submit="update(userForm.$valid)" novalidate>
       <fieldset>
@@ -29,7 +61,7 @@
           </div>
         </div>
         <div class="form-group">
-          <input type="submit" value="Update" class="btn btn-default">
+          <input type="submit" value="Update" class="btn btn-primary btn-round btn">
         </div>
         <div ng-show="error" class="text-danger">
           <strong ng-bind="error"></strong>
@@ -38,3 +70,4 @@
     </form>
   </div>
 </section>
+</body>

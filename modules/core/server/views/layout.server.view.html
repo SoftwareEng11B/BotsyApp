@@ -5,10 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
   <base href="/">
-  <title>{{title}}</title>
+  <title>Botsy Mural Request</title>
   <meta name="description" content="{{description}}">
   <meta name="fragment" content="!">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.6.5/fabric.min.js"></script>
+  
+    
+  
   <!-- Apple META -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -29,16 +39,18 @@
   <meta name="twitter:image" content="{{logo}}">
 
   <!-- Fav Icon -->
-  <link href="{{favicon}}" rel="shortcut icon" type="image/x-icon">
+  <link href="modules/core/client/img/brand/botsy.ico" rel="shortcut icon" type="image/x-icon">
 
   <!-- Application CSS Files -->
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 </head>
 
 <body class="ng-cloak">
-  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+  <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top" style ="background-color: white "
+
+  ></header>
   <section class="content">
-    <section class="container">
+    <section class="container-fluid">
       {% block content %}{% endblock %}
     </section>
   </section>
