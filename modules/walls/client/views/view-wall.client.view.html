@@ -1,8 +1,9 @@
 <section>
-    <div class="page-header">
+    <div class="page-header" ng-submit="vm.email()">
       <h1 ng-bind="vm.wall.name"></h1>
+      <input type="submit" value ="Submit">
     </div>
-    
+
     <div class="pull-right"
          ng-show="vm.wall.isCurrentUserOwner">
       <a class="btn btn-primary"
@@ -39,6 +40,5 @@
       Recoloring: {{vm.wall.wall_info.recolor}}<br>
       Type of Wall: {{vm.wall.Wall_type}}<br>
     </p>
-        
+
   </section>
-  
