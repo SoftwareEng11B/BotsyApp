@@ -154,8 +154,8 @@ var WallSchema = new Schema({
 
   },
   price: {
-   type: String,
-   default: ''
+    type: String,
+    default: ''
   },
   Artist: {
     type: Schema.ObjectId,

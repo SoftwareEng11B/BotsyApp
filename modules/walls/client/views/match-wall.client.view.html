@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <head>
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <style>
@@ -81,20 +81,20 @@ h4{
       <div class="container col-md-12">
         <center><h3 ng-bind="'Project: ' + vm.wall.name"></h3></center>
         <center><h5 ng-bind="'Customer: ' + vm.wall.user.firstName + ' ' + vm.wall.user.lastName"></h5></center>
-        	<h4>Services Wanted </h4> 
-            <h5> ng-bind="user.wall.serviceRequested"</h5> 
+        	<h4>Services Wanted </h4>
+            <h5> ng-bind="user.wall.serviceRequested"</h5>
         	<h4>Project Specifications</h4>
           	<h5 ng-bind="'Height: ' + vm.wall.wall_info.height"></h5>
             <h5 ng-bind="'Width: ' + vm.wall.wall_info.length"></h5>
             <h5 ng-bind="'Price: ' + vm.wall.wall_info.height"></h5>
-          <br>  
+          <br>
         	<center><h4>Image_of_wall.png</h4></center>
       </div>
     </div>
   </div>
   <div class = "col-md-3">
   </div>
-</div> 
+</div>
 <div class = "row">
   <div class = "col-md-5">
   </div>
@@ -113,7 +113,7 @@ h4{
         <tr>
         <br>
           <th>Name</th>
-          <th>Skills</th> 
+          <th>Skills</th>
           <th>Location</th>
           <th>Flexibility</th>
           <th>Match</th>
@@ -126,9 +126,14 @@ h4{
             <td ng-bind="user.artistAvailability"></td>
             <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
             <td align = "center">
-            <a class="btn btn-primary btn-round-sm btn-sm" ng-click="matchUpdate()"> 
-            Match
-            </a>
+              <div class= "container col-md-6 col-md-offset-3">
+              <form name="vm.form.matchForm" ng-submit="vm.update(vm.form.matchForm.$valid)" novalidate autocomplete="off">
+                <fieldset>
+                  <input  type="text" ng-model="vm.wall.Artist_info.firstName" id="Artist_info.firstName" class="form-control" value="Hello">
+                  <button type="submit" class="btn btn-primary">Match</button>
+                </fieldset>
+              </form>
+            </div>
             </td>
         </tr>
       </table>
@@ -137,7 +142,7 @@ h4{
   <div class = "col-md-2">
   </div>
 </div>
-    
+
     </td>
   </table>
 </div>
