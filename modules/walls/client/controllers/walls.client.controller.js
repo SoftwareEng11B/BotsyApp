@@ -23,7 +23,7 @@
     vm.userList = Users.query();
 
 
-
+    
 
     vm.saveStatus =function(){
       vm.wall.$update();
@@ -127,7 +127,7 @@
 
     function email(){
       console.log(5);
-      
+
       var data = ({
         contactName : vm.wall.user.displayName,
         contactEmail : vm.wall.user.email,

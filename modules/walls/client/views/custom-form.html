@@ -36,7 +36,9 @@
       <h1>Custom Mural Info</h1><br>
   </header>
   <body class="ng-scope">
-    <div class="container">
+    <!-- <div class="container">
+      <input ng-bind="vm.preform" ng-onchange="savePreform()" type="text"></input>
+          <form name="vm.form.customForm" class="form-horizontal" ng-submit="vm.save(vm.form.customForm.$valid)" novalidate> -->
           <form>
             <div class="col-sm-3">
               <h2>What type of room is this?</h2>
@@ -44,6 +46,12 @@
               <h2>What color scheme do you prefer?</h2>
               <input name="color_scheme" type="text" ng-model="vm.wall.custom_info.color_scheme" id="color_scheme" class="form-control" placeholder="Red and Blue, Gators, etc" required><br>
             </div>
+            <!--
+            <div class="form-group">
+                <label class="control-label" for="wall_info.length">Length</label>
+                <input name="wall_info" type="text" ng-model="vm.wall.wall_info.length" id="wall_info.length" class="form-control" placeholder="10', 3m, 108in" required>
+            </div>
+             -->
             <div class="col-sm-3">
               <h2>Specific Elements to Include: </h2>
               <input name="elements_include" type="text" ng-model="vm.wall.custom_info.elements_include" id="elements_include" class="form-control" placeholder="Alligators, Football" required><br>
