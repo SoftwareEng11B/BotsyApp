@@ -41,6 +41,11 @@ h1{
   background-image: none;
 }
 
+<!-- TODO: DO we need this?-->
+    <i class="glyphicon glyphicon-home"></i>
+
+      <h4 class="list-group-item-heading" ng-bind="wall.name"></h4>
+      <small class="list-group-item-text text-muted">
 
 </style>
 </head>
@@ -127,5 +132,4 @@ h1{
   <div class="alert alert-warning text-center" ng-if="vm.walls.$resolved && !vm.walls.length">
     No Walls yet, why don't you <a ui-sref="walls.create">create one</a>?
   </div>
-
 </section>

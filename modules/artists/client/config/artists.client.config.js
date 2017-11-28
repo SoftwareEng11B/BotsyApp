@@ -26,7 +26,7 @@
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'artists', {
       title: 'List Jobs',
-      state: 'artists.current-jobs',
+      state: 'walls.jobs',
       roles: ['artist']
     });
 

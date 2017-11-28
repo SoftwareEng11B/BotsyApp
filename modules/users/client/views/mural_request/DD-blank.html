@@ -1,6 +1,6 @@
 <section>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <div class="page-header" style="text-align: center">
+  <div class="page-header">
     <h1>Drag and Drop</h1>
   </div>
 
@@ -22,13 +22,15 @@
         top: 0;
         bottom: 0;
         right: 0;
-        overflow-y: scroll;
+        overflow-y: auto;
         width: 15%;
         align-content: center;
         align-items: center;
       /* height: 75%; */
       background-color: rgb(192, 185, 185);
       padding-top: 20px;
+      border: 1px solid #ccc;
+        box-shadow: 0 0 5px 1px #dddddd;
     }
 
     [draggable] {
@@ -57,9 +59,9 @@
     <div class="row">
 
      
-      <div class="col-md-1"></div>
+      <!-- <div class="col-md-1"></div> -->
       <div class="col-md-8">
-      <h4 style="color : blue"> Upload Wall Image: <input class="btn btn-primary" type="file" id="fileUpload"/></h4>
+      <h4 style="color : #e05e60"> Upload Wall Image: <input class="btn btn-primary" type="file" id="fileUpload"/></h4>
         <div id="canvas-container">
         
           
@@ -72,7 +74,6 @@
           </form>
 
           <script>
-          
           function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -237,7 +238,8 @@
             var blob = new Blob([b64toBlob(outcan.toDataURL('png').replace(/^data:image\/(png|jpg);base64,/, ""), "image/png")], { type: "image/png" });
             saveAs(blob, canvas_filename.value);
 
-            console.log("hit");
+
+            confirm('Please Save this image locally to use it in the following step');
 
           });
 
@@ -265,22 +267,53 @@
             var blob = new Blob(byteArrays, { type: contentType });
             return blob;
           }
+
+          $("#addTextbox").click(function () {
+    var text = 'Enter measurement here';
+
+    var textSample = new fabric.Textbox(text.slice(0, 22), {
+      fontSize: 20,
+      left: 10,
+      top: 10,
+      fontFamily: 'Lato',
+      angle: 0,
+      fill: '#00ff00',
+      fontWeight: '',
+      originX: 'left',
+      width: 300,
+      hasRotatingPoint: true,
+      centerTransform: true,
+      borderColor: '#969b9d'
+    });
+
+    canvas.add(textSample);
+  });
+
+  $("#confirmClear").click(function () {
+    if (confirm('Are you sure you would like to clear the canvas?')) {
+      canvas.clear();
+    }
+  });
+
           </script>
 
         </div>
       </div>
 
 
-      <input type='file' onchange="readURL(this);" />
-      
+
+      Upload Your Own design: <input type='file' onchange="readURL(this);" />
+      <button class="btn" id="addTextbox">Add textbox</button>
+      <button class="btn btn-danger clear" id="confirmClear">Clear canvas</button>
       <h3>Select Designs:</h3>
       <div id="right" class="col-md-2">
         
          <div id="images">
-          
+            
+
           <ul>
                     
-          <img draggable="true" id="blah" src="#" alt="your image" />
+          <img draggable="true" id="blah" src="#"  alt="" />
           <br>
           <img draggable="true" src="http://fabricjs.com/assets/1.svg" width="100" height="100">
           <br>
@@ -292,7 +325,8 @@
           <br>
           <img draggable="true" src="http://fabricjs.com/assets/6.svg" width="100" height="100">
           <br>
-          <img draggable="true" src="http://fabricjs.com/assets/26.svg" width="100" height="100">
+
+          <img draggable="true" src="https://cdn.filestackcontent.com/FJPi2nTQJConuxlJ77Wc" width="100" height="100">
 
           </ul>
           <ul>
@@ -307,25 +341,20 @@
           <img draggable="true" src="http://fabricjs.com/assets/47.svg" width="100" height="100">
 
           <br>
-          <img draggable="true" src="http://fabricjs.com/assets/50.svg" width="100" height="100">
+
+          <img draggable="true" src="https://cdn.filestackcontent.com/EyyS6XWYRyOMmCTdtFoO" width="100" height="100">
           <br>
-          <img draggable="true" src="http://fabricjs.com/assets/68.svg" width="100" height="100">
+          <img draggable="true" src="https://cdn.filestackcontent.com/hrRGnPfNTSe5ub06Fhpk" width="100" height="100">
           <br>
-          <img draggable="true" src="/Pink Rooster.png" width="100" height="100">
+          <img draggable="true" src="https://cdn.filestackcontent.com/38EhcnNuTDS5sOH1krME" width="100" height="100">
           <br>
-          <img draggable="true" src="http://fabricjs.com/assets/28.svg" width="100" height="100">
+          <img draggable="true" src="https://cdn.filestackcontent.com/2STUpwxmTAytOkWqB43h" width="100" height="100">
           <br>
-          <img draggable="true" src="http://fabricjs.com/assets/50.svg" width="100" height="100">
+          <img draggable="true" src="https://cdn.filestackcontent.com/GTw0N7egT3qbvp7REo0G" width="100" height="100">
           <br>
-          <img draggable="true" src="http://fabricjs.com/assets/68.svg" width="100" height="100">
+          <img draggable="true" src="https://cdn.filestackcontent.com/5cIDaNqRSDOVhqtKwLU9" width="100" height="100">
           <br>
-          <img draggable="true" src="http://fabricjs.com/assets/47.svg" width="100" height="100">
-          <br>
-          <img draggable="true" src="http://fabricjs.com/assets/28.svg" width="100" height="100">
-          <br>
-          <img draggable="true" src="http://fabricjs.com/assets/50.svg" width="100" height="100">
-          <br>
-          <img draggable="true" src="http://fabricjs.com/assets/68.svg" width="100" height="100">
+          <img draggable="true" src="https://cdn.filestackcontent.com/mWzEgl8VS6KvFiRH2XEb" width="100" height="100">
           <br>
           <img draggable="true" src="http://fabricjs.com/assets/47.svg" width="100" height="100">
           
@@ -334,5 +363,6 @@
         </div>
       </div>
 
-    <input ui-sref-active="active"  ui-sref="wall-information"  type="submit" value="Get a Custom Mural">
+
+    <input ui-sref-active="active"  ui-sref="walls.create"  type="submit" value="Get a Custom Mural">
 </div>

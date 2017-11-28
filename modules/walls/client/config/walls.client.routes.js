@@ -23,6 +23,16 @@
           pageTitle: 'Walls List'
         }
       })
+      .state('walls.jobs', {
+        url: '',
+        templateUrl: 'modules/walls/client/views/list-jobs-walls.client.view.html',
+        controller: 'WallsListController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['user', 'artist'],
+          pageTitle: 'Walls List'
+        }
+      })
       .state('walls.create', {
         url: '/create',
         templateUrl: 'modules/walls/client/views/form-wall.client.view.html',
