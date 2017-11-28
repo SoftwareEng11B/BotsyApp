@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<head>
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <style>
 table {
@@ -8,14 +6,17 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+form{
+  font-family: lato;
+  color: #52595d;
+}
 th{font-size: 20px;}
 
 td, th {
-    border: 1px solid #52595d;
+    border: 1px solid #ffffff;
     text-align: left;
-    padding: 8px;
+    padding: 8px
 }
-
 tr:nth-child(even) {
     background-color: #f2f3f3;
 }
@@ -27,7 +28,9 @@ h1{
   color: #52595d;
   padding: 0px;
 }
-
+h4{
+  color:#3ac397;
+}
 .btn-primary {
     border-radius: 15px;
     color: #fff;
@@ -42,44 +45,41 @@ h1{
   background-image: none;
 }
 
-
 </style>
-</head>
-<body>
-<!-- <div class="change-color"
-            ng-repeat="button"
-            ng-mouseover="hoverActive=true"
-            ng-mouseleave="hoverActive=false"
-            ng-style="hoverActive ? {'background-color': e05e60} : {}"
-> -->
 
-<h1>Customers</h1>
-<div class="span" style="margin-top: 2em">
-  <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
-</div>
+  <div class="col-md-12 text-center">
+    <center><h1 ng-bind= "'Quote for ' + vm.wall.name"></h1></center>
 
-<div class=span style = "margin-top: 2em">
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>User Role</th>
-    <th>Quote Status</th>
-  </tr>
 
-  <tr ng-repeat="user in pagedItems">
-    <td ui-sref="admin.user({userId: user._id})" ng-bind="user.firstName + ' ' + user.lastName"></td>
-    <td ui-sref="admin.user({userId: user._id})" ng-bind="user.email"></td>
-    <td ui-sref="admin.user({userId: user._id})" ng-bind="user.roles"></td>
-    <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
-    <td align = "center">
-    <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-give-quote({userId: user._id})">
-    Quote
-    </a>
-     </center> </td>
-  </tr>
-</table>
-<br>
-</body>
+  <div class= "row">
+  <br>
+  <h3 ng-bind="'Height:'+ vm.wall.wall_info.height "></h3>
+  <h3 ng-bind="'Width: ' + vm.wall.wall_info.length"></h3>
+  <h3 ng-bind="'Wall Type: ' + vm.wall.Wall_type"></h3>
+  <h3 ng-bind="'Paint Type: ' + vm.wall.wall_info.paint"></h3>
+  <h3 ng-bind="'Paint Prep: ' + vm.wall.wall_info.prep"></h3>
+  <h3 ng-bind="'Paint Recolor: ' + vm.wall.wall_info.recolor"></h3>
 
- <!-- <pagination boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength" ng-model="currentPage" ng-change="pageChanged()"></pagination> -->
+  <br>
+  <br>
+  <h1>Image of wall with mural design here</h1>
+  <br>
+  <br>
+
+  </div>
+
+  </div>
+  <div class="row">
+    <div class= "container col-md-6 col-md-offset-3">
+    <form name="vm.form.quoteForm" ng-submit="vm.update(vm.form.quoteForm.$valid)" novalidate autocomplete="off">
+      <fieldset>
+        <div class="form-group" >
+          <center><label for="quote">Total Mural Cost</label></center>
+          <input type="text"  ng-model="vm.wall.price" id="price" class="form-control" placeholder="example: $180" required>
+        </div>
+        <div class="text-center form-group">
+          <button type="submit" class="btn btn-primary">Submit quote</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>

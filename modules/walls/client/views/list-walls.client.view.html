@@ -51,13 +51,13 @@ h1{
   </div>
   <!-- <div class="span" style="margin-top: 2em">
     <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
-  </div> 
+  </div>
   <br> -->
   <table>
     <tr>
     <br>
       <th>Client Name</th>
-      <th>Project Name</th> 
+      <th>Wall Name</th> 
       <th>Date Created</th>
       <th><center>Quote</center></th>
     </tr>
@@ -67,8 +67,8 @@ h1{
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
       <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
-      <td align = "center"> 
-      <center><a class="btn btn-primary btn-round-sm btn-sm" ui-sref="walls.quote({wallId: wall._id})"> 
+      <td align = "center">
+      <center><a class="btn btn-primary btn-round-sm btn-sm" ui-sref="walls.quote({wallId: wall._id})">
       Quote
       </a></center>
        </center> </td>
@@ -83,7 +83,7 @@ h1{
          class="list-group-item">
 
       <i class="glyphicon glyphicon-home"></i>
-        
+
         <h4 class="list-group-item-heading" ng-bind="wall.name"></h4>
         <small class="list-group-item-text text-muted">
 
@@ -105,7 +105,7 @@ h1{
     <tr>
     <br>
       <th>Client Name</th>
-      <th>Project Name</th> 
+      <th>Project Name</th>
       <th>Date Created</th>
       <th><center>Match</center></th>
     </tr>
@@ -115,8 +115,8 @@ h1{
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
       <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
-      <td align = "center"> 
-      <center><a class="btn btn-primary btn-round-sm btn-sm" ui-sref="walls.match({wallId: wall._id})"> 
+      <td align = "center">
+      <center><a class="btn btn-primary btn-round-sm btn-sm" ui-sref="walls.match({wallId: wall._id})">
       Match
       </a></center>
        </center> </td>
@@ -130,7 +130,7 @@ h1{
     <tr>
     <br>
       <th>Client Name</th>
-      <th>Project Name</th> 
+      <th>Project Name</th>
       <th>Date Created</th>
       <th><center>View Details</center></th>
     </tr>
@@ -140,8 +140,8 @@ h1{
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
       <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
-      <td align = "center"> 
-      <center><a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user({userId: user._id})"> 
+      <td align = "center">
+      <center><a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user({userId: user._id})">
       View
       </a></center>
        </center> </td>
