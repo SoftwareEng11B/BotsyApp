@@ -72,13 +72,6 @@
           pageTitle: 'Edit Wall {{ wallResolve.name }}'
         }
       })
-
-
-
-
-
-
-
          // route to show our basic form (/form)
         .state('form', {
           url: '/form',
