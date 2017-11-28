@@ -150,7 +150,8 @@ var WallSchema = new Schema({
     comment: {
       type: String,
       default:''
-    },
+    }
+  },
 
   Artist_info: {
     firstName: {
@@ -181,6 +182,6 @@ var WallSchema = new Schema({
     type: Date
   }
 
-};
+});
 
 mongoose.model('Wall', WallSchema);

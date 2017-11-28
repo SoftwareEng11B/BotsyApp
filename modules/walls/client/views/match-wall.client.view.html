@@ -129,7 +129,9 @@ h4{
               <div class= "container col-md-6 col-md-offset-3">
               <form name="vm.form.matchForm" ng-submit="vm.update(vm.form.matchForm.$valid)" novalidate autocomplete="off">
                 <fieldset>
-                  <input  type="text" ng-model="vm.wall.Artist_info.firstName" id="Artist_info.firstName" class="form-control" value="Hello">
+                  <input type="hidden" ng-model="vm.wall.Artist_info.firstName" ng-init="vm.wall.Artist_info.firstName = user.firstName"></input>
+                  <input type="hidden" ng-model="vm.wall.Artist_info.lastName" ng-init="vm.wall.Artist_info.lastName = user.lastName"></input>
+                  <input type="hidden" ng-model="vm.wall.Artist_info.ID" ng-init="vm.wall.Artist_info.ID = user._id"></input>
                   <button type="submit" class="btn btn-primary">Match</button>
                 </fieldset>
               </form>
