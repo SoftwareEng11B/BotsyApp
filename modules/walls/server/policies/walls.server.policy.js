@@ -25,10 +25,10 @@ exports.invokeRolesPolicies = function () {
     roles: ['user'],
     allows: [{
       resources: '/api/walls',
-      permissions: ['get', 'post']
+      permissions: '*'
     }, {
       resources: '/api/walls/:wallId',
-      permissions: ['get']
+      permissions: '*'
     }]
   }, {
     roles: ['artist'],

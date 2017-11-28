@@ -1,0 +1,145 @@
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+table {
+    font-family: lato;
+    color: #52595d;
+    border-collapse: collapse;
+    width: 100%;
+}
+form{
+  font-family: lato;
+  color: #52595d;
+}
+th{font-size: 20px;}
+
+td, th {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px
+}
+tr:nth-child(even) {
+    background-color: #f2f3f3;
+}
+td.redish{color: #e05e60;}
+td.mint{color: #3ac397;}
+
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+h4{
+  color:#3ac397;
+}
+.btn-primary {
+    border-radius: 15px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+.thumbnail img {
+    max-height: 100%;
+    max-width: 100%;
+    border-color: #ffffff;
+
+}
+
+</style>
+
+  <div class="col-md-12 text-center">
+    <center><h1 ng-bind= "'Quote for ' + vm.wall.name"></h1></center>
+
+
+  <div class= "row">
+  <br>
+  <h3 ng-bind="'Height:'+ vm.wall.wall_info.height "></h3>
+  <h3 ng-bind="'Width: ' + vm.wall.wall_info.length"></h3>
+  <h3 ng-bind="'Wall Type: ' + vm.wall.Wall_type"></h3>
+  <h3 ng-bind="'Paint Type: ' + vm.wall.wall_info.paint_type"></h3>
+  <h3 ng-bind="'Paint Prep: ' + vm.wall.wall_info.prep_req"></h3>
+  <h3 ng-bind="'Paint Recolor: ' + vm.wall.wall_info.recolor"></h3>
+
+  <br>
+  <br>
+  <div class = "row">
+            <div class = "col-md-1">
+            </div>
+            <div class = "col-md-10">
+              <a class = "thumbnail">
+                <img ng-src="{{vm.wall.picture}}">
+              </a>
+            </div>
+            <div class = "col-md-1">
+            </div>
+          </div>
+  <br>
+  <br>
+
+  </div>
+
+  </div>
+  <div class="row">
+    <div class= "container col-md-6 col-md-offset-3">
+    <form name="vm.form.quoteForm" ng-submit="vm.update(vm.form.quoteForm.$valid)" novalidate autocomplete="off">
+      <fieldset>
+        <div class="form-group" >
+          <center><label for="quote">Total Mural Cost</label></center>
+          
+          
+        
+          <br>
+          
+          
+                
+          <br>
+
+          <span
+          <label>hasQuote:
+            <input type="checkbox" ng-model="vm.wall.status.hasQuote" ng-click="vm.saveStatus()">
+          </label>
+          
+
+          <label>paid:
+            <input type="checkbox" ng-model="vm.wall.status.paid" ng-click="vm.saveStatus()">
+          </label>
+          
+          <label>matched:
+            <input type="checkbox" ng-model="vm.wall.status.matched" ng-click="vm.saveStatus()">
+          </label>
+          
+
+          <label>completed:
+            <input type="checkbox" ng-model="vm.wall.status.completed" ng-click="vm.saveStatus()">
+          </label>
+            
+            <label class="control-label"><input name="quote" type="radio" ng-model="vm.priceIsGood" ng-value="1" >Price is Good
+          </label>
+
+          <input type="text"  ng-model="vm.wall.price" id="price" class="form-control" placeholder="example: $180" required>
+          <button type="button" class="btn btn-primary" ng-click="vm.saveHasQuote()">Save Quotes
+          </button>
+            </span>
+
+          <br/>
+          <br/>
+          <hr >
+            <h3 style="color: red" >for testing remove later</h3>
+            <tt>completed = {{vm.wall.status.completed}}</tt><br/>
+            <tt>paid = {{vm.wall.status.paid}}</tt><br/> 
+            <tt>matched = {{vm.wall.status.matched}}</tt><br/>
+            <tt>hasQuote = {{vm.wall.status.hasQuote}}</tt><br/>                        
+
+        </div>
+        <div class="text-center form-group">
+          <!--button type="submit" class="btn btn-primary">Submit quote</button-->
+        </div>
+      </fieldset>
+    </form>
+  </div>

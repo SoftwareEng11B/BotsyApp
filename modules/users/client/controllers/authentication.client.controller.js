@@ -34,7 +34,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         else if($scope.authentication.user.roles[0] === 'artist'){
           $state.go('artist-homepage');
         }else if($scope.authentication.user.roles[0] === 'admin'){
-          $state.go('admin-homepage');
+          $state.go('walls.list');
         }else{
           $state.go('home');
         }
@@ -65,7 +65,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         else if($scope.authentication.user.roles[0] === 'artist'){
           $state.go('artist-homepage');
         }else if($scope.authentication.user.roles[0] === 'admin'){
-          $state.go('admin-homepage');
+          $state.go('walls.list');
         }else{
           $state.go('home');
         }
