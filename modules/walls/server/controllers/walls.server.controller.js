@@ -81,23 +81,13 @@ exports.list = function(req, res) {
     Wall.find({ 'user':req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, walls) {
       if (err) {
         return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.jsonp(walls);
-    }
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.jsonp(walls);
+      }
     });
   }else if(req.user.roles[0] === 'artist'){Wall.find({ 'artist':req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, walls) {
-    if (err) {
-        return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.jsonp(walls);
-    }
-  });
-  } else if(req.user.roles[0] === 'admin'){
-    Wall.find().sort('-created').populate('user', 'displayName').exec(function(err, walls) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -106,6 +96,16 @@ exports.list = function(req, res) {
       res.jsonp(walls);
     }
   });
+  } else if(req.user.roles[0] === 'admin'){
+    Wall.find().sort('-created').populate('user', 'displayName').exec(function(err, walls) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.jsonp(walls);
+      }
+    });
   }
 };
 
