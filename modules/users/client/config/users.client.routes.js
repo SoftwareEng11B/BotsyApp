@@ -84,9 +84,17 @@ angular.module('users').config(['$stateProvider',
         url: '/mural-request-wall-information',
         templateUrl: 'modules/users/client/views/mural_request/wall-information.html'
       })
-      .state('custom-form', {
-        url: '/mural-request-custom-form',
-        templateUrl: 'modules/users/client/views/mural_request/custom-form.html'
+      .state('mural-select', {
+        url: '/mural-request-mural-select',
+        templateUrl: 'modules/users/client/views/mural_request/mural-select.html'
+      })
+      .state('DD-blank', {
+        url: '/mural-request-DD-blank',
+        templateUrl: 'modules/users/client/views/mural_request/DD-blank.html'
+      })
+      .state('logo-page', {
+        url: '/mural-request-logo-page',
+        templateUrl: 'modules/users/client/views/mural_request/logo-page.html'
       })
       .state('preview-request', {
         url: '/mural-request-preview',

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users.admin').controller('UserController', ['$scope', '$state', 'Authentication', 'userResolve',
-  function ($scope, $state, Authentication, userResolve) {
+angular.module('users.admin').controller('UserController', ['$scope', '$state', 'WallsService','Authentication', 'userResolve',
+  function ($scope, $state,WallsService, Authentication, userResolve) {
     $scope.authentication = Authentication;
     $scope.user = userResolve;
 
@@ -19,10 +19,19 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
       }
     };
 
+   /* $scope.getWalls =function(){
+      $scope.tempWallList = [];
+      console.log(user.wallList[0]);
+      for(var i =0; i <user.wallList.length;i++){
+        $scope.wall = WallsService.get({wallId:user.wallList[i]});
+        $scope.tempWallList.push($scope.wall);
+      }
+
+    }*/
+
     $scope.update = function (isValid) {
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'userForm');
-
         return false;
       }
 
@@ -43,5 +52,12 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
         });
       }
     }; 
+    $scope.quote = function(user) {
+      if(user){
+        $state.go('admin.quote', {
+          userId: user._id
+        });
+      }
+    };
   }
 ]);

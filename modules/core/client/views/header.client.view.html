@@ -1,10 +1,10 @@
-<div class="container" ng-controller="HeaderController">
+<div class="container-fluid" ng-controller="HeaderController">
   <div class="navbar-header" >
     <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
       <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+      <span class="icon-bar" style ="background-color:black;"></span>
+      <span class="icon-bar" style ="background-color:black;"></span>
+      <span class="icon-bar" style ="background-color:black;"></span>
     </button>
     <!--Conditional for admin/artist and reroute to said header-->
     <a ui-sref="home" class="navbar-brand" style="
@@ -60,7 +60,7 @@
         <a ui-sref="authentication.signin" id = "signin" style="color: #51595D;">Sign In</a>
       </li>
       <li ui-sref-active="active">
-        <a ui-sref="contact-us" style="color: #51595D;">Contact Us</a>
+        <a href="https://www.botsy.com/pages/contact-us" style="color: #51595D;">Contact Us</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
@@ -99,10 +99,10 @@
         color: #e05e60;">
             BOTSY</a>
         <li ui-sref-active="active">
-          <a ui-sref="wall-information"style="color: #51595D;">Start Mural Request</a>
+          <a ui-sref="mural-select"style="color: #51595D;">Start Mural Request</a>
         </li>
         <li ui-sref-active="active">
-          <a ui-sref="current-request"style="color: #51595D;">Current Mural Request</a>
+          <a ui-sref="walls.jobs"style="color: #51595D;">Current Mural Request</a>
         </li>
       </ul>
 

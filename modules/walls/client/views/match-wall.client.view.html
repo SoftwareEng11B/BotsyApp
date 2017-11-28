@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+table {
+    font-family: lato;
+    color: #52595d;
+    border-collapse: collapse;
+    width: 100%;
+}
+th{font-size: 20px;}
+
+td, th {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px
+}
+tr:nth-child(even) {
+    background-color: #f2f3f3;
+}
+td.redish{color: #e05e60;}
+td.mint{color: #3ac397;}
+
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+h4{
+  color:#3ac397;
+}
+.btn-primary {
+    border-radius: 15px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+    padding: 2px 16px;
+}
+.spaced{
+  display:flex;
+  justify-content: space-between;
+
+}
+.vertical-align{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#table{
+  position: relative;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+</style>
+</head>
+<h1><center>Make a match</center></h1>
+<br>
+<div class = "row">
+  <div class = "col-md-3">
+  </div>
+  <div class = "col-md-6">
+		<div class="card col-md-12">
+      <div class="container col-md-12">
+        <center><h3 ng-bind="'Project: ' + vm.wall.name"></h3></center>
+        <center><h5 ng-bind="'Customer: ' + vm.wall.user.firstName + ' ' + vm.wall.user.lastName"></h5></center>
+          <h4>Services Wanted </h4>
+            <h5 ng-bind="vm.wall.serviceRequested[0]"></h5>
+          <h4>Project Specifications</h4>
+             <h5>Wall Address:</h5>
+            <h6 ng-bind="vm.wall.address" ></h6>
+          <br>
+          <h5>Wall Size:</h5>
+            <h6 ng-bind="'length: ' + vm.wall.wall_info.length"></h6>
+            <h6 ng-bind="'width: ' + vm.wall.wall_info.width"></h6>
+          <br>
+            <h5>Wall material:</h5>
+            <h6 ng-bind="vm.wall.wall_info.material"></h6>
+
+          <br>
+          <div class = "row">
+
+
+            <div class = "col-md-12">
+              <a class = "thumbnail">
+                <img ng-src="{{vm.wall.picture}}">
+              </a>
+            </div>
+
+          </div>
+          <br>
+      </div>
+    </div>
+  </div>
+  <div class = "col-md-3">
+  </div>
+</div>
+<div class = "row">
+  <div class = "col-md-5">
+  </div>
+  <div class = "col-md-2 align-middle center">
+    <h1><center>+</center></h1>
+  </div>
+  <div class = "col-md-5">
+  </div>
+</div>
+<div class = "row">
+  <div class = "col-md-2">
+  </div>
+
+    <div id = table class = col-md-8>
+    	<input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
+      <table>
+        <tr>
+        <br>
+          <th>Name</th>
+          <th>Skills</th>
+          <th>Location</th>
+          <th>Flexibility</th>
+          <th>Match</th>
+        </tr>
+
+        <tr data ng-repeat="user in vm.userList" ng-if="user.roles[0] == 'artist'">
+            <td ng-bind="user.firstName + ' ' + user.lastName"></td>
+            <td ng-bind="user.artistType"></td>
+            <td ng-bind="user.artistLocation"></td>
+            <td ng-bind="user.artistAvailability"></td>
+            <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
+            <td align = "center">
+              <div class= "container col-md-6 col-md-offset-3">
+              <form name="vm.form.matchForm" ng-submit="vm.update(vm.form.matchForm.$valid)" novalidate autocomplete="off">
+                <fieldset>
+                  <input type="hidden" ng-model="vm.wall.Artist_info.firstName" ng-init="vm.wall.Artist_info.firstName = user.firstName"></input>
+                  <input type="hidden" ng-model="vm.wall.Artist_info.lastName" ng-init="vm.wall.Artist_info.lastName = user.lastName"></input>
+                  <input type="hidden" ng-model="vm.wall.Artist_info.ID" ng-init="vm.wall.Artist_info.ID = user._id"></input>
+                  <input type="hidden" ng-model="vm.wall.status.matched" ng-init="vm.wall.status.matched = true"></input>
+
+                  <button type="submit" class="btn btn-primary">Match</button>
+                </fieldset>
+              </form>
+            </div>
+            </td>
+        </tr>
+      </table>
+      <br>
+    </div>
+  <div class = "col-md-2">
+  </div>
+</div>
+
+    </td>
+  </table>
+</div>
+</div>
+
+
+
+<!--
+
+
+
+
+<h4>Services Wanted </h4>
+            <h5 ng-bind="vm.wall.serviceRequested[0]"></h5
+          <h4>Project Specifications</h4>
+             <h5>Wall Address</h5>
+            <h6 ng-bind="vm.wall.Address" ></h6>
+          <br>
+          <h5>Wall Size</h5>
+            <h6 ng-bind="vm.wall.wall_info.length"></h6>
+            <h6 ng-bind="vm.wall.wall_info.length"></h6>
+          <br>
+            <h5>Wall material</h5>
+            <h6 ng-bind="vm.wall.materials"></h6>
+
+          <br>
+          <center>
+            <p>
+              <img ng-src="{{vm.wall.picture}}">
+            </p>
+          </center>
+
+
+
+-->
