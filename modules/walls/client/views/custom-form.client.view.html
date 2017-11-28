@@ -11,6 +11,7 @@ h1{
     background-color: #3ac397;
     border-color: #3ac397;
     background-image: none;
+    float:left;
 }
 .btn:hover{
   transition: background-color 0.3s ease;
@@ -25,6 +26,17 @@ h1{
 }
 body{
   color: #52595d;
+}
+
+.flexbox {
+ display:flex;
+ justify-content:center;
+ align-items: center;
+ flex-flow: column;
+}
+
+#gray{
+background-color: #f2f3f3; 
 }
 </style>
 <section>
@@ -56,26 +68,26 @@ body{
              </div>
        </div>
               <!-- wall info -->
-       <div class="form-group">
+       <div class="form-group" show-errors>
            <label class="control-label" for="wall_info.length">Length</label>
            <input name="wall_info" type="text" ng-model="vm.wall.wall_info.length" id="wall_info.length" class="form-control" placeholder="10', 3m, 108in" required>
 
        </div>
 
-       <div class="form-group" >
+       <div class="form-group" show-errors>
            <label class="control-label" for="wall_info.width">Width</label>
            <input name="wall_info.width" type="text" ng-model="vm.wall.wall_info.width" id="wall_info.width" class="form-control" placeholder="7ft, 84in" required>
        </div>
 
-       <div class="form-group">
+       <div class="form-group" show-errors>
            <label class="control-label" for="loc_type">Location Type</label>
            <input name="loc_type" type="text" ng-model="vm.wall.wall_info.loc_type" id="loc_type" class="form-control" placeholder="Business/Personal">
        </div>
-       <div class="form-group">
+       <div class="form-group" show-errors>
            <label class="control-label" for="material">Material</label>
            <input name="material" type="text" ng-model="vm.wall.wall_info.material" id="material" class="form-control" placeholder="Brick, Concrete, Wood" required>
        </div>
-       <div class="form-group">
+       <div class="form-group" show-errors>
            <label class="control-label" for="finish">Finish</label>
            <input name="finish" type="text" ng-model="vm.wall.wall_info.finish" id="finish" class="form-control" placeholder="Matte, Semi-Gloss, or Gloss" required>
        </div>
@@ -95,7 +107,7 @@ body{
 
  <div class="row">
      <div class="col-sm-5">
-      <div class="form-group">
+      <div class="form-group" show-errors>
         <label class="control-label" for="paint">Paint Brand/Name</label>
         <input name="paint_name" type="text" ng-model="vm.wall.wall_info.paint_name" id="paint_name" class="form-control" required>
       </div>
@@ -151,30 +163,36 @@ body{
      </div>
     <div class="col-sm-6"></div>
  </div>
- <div class="col-sm-3">
-               <h2>What type of room is this?</h2>
-               <input name="room_type" type="text" ng-model="vm.wall.custom_info.room_type" id="room_type" class="form-control" placeholder="Game Room, Kitchen" required><br>
-               <h2>What color scheme do you prefer?</h2>
-               <input name="color_scheme" type="text" ng-model="vm.wall.custom_info.color_scheme" id="color_scheme" class="form-control" placeholder="Red and Blue, Gators, etc" required><br>
-             </div>
+ <div id="gray" class = "row">
+    <div class="col-sm-6">
+     <h4>What type of room is this?</h4>
+     <input name="room_type" type="text" ng-model="vm.wall.custom_info.room_type" id="room_type" class="form-control" placeholder="Game Room, Kitchen" required><br>
+     <h4>What color scheme do you prefer?</h4>
+     <input name="color_scheme" type="text" ng-model="vm.wall.custom_info.color_scheme" id="color_scheme" class="form-control" placeholder="Red and Blue, Gators, etc" required><br>
+   </div>
              <!--
              <div class="form-group">
                  <label class="control-label" for="wall_info.length">Length</label>
                  <input name="wall_info" type="text" ng-model="vm.wall.wall_info.length" id="wall_info.length" class="form-control" placeholder="10', 3m, 108in" required>
              </div>
               -->
-             <div class="col-sm-3">
-               <h2>Specific Elements to Include: </h2>
-               <input name="elements_include" type="text" ng-model="vm.wall.custom_info.elements_include" id="elements_include" class="form-control" placeholder="Alligators, Football" required><br>
-               <h2>Specific Elements not to Include: </h2>
-               <input name="elements_notinclude" type="text" ng-model="vm.wall.custom_info.elements_notinclude" id="elements_notinclude" class="form-control" placeholder="Food, Sports" required><br>
-             </div>
-             <div class="col-sm-3">
-               <h2>What general theme would you like for your mural?</h2>
-               <input name="theme" type="text" ng-model="vm.wall.custom_info.theme" id="theme" class="form-control" placeholder="Space, Gaming" required><br>
-             </div>
-<div class="form-group">
-   <center><button type="submit" class="btn btn-primary">{{vm.wall._id ? 'Update' : 'Create'}}</button></center>
+   <div class="col-sm-6">
+     <h4>Specific Elements to Include: </h4>
+     <input name="elements_include" type="text" ng-model="vm.wall.custom_info.elements_include" id="elements_include" class="form-control" placeholder="Alligators, Football" required><br>
+     <h4>Specific Elements not to Include: </h4>
+     <input name="elements_notinclude" type="text" ng-model="vm.wall.custom_info.elements_notinclude" id="elements_notinclude" class="form-control" placeholder="Food, Sports" required><br>
+   </div>
+   <div class="col-sm-6">
+     <h4>What general theme would you like for your mural?</h4>
+     <input name="theme" type="text" ng-model="vm.wall.custom_info.theme" id="theme" class="form-control" placeholder="Space, Gaming" required><br>
+   </div>
+   <div class= "col-md-6 flexbox">
+     <div class="form-group">
+     <br>
+     <br>
+     <center><button type="submit" class="btn btn-primary">{{vm.wall._id ? 'Update' : 'Create'}}</button></center>
+  </div>
+   </div>
 </div>
 <div ng-show="vm.error" class="text-danger">
 <strong ng-bind="vm.error"></strong>
