@@ -17,6 +17,7 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.update = update;
     vm.userList = Users.query();
 
     // Remove existing Wall
@@ -49,12 +50,31 @@
       function errorCallback(res) {
         vm.error = res.data.message;
       }
-      function matchUpdate(){
-        var user = new Users(vm.user);
-        vm.wall.Artist = user;
-        vm.wall.$save();
+
+    }
+
+    //Update Wall
+    function update(isValid){
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'vm.form.wallForm');
+        return false;
+      }
+
+      // TODO: move create/update logic to service
+      if (vm.wall._id) {
+        vm.wall.$update(successCallback, errorCallback);
+      } else {
+        vm.wall.$save(successCallback, errorCallback);
+      }
+
+      function successCallback(res) {
+        $state.go('walls.list');
+      }
+
+      function errorCallback(res) {
+        vm.error = res.data.message;
       }
     }
   }
-  
+
 }());
