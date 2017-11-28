@@ -87,7 +87,7 @@ exports.list = function(req, res) {
         res.jsonp(walls);
       }
     });
-  }else if(req.user.roles[0] === 'artist'){Wall.find({ 'artist':req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, walls) {
+  }else if(req.user.roles[0] === 'artist'){Wall.find({ "Artist_info.firstName": req.user.firstName }).sort('-created').populate('user', 'displayName').exec(function(err, walls) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)

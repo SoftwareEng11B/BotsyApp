@@ -1,16 +1,15 @@
 <section>
         <!-- Angular files -->
         <!--<script src="./app.js"></script>-->
-     
+
        <div class="page-header">
          <h1>{{vm.wall._id ? 'Edit Wall' : 'New Wall'}}</h1>
        </div>
        <div class="col-md-12">
          <form name="vm.form.wallForm" class="form-horizontal" ng-submit="vm.save(vm.form.wallForm.$valid)" novalidate>
            <fieldset>
-             
+
              <div class="row">
-      
                          <div class="form-group">
                              <div data-ng-show="error" class="text-center text-danger">
                                  <div class="alert alert-danger" role="alert">
@@ -18,17 +17,17 @@
                                  </div>
                              </div>
                          </div>
-     
-     
+
+
                          <!--<div class="col-sm-6 text-center">
                              <img src="modules/walls/client/img/defaultWall.png">
                          </div>-->
                          <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
                            <input name = "picture" input type="filepicker" ng-model = "vm.wall.picture" id="picture"
                            data-fp-apikey="AkNtgum6eTd2rJ3dQA2y6z" required>
-     
-     
-     
+
+
+
                          <div class="col-sm-6">
                              <div class="form-group" show-errors>
                                <label class="control-label" for="name">Name</label>
@@ -41,22 +40,22 @@
                              <div class="form-group">
                                  <label class="control-label" for="wall_info.length">Length</label>
                                  <input name="wall_info" type="text" ng-model="vm.wall.wall_info.length" id="wall_info.length" class="form-control" placeholder="10', 3m, 108in" required>
-                                  
+
                              </div>
-     
+
                              <div class="form-group" >
-                                 <label class="control-label" for="wall_info.width">Width</label>
-                                 <input name="wall_info.width" type="text" ng-model="vm.wall.wall_info.width" id="wall_info.width" class="form-control" placeholder="7ft, 84in" required>
+                                 <label class="control-label" for="wall_info.height">Height</label>
+                                 <input name="wall_info.height" type="text" ng-model="vm.wall.wall_info.height" id="wall_info.height" class="form-control" placeholder="7ft, 84in" required>
                              </div>
-     
+
                              <div class="form-group">
                                  <label class="control-label" for="loc_type">Location Type</label>
                                  <input name="loc_type" type="text" ng-model="vm.wall.wall_info.loc_type" id="loc_type" class="form-control" placeholder="Business/Personal">
                              </div>
                            </div>
                      </div>
-     
-     
+
+
                      <div class="row">
                          <div class="col-sm-3 col-sm-push-3">
                              <div class="form-group">
@@ -79,8 +78,8 @@
                              </div>
                          </div>
                     </div>
-     
- 
+
+
                      <div class="row">
                          <div class="col-sm-6 col-sm-push-6">
                              <div class="form-group">
@@ -113,35 +112,34 @@
                          <div class="col-sm-6">
                              <div class="form-group">
                                  <div class="form-group">
-                                 <label class="control-label" for="Wall_address">Adress and Zip</label>
-                                 <input name="Wall_address" type="text" ng-model="vm.wall.Wall_address" id="Wall_address" class="form-control" placeholder="123 NW MAIN ST, ZIP" required>
+                                 <label class="control-label" for="Wall_address">Address, State & Zip</label>
+                                 <input name="wall_info.address" type="text" ng-model="vm.wall.wall_info.address" id="wall_info.address" class="form-control" placeholder="123 NW MAIN ST,NY ZIP">
                              </div>
                              </div>
                          </div>
                      </div>
-     
-     
-                 
+
+
+
                <!--
                <label class="control-label" for="name">Name</label>
                <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
-     
+
                <label class="control-label" for="name">Name</label>
                <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
-     
+
                <label class="control-label" for="name">Name</label>
                <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
                -->
-     
+               
              <div class="form-group">
                <button type="submit" class="btn btn-default">{{vm.wall._id ? 'Update' : 'Create'}}</button>
              </div>
              <div ng-show="vm.error" class="text-danger">
                <strong ng-bind="vm.error"></strong>
              </div>
-     
+
            </fieldset>
          </form>
        </div>
      </section>
-

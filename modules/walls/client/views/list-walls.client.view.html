@@ -61,7 +61,7 @@ h1{
       <th><center>Quote</center></th>
     </tr>
 
-    <tr ng-repeat="wall in vm.walls">
+    <tr ng-repeat="wall in vm.walls" ng-show="wall.price <= 0">
       <td ng-bind="wall.user.displayName"></td>
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
@@ -85,7 +85,7 @@ h1{
       <th><center>Match</center></th>
     </tr>
 
-    <tr ng-repeat="wall in vm.walls">
+    <tr ng-repeat="wall in vm.walls" ng-show = "wall.status.matched == false">
       <td ng-bind="wall.user.displayName"></td>
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
