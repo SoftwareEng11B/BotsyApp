@@ -34,6 +34,30 @@ var WallSchema = new Schema({
     }],
     default: ['Custom']
   },
+
+  custom_info: {
+    room_type: {
+      type: String,
+      default:''
+    },
+    color_scheme: {
+      type: String,
+      default:''
+    },
+    elements_include: {
+      type: String,
+      default:''
+    },
+    elements_notinclude: {
+      type: String,
+      default:''
+    },
+    theme: {
+      type: String,
+      default:''
+    },
+  },
+
   wall_info: {
     length: {
       type: String,

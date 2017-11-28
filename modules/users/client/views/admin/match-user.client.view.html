@@ -62,6 +62,12 @@ h4{
   display: inline-block;
   vertical-align: middle;
 }
+.thumbnail img {
+    max-height: 100%;
+    max-width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
 
 </style>
 </head>
@@ -76,21 +82,30 @@ h4{
             <h5 ng-bind="user.wall.serviceRequested[0]"></h5> 
           <h4>Project Specifications</h4>
              <h5>Wall Address</h5>
-            <h6 ng-bind="user.wall.Address" ></h6>
+              <h6 ng-bind="user.wall.Address" ></h6>
           <br>
+          
           <h5>Wall Size</h5>
             <h6 ng-bind="user.wall.wall_info.length"></h6>
             <h6 ng-bind="user.wall.wall_info.length"></h6>
           <br>
-            <h5>Wall material</h5>
+          
+          <h5>Wall material</h5>
             <h6 ng-bind="user.wall.materials"></h6>
-        
           <br>
-          <center>
-            <p>
-              <img ng-src="{{user.wall.picture}}">
-            </p>
-          </center>
+          <div class = "row">
+            <div class = "col-md-1">
+            </div>
+            <div class = "col-md-10">
+              <a class = "thumbnail">
+                <img ng-src="{{vm.wall.picture}}">
+              </a>
+            </div>
+            <div class = "col-md-1">
+            </div>
+          </div>
+            
+          
 
       </div>
     </div>

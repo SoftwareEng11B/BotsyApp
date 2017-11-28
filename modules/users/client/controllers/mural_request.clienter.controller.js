@@ -37,8 +37,8 @@ angular.module('users').controller('DnDController', ['$scope', '$state', '$http'
 function ($scope, $state, $http, $window) {
 
   // $window.onload = function(){
-  $scope.message('pls work');      
-        
+  $scope.message('pls work');
+
   // };
-    
+
 }]);

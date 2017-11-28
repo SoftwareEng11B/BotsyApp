@@ -46,6 +46,19 @@
           pageTitle: 'Walls Create'
         }
       })
+      .state('custom-form', {
+        url: '/mural-request-custom-form',
+        templateUrl: 'modules/walls/client/views/custom-form.client.view.html',
+        controller: 'WallsController',
+        controllerAs: 'vm',
+        resolve: {
+          wallResolve: newWall
+        },
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Walls Create'
+        }
+      })
       .state('walls.edit', {
         url: '/:wallId/edit',
         templateUrl: 'modules/walls/client/views/form-wall.client.view.html',
@@ -59,38 +72,31 @@
           pageTitle: 'Edit Wall {{ wallResolve.name }}'
         }
       })
-
-
-
-
-
-
-
          // route to show our basic form (/form)
         .state('form', {
-            url: '/form',
-            templateUrl: 'modules/walls/client/views/form-view/form.html'//,
+          url: '/form',
+          templateUrl: 'modules/walls/client/views/form-view/form.html'//,
             //controller: 'formController'
         })
 
-        // nested states 
+        // nested states
         // each of these sections will have their own view
         // url will be nested (/form/profile)
         .state('form.profile', {
-            url: '/profile',
-             templateUrl: 'modules/walls/client/views/form-view/form-profile.html'
+          url: '/profile',
+          templateUrl: 'modules/walls/client/views/form-view/form-profile.html'
         })
 
         // url will be /form/interests
         .state('form.interests', {
-            url: '/interests',
-             templateUrl: 'modules/walls/client/views/form-view/form-interests.html'
+          url: '/interests',
+          templateUrl: 'modules/walls/client/views/form-view/form-interests.html'
         })
 
         // url will be /form/payment
         .state('form.payment', {
-            url: '/payment',
-             templateUrl: 'modules/walls/client/views/form-view/form-payment.html'
+          url: '/payment',
+          templateUrl: 'modules/walls/client/views/form-view/form-payment.html'
         })
 
 

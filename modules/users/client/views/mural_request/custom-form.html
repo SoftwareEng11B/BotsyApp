@@ -40,19 +40,19 @@
           <form>
             <div class="col-sm-3">
               <h2>What type of room is this?</h2>
-              <input type="text" placeholder="Game Room, Kitchen" name="room"><br>
+              <input name="room_type" type="text" ng-model="vm.wall.custom_info.room_type" id="room_type" class="form-control" placeholder="Game Room, Kitchen" required><br>
               <h2>What color scheme do you prefer?</h2>
-              <input type="text" placeholder="Red and Blue, Gators, etc" name="colors"><br>
+              <input name="color_scheme" type="text" ng-model="vm.wall.custom_info.color_scheme" id="color_scheme" class="form-control" placeholder="Red and Blue, Gators, etc" required><br>
             </div>
             <div class="col-sm-3">
               <h2>Specific Elements to Include: </h2>
-              <input type="text" placeholder="Alligators, Football" name="include"><br>
+              <input name="elements_include" type="text" ng-model="vm.wall.custom_info.elements_include" id="elements_include" class="form-control" placeholder="Alligators, Football" required><br>
               <h2>Specific Elements not to Include: </h2>
-              <input type="text" placeholder="Food, Sports" name="not_include"><br>
+              <input name="elements_notinclude" type="text" ng-model="vm.wall.custom_info.elements_notinclude" id="elements_notinclude" class="form-control" placeholder="Food, Sports" required><br>
             </div>
             <div class="col-sm-3">
               <h2>What general theme would you like for your mural?</h2>
-              <input type="text" placeholder="Space, Gaming, Abstract" name="theme"><br>
+              <input name="theme" type="text" ng-model="vm.wall.custom_info.theme" id="theme" class="form-control" placeholder="Space, Gaming" required><br>
             </div>
           </form>
         </div>
