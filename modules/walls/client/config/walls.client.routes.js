@@ -46,6 +46,19 @@
           pageTitle: 'Walls Create'
         }
       })
+      .state('custom-form', {
+        url: '/mural-request-custom-form',
+        templateUrl: 'modules/walls/client/views/custom-form.client.view.html',
+        controller: 'WallsController',
+        controllerAs: 'vm',
+        resolve: {
+          wallResolve: newWall
+        },
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Walls Create'
+        }
+      })
       .state('walls.edit', {
         url: '/:wallId/edit',
         templateUrl: 'modules/walls/client/views/form-wall.client.view.html',
