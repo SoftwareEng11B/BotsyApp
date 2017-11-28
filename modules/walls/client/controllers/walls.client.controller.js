@@ -18,7 +18,7 @@
     vm.remove = remove;
     vm.save = save;
     vm.user1 = Authentication.user;
-  
+    vm.usersList = Users.query();
 
     // Remove existing Wall
     function remove() {
