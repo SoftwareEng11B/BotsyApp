@@ -152,6 +152,22 @@ var WallSchema = new Schema({
       default:''
     },
 
+  Artist_info: {
+    firstName: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    lastName: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    ID: {
+      type: String,
+      required: false,
+      default: ''
+    }
   },
   price: {
     type: String,
@@ -165,6 +181,6 @@ var WallSchema = new Schema({
     type: Date
   }
 
-});
+};
 
 mongoose.model('Wall', WallSchema);

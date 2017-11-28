@@ -42,6 +42,14 @@
             </div>
           </div>
         </div>
+
+        <div class="form-group" show-errors>
+          <label for="roles">Type of Account: </label>
+            <input type ="radio" name="roles" ng-model="credentials.roles" id="roles" style="margin-right: 0" value="user">Customer</input>
+            <input type ="radio" name="roles" ng-model="credentials.roles" id="roles" style="margin-right: 0" value ="artist">Artist</input>
+        </div>
+
+
         <div class="form-group" ng-show="!userForm.password.$error.required">
           <label>Password Requirements</label>
           <progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></progressbar>

@@ -4,12 +4,22 @@
     <style>
     article, aside, figure, footer, header, hgroup,
     menu, nav, section { display: block; }
+    .col-sm-3 {
+    	background-color: #f2f3f3;
+    	width: 300px;
+    	border: 25px;
+    	padding: 25px;
+    	margin: 25px;
+    }
+    .row{
+      text-align: center;
+    }
     h1 {
       font-family: 'Lato', sans-serif;
       font-size: 32px;
       font-weight: 700;
       color: #e05e60;
-      text-align: center;
+      /*text-align: center;*/
     }
     h2 {
       font-family: 'Lato', sans-serif;
@@ -23,26 +33,31 @@
     </style>
   </head>
   <header>
-    <div class="row">
-      <h1>CUSTOM MURAL INFO</h1><br>
-    </div>
+      <h1>Custom Mural Info</h1><br>
   </header>
   <body class="ng-scope">
     <div class="container">
-        <div class="row">
           <form>
-            <h2>Room Type: </h2>
-            <input type="text" placeholder="Game Room, Kitchen" name="room"><br>
-            <h2>Colors: </h2>
-            <input type="text" placeholder="Purple, Black, Gators" name="colors"><br>
-            <h2>Specific Elements to Include: </h2>
-            <input type="text" placeholder="Alligators, Football" name="include"><br>
-            <h2>Specific Elements not to Include: </h2>
-            <input type="text" placeholder="Food, Sports" name="not_include"><br>
-            <h2>Theme: </h2>
-            <input type="text" placeholder="Space, Gaming" name="theme"><br>
-            <br><input ui-sref-active="active"  ui-sref="preview-request"  type="submit" value="Get a Custom Mural">
+            <div class="col-sm-3">
+              <h2>What type of room is this?</h2>
+              <input type="text" placeholder="Game Room, Kitchen" name="room"><br>
+              <h2>What color scheme do you prefer?</h2>
+              <input type="text" placeholder="Red and Blue, Gators, etc" name="colors"><br>
+            </div>
+            <div class="col-sm-3">
+              <h2>Specific Elements to Include: </h2>
+              <input type="text" placeholder="Alligators, Football" name="include"><br>
+              <h2>Specific Elements not to Include: </h2>
+              <input type="text" placeholder="Food, Sports" name="not_include"><br>
+            </div>
+            <div class="col-sm-3">
+              <h2>What general theme would you like for your mural?</h2>
+              <input type="text" placeholder="Space, Gaming, Abstract" name="theme"><br>
+            </div>
           </form>
+        </div>
+        <div class="row">
+          <br><input ui-sref-active="active"  ui-sref="wall-information"  type="submit" value="Get a Custom Mural">
         </div>
     </div>
   </body>
