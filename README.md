@@ -39,6 +39,38 @@ Credit to:
  Drag and Drop : https://imgur.com/a/Ko0H8
  
  2. Then you continue to fill out information on the new wall page https://imgur.com/a/v213D
+	
+	
+	
+How to run locally: 
+	1. Git clone the file  
+	2. Make sure you are on the master branch 
+	3. Grunt --force 
+	
+	Be sure that you npm, mongodb install 
+	Follow this for help: https://docs.google.com/document/d/1gl-KM2EHZ2jHWgrjN9Pi8CZXeAMpi-ztqbn5l_83DrE/edit 
+	
+	
+Database : 
+
+Issues:
+	- Be sure to fill in information for transporter information 
+	- Be sure to use grunt --force 
+	- Be sure to fill in database information 
+	
+Not Implement Features:
+ 	- pricing (no code written) 
+	- link to shopify (no code written)
+	- progress bar (some code written) 
+	- matching(some code written) 
+	- better implementation of artist (some code written)
+	- better schedule for artist (some code written) 
+	- matching more than one artist (some code written) 
+	
+	
+	
+	
+	
  
  
  
