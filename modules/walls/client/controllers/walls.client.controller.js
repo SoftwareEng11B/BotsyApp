@@ -19,6 +19,7 @@
     vm.save = save;
     vm.user1 = Authentication.user;
     vm.update = update;
+    vm.email = email;
     vm.userList = Users.query();
 
 
@@ -123,6 +124,25 @@
         vm.error = res.data.message;
       }
     }
+
+    function email(){
+      console.log(5);
+      
+      var data = ({
+        contactName : vm.wall.user.displayName,
+        contactEmail : vm.wall.user.email,
+        contactMsg : vm.wall.name,
+      });
+
+      vm.wall.$http.post('/api/auth/contact-us', data).
+        success(function(data, status, headers, config) {
+          $state.go('home', $state.previous.params);
+        }).
+        error(function(data, status, headers, config) {
+        });
+
+    }
+
   }
 
 }());
