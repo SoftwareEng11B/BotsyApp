@@ -58,114 +58,91 @@ h4{
   justify-content: space-between;
 
 }
-
-
+.vertical-align{
+  display: inline-block;
+  vertical-align: middle;
+}
 
 </style>
 </head>
 <h1><center>Make a match</center></h1>
-<div>
-<table>
-  <td>
-    <div class="card">
-      <div class="container">
+<div class = "row">
+  <div class = "col-md-4">
+		<div class="card col-md-12">
+      <div class="container col-md-12">
         <center><h3 ng-bind="user.firstName + ' ' + user.lastName"></h3></center>
-        <h4>Services Wanted </h4> 
-          <h5> ng-bind="user.wall.serviceRequested"</h5> 
-        <h4>Project Specifications</h4>
-          <h5> ng-bind="user.wall.location" 
-            <br>
-            ng-bind="user.wall.size"
-            <br>
+        	<h4>Services Wanted </h4> 
+            <h5> ng-bind="user.wall.serviceRequested"</h5> 
+        	<h4>Project Specifications</h4>
+          	<h5> ng-bind="user.wall.location" 
+          <br>
+          ng-bind="user.wall.size"
+          <br>
             ng-bind="user.wall.materials"
-            <br>
+          <br>	
             ng-bind="user.wall.completeByDate"
           </h5>  
-        <center><h4>Image_of_wall.png</h4></center>
-
+        	<center><h4>Image_of_wall.png</h4></center>
       </div>
     </div>
-  </td>
-  <td>
+  </div>
+  <div class = "col-md-1 align-middle center">
     <h1><center>+</center></h1>
-  </td>
-  <td>
-    <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
+  </div>
+    <div class = col-md-7>
+    	<input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
+      
       <table>
         <tr>
           <th>Name</th>
-          <th>Skills</th> 
-          <th>Location</th> 
           <th>Match?</th>
         </tr>
 
-          <!-- <tr ng-repeat="user in pagedItems">
-            <td> ng-bind="artist.firstName + ' ' + artist.lastName"></td>
-            <td> ng-bind="artist.skills"></td>
-            <td> ng-bind="artist.location"></td>
-          -->
-        <tr>
-          <td>Jake, from StateFarm</td>
-          <td>Painter</td>
-          <td>Gainesville</td>
+        <tr ng-repeat="user in pagedItems">
+          <td ng-bind="user.firstName + ' hello ' + user.lastName"></td>
           <td align = "center"> 
-            <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> Preview</a></center> 
+            <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> Preview</a> 
           </td>
-        </tr>
-        <tr>
-          <td>Henry Designz</td>
-          <td>Graphic Designer + Botsy Artist</td>
-          <td>Gainesville</td>
-          <td align = "center"> 
-            <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> 
-            Preview
-            </a></center> 
-          </td>
-          </tr>
-          <tr>
-            <td>Henry Designz</td>
-            <td>Graphic Designer + Botsy Artist</td>
-            <td>Gainesville</td>
-            <td align = "center"> 
-            <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> 
-            Preview
-            </a></center> </td>
-          </tr>
         </tr>
       </table>
+
+    </div>
+</div>
+    
     </td>
   </table>
 </div>
-
+<br>
+<div class = "row">
   <h1><center>Preview</center></h1>
-    <table>
-      <td>
-        <div class="card">
-          <div class="container">
-            <center><h3 ng-bind="user.firstName + ' ' + user.lastName"></h3></center>
-            <h4>Services Wanted </h4> 
-              <h5> ng-bind="user.wall.serviceRequested"</h5> 
-            <h4>Project Specifications</h4>
-              <h5> ng-bind="user.wall.location" 
-                <br>
-                ng-bind="user.wall.size"
-                <br>
-                ng-bind="user.wall.materials"
-                <br>
-                ng-bind="user.wall.completeByDate"
-              </h5>  
-            <center><h4>Image_of_wall.png</h4></center>
-
-          </div>
-        </div>
-      </td>
-      <td>
+</div>
+<div class = "row">
+  <div class = "col-md-4">
+    <div class="card col-md-12">
+      <div class="container col-md-12">
+        <center><h3 ng-bind="user.firstName + ' ' + user.lastName"></h3></center>
+          <h4>Services Wanted </h4> 
+            <h5> ng-bind="user.wall.serviceRequested"</h5> 
+          <h4>Project Specifications</h4>
+            <h5> ng-bind="user.wall.location" 
+          <br>
+            ng-bind="user.wall.size"
+          <br>
+            ng-bind="user.wall.materials"
+          <br>
+            ng-bind="user.wall.completeByDate"
+          </h5>  
+          <center><h4>Image_of_wall.png</h4></center>
+      </div>
+    </div>
+  </div>
+  <div class = "col-md-1">
       <h1><center>+</center></h1>
-      </td>
-  <td>
-  <div class="card">
-    <div class="container">
-       <center><h3> ng-bind="artist.firstName + ' ' + artist.lastName"></h3></center>
+  </div>
+  <div class = "col-md-4">
+    <div class="card col-md-12">
+      <div class="container col-md-12">
+        <h3> ng-bind="artist.firstName + ' ' + artist.lastName"></h3>
         <h4>Services Provided</h4>  
           <h5> ng-bind="artist.services"</h5>
         <h4>Location</h4>  
@@ -174,7 +151,11 @@ h4{
           <h5> ng-bind="artist.schedule"</h5>
       </div>
     </div>
-  <td><h1><center>=</center></h1></td>
-  <td> 
-    <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> Match!</a></center> </td>
-  </td>
+  </div>
+  <div class = "col-md-1">
+    <td><h1><center>=</center></h1></td> 
+  </div>
+  <div class = "col-md-2">
+    <center><a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})"> Match!</a></center> </td>
+  </div>
+</div>

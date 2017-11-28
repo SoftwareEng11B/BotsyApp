@@ -45,26 +45,21 @@ h4{
   background-image: none;
 }
 
-</style> 
+</style>
 
   <div class="col-md-12 text-center">
-    <center><h1 ng-bind= "'Quote for ' + user.firstName + ' ' + user.lastName"></h1></center>
+    <center><h1 ng-bind= "'Quote for ' + vm.wall.name"></h1></center>
 
 
   <div class= "row">
   <br>
-  <br>
-  <h1>Image of wall with dimensions here</h1>
-  <br>
-  <br>
-  <h3>Deatils of wall here: 
-  <br>
-        paint type
-  <br>
-        wall type
-  <br>
-        size
-  </h3>
+  <h3 ng-bind="'Height:'+ vm.wall.wall_info.height "></h3>
+  <h3 ng-bind="'Width: ' + vm.wall.wall_info.length"></h3>
+  <h3 ng-bind="'Wall Type: ' + vm.wall.Wall_type"></h3>
+  <h3 ng-bind="'Paint Type: ' + vm.wall.wall_info.paint"></h3>
+  <h3 ng-bind="'Paint Prep: ' + vm.wall.wall_info.prep"></h3>
+  <h3 ng-bind="'Paint Recolor: ' + vm.wall.wall_info.recolor"></h3>
+
   <br>
   <br>
   <h1>Image of wall with mural design here</h1>
@@ -76,21 +71,15 @@ h4{
   </div>
   <div class="row">
     <div class= "container col-md-6 col-md-offset-3">
-    <form name="userForm" ng-submit="contactform(userForm.$valid)" class="contactus" novalidate autocomplete="off">
+    <form name="vm.form.quoteForm" ng-submit="vm.update(vm.form.quoteForm.$valid)" novalidate autocomplete="off">
       <fieldset>
-        <div class="form-group" show-errors>
-          <center><label for="firstName">Total Mural Cost</label></center>
-          <input type="text"  class="form-control" placeholder="example: $180" required>
-          <div ng-messages="userForm.firstName.$error" role="alert">
-          </div>
+        <div class="form-group" >
+          <center><label for="quote">Total Mural Cost</label></center>
+          <input type="text"  ng-model="vm.wall.price" id="price" class="form-control" placeholder="example: $180" required>
         </div>
         <div class="text-center form-group">
           <button type="submit" class="btn btn-primary">Submit quote</button>
         </div>
-        <div ng-show="error" class="text-center text-danger">
-          <strong ng-bind="error"></strong>
-        </div>
-
       </fieldset>
     </form>
   </div>
