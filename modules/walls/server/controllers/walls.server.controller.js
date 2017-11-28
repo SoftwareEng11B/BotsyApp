@@ -80,7 +80,7 @@ exports.list = function(req, res) {
   if(req.user.roles[0] === 'user'){
     Wall.find({ 'user':req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, walls) {
       if (err) {
-      return res.status(400).send({
+        return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
@@ -89,7 +89,7 @@ exports.list = function(req, res) {
     });
   }else if(req.user.roles[0] === 'artist'){Wall.find({ 'artist':req.user.id }).sort('-created').populate('user', 'displayName').exec(function(err, walls) {
     if (err) {
-      return res.status(400).send({
+        return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
