@@ -74,7 +74,6 @@
           </form>
 
           <script>
-        
           function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -239,6 +238,7 @@
             var blob = new Blob([b64toBlob(outcan.toDataURL('png').replace(/^data:image\/(png|jpg);base64,/, ""), "image/png")], { type: "image/png" });
             saveAs(blob, canvas_filename.value);
 
+
             confirm('Please Save this image locally to use it in the following step');
 
           });
@@ -301,6 +301,7 @@
       </div>
 
 
+
       Upload Your Own design: <input type='file' onchange="readURL(this);" />
       <button class="btn" id="addTextbox">Add textbox</button>
       <button class="btn btn-danger clear" id="confirmClear">Clear canvas</button>
@@ -308,7 +309,6 @@
       <div id="right" class="col-md-2">
         
          <div id="images">
-            <output id="list"></output>
             
 
           <ul>
@@ -325,6 +325,7 @@
           <br>
           <img draggable="true" src="http://fabricjs.com/assets/6.svg" width="100" height="100">
           <br>
+
           <img draggable="true" src="https://cdn.filestackcontent.com/FJPi2nTQJConuxlJ77Wc" width="100" height="100">
 
           </ul>
@@ -340,6 +341,7 @@
           <img draggable="true" src="http://fabricjs.com/assets/47.svg" width="100" height="100">
 
           <br>
+
           <img draggable="true" src="https://cdn.filestackcontent.com/EyyS6XWYRyOMmCTdtFoO" width="100" height="100">
           <br>
           <img draggable="true" src="https://cdn.filestackcontent.com/hrRGnPfNTSe5ub06Fhpk" width="100" height="100">
@@ -360,6 +362,7 @@
         </div>
         </div>
       </div>
+
 
     <input ui-sref-active="active"  ui-sref="walls.create"  type="submit" value="Get a Custom Mural">
 </div>

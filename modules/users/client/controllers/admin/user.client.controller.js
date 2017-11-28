@@ -41,6 +41,13 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
           userId: user._id
         });
       }
+    }; 
+    $scope.quote = function(user) {
+      if(user){
+        $state.go('admin.quote', {
+          userId: user._id
+        });
+      }
     };
   }
 ]);

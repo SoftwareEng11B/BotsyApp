@@ -36,7 +36,7 @@ var WallSchema = new Schema({
       default:'1'
     },
 
-    width: {
+    height: {
       type: String,
       required: true,
       default:'1'
@@ -146,16 +146,34 @@ var WallSchema = new Schema({
     comment: {
       type: String,
       default:''
-    },
-
+    }
   },
 
+  Artist_info: {
+    firstName: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    lastName: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    ID: {
+      type: String,
+      required: false,
+      default: ''
+    }
+  },
+  price: {
+    type: String,
+    default: ''
+  },
   Artist: {
     type: Schema.ObjectId,
     ref: 'User'
   },
-
-
   updated: {
     type: Date
   }

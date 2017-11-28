@@ -58,25 +58,32 @@ h1{
   <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
 </div>
 
-<div class=span style = "margin-top: 2em">
+<div class="row">
+  <div class="col-sm-12">
+  </div>
+</div>
 <table>
   <tr>
+  <br>
     <th>Name</th>
     <th>Email</th>
     <th>User Role</th>
-    <th>Match Status</th>
+    <th>Edit</th>
   </tr>
 
   <tr ng-repeat="user in pagedItems">
-    <td ui-sref="admin.user({userId: user._id})" ng-bind="user.firstName + ' ' + user.lastName"></td>
-    <td ui-sref="admin.user({userId: user._id})" ng-bind="user.email"></td>
-    <td ui-sref="admin.user({userId: user._id})" ng-bind="user.roles"></td>
+    <div ng-if="user.roles == 'artist'">
+      <td ng-bind="user.firstName + ' ' + user.lastName"></td>
+      <td ng-bind="user.email"></td>
+      <td ng-bind="user.roles"></td>
     <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
-    <td align = "center">
-    <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user-match({userId: user._id})">
-    Match
-    </a>
-     </center> </td>
+      <td align = "center"> 
+        <a class="btn btn-primary btn-round-sm btn-sm" ui-sref="admin.user({userId: user._id})"> 
+        Edit User
+        </a>
+      </td>
+    </div>
+
   </tr>
 </table>
 <br>
