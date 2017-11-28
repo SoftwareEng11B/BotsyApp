@@ -22,7 +22,7 @@
     vm.userList = Users.query();
 
 
-    
+
 
     vm.saveStatus =function(){
       vm.wall.$update();
