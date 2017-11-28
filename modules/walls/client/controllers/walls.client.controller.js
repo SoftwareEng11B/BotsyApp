@@ -22,6 +22,19 @@
     vm.userList = Users.query();
 
 
+    
+    
+    vm.saveStatus =function(){
+      vm.wall.$update();
+    }
+
+    vm.saveHasQuote = function (){
+      vm.wall.status.hasQuote = true;
+      var wallToUpdate = vm.wall;
+      wallToUpdate.$update();
+    
+    }
+
     // Remove existing Wall
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
@@ -43,8 +56,19 @@
         vm.wall.$save(successCallback, errorCallback);
       }
 
+      function matche(){
+        vm.wall.Artist
+      }
+      function Quote(){}
+      function completed(){}
+      function paid(){}
+
       function successCallback(res) {
        /* var user = new Users(vm.user1);
+
+       comment: ""
+      
+      Wall_Imges: Object
 
         if (user.wallList.length>0){
           user.wallList = [res._id];

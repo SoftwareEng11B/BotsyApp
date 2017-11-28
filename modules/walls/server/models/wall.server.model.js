@@ -36,7 +36,7 @@ var WallSchema = new Schema({
       default:'1'
     },
 
-    height: {
+    Width: {
       type: String,
       required: true,
       default:'1'
