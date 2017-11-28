@@ -264,7 +264,7 @@ exports.sendMail = function(req, res) {
     text: data.contactMsg,
     attachments:[
       { filename: 'botsy.png',
-      path: 'http://gnvurbanart.com/wp-content/uploads/2017/02/DSC01378.jpg',
+      path: data.contactPNG,
       cid:'botsy.png' }
     ]
   });

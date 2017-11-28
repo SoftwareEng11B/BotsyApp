@@ -41,15 +41,18 @@
       var data = ({
         contactName : vm.wall.user.displayName,
         contactEmail : vm.wall.user.email,
-        contactMsg : "Length: " + vm.wall.wall_info.length +"Width" + vm.wall.wall_info.width +
-        "Type of Location:" + vm.wall.wall_info.loc_type +
-        "Material:"+ vm.wall.wall_info.material +
-        "Finish:" +vm.wall.wall_info.finish +
-        "Paint Name:" +vm.wall.wall_info.paint_name +
-        "Required Preparation:" +vm.wall.wall_info.prep_req+
-        "Required Paint:" +vm.wall.wall_info.paint_req +
-        "Recoloring:"+ vm.wall.wall_info.recolor +
-        "Type of Wall:"+vm.wall.Wall_type
+        contactMsg : "  Wall name:    " + vm.wall.name +
+        "  Length:    " + vm.wall.wall_info.length +
+        "  Width  " + vm.wall.wall_info.width +
+        "  Type of Location:  " + vm.wall.wall_info.loc_type +
+        "  Material:  "+ vm.wall.wall_info.material +
+        "  Finish:  " +vm.wall.wall_info.finish +
+        "  Paint Name:  " +vm.wall.wall_info.paint_name +
+        "  Required Preparation:  " +vm.wall.wall_info.prep_req+
+        "  Required Paint:  " +vm.wall.wall_info.paint_req +
+        "  Recoloring:  "+ vm.wall.wall_info.recolor +
+        "  Type of Wall:  "+vm.wall.Wall_type,
+        contactPNG: vm.wall.picture
       });
 
       $http.post('/api/auth/contact-us', data).
