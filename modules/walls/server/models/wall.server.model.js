@@ -10,6 +10,8 @@ var mongoose = require('mongoose'),
  * Wall Schema
  */
 var WallSchema = new Schema({
+  picture: { type: String, required: true
+  },
   name: {
     type: String,
     default: '',
@@ -26,74 +28,67 @@ var WallSchema = new Schema({
     ref: 'User'
   },
 
-
   wall_info: {
+
     length: {
-      type: String, 
+      type: String,
       required: true,
       default:'1'
     },
 
-    height: {
-      type: String, 
+    width: {
+      type: String,
       required: true,
       default:'1'
     },
 
     loc_type: {
-      type: String, 
+      type: String,
       required: true,
       default: 'home',
     },
 
     material: {
-      type: String, 
+      type: String,
       required: true,
       default:'none'
     },
 
     finish: {
-      type: String, 
+      type: String,
       required: true,
       default:'none'
     },
 
-    paint: {
-      type: String, 
+    paint_name: {
+      type: String,
       required: true,
       default:'none'
     },
 
     paint_type: {
-      type: String, 
+      type: String,
       required: true,
       default:'none'
     },
 
     prep_req: {
-      type: String, 
+      type: String,
       required: false,
       default:'none'
     },
 
-    prep: {
-      type: String, 
+    paint_req: {
+      type: String,
+      required: true,
+      default:'none'
+    },
+    recolor: {
+      type: String,
       required: true,
       default:'none'
     },
 
-    paint_req: {
-      type: String, 
-      required: true,
-      default:'none'
-    },
-    
-    recolor: {
-      type: String, 
-      required: true,
-      default:'none'
-    },
-      
   },
 
 
@@ -127,16 +122,17 @@ var WallSchema = new Schema({
   },
 
   status: {
+
     paid: {
       type: Boolean,
       default: false,
     },
-      
+
     matched: {
       type: Boolean,
       default: false,
-    },  
-      
+    },
+
     completed: {
       type: Boolean,
       default: false,
@@ -148,14 +144,11 @@ var WallSchema = new Schema({
     },
 
     comment: {
-      type: String, 
+      type: String,
       default:''
     },
-    
+
   },
-
-
-
 
   Artist: {
     type: Schema.ObjectId,
