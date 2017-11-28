@@ -88,10 +88,6 @@ angular.module('users').config(['$stateProvider',
         url: '/mural-request-mural-select',
         templateUrl: 'modules/users/client/views/mural_request/mural-select.html'
       })
-      .state('custom-form', {
-        url: '/mural-request-custom-form',
-        templateUrl: 'modules/walls/client/views/custom-form.html'
-      })
       .state('DD-blank', {
         url: '/mural-request-DD-blank',
         templateUrl: 'modules/users/client/views/mural_request/DD-blank.html'
