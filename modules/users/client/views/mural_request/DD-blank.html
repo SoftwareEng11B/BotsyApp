@@ -101,7 +101,7 @@
       <div class="col-md-9">
       <p style="color:#52595d">
       <h4 style="color : #52595d"> Upload Wall Image: <input class="btn button" type="file" id="fileUpload"/></h4>
-      <h5 style="float: center">*Please use arrows and text boxes to dimension for reference*
+      <h5>
           <button class="button btn center" id="addTextbox" title="Use text box and arrows to dimension your wall!">Add textbox</button>
           <button class="btn clear center" id="confirmClear">Clear canvas</button>
       </h5>
@@ -123,11 +123,12 @@
                         .attr('src', e.target.result)
                         .width(100)
                         .height(100);
+
                 };
 
                 reader.readAsDataURL(input.files[0]);
             }
-        }
+          }
 
           var canvas = new fabric.Canvas('canvas');
           var currentlyDragging;
@@ -317,10 +318,10 @@
               fill: 'red',
               fontWeight: 'bold',
               originX: 'left',
-              width: 300,
+              width: 275,
               hasRotatingPoint: true,
               centerTransform: true,
-              borderColor: '#969b9d'
+              borderColor: '#7f8486'
             });
 
             canvas.add(textSample);
@@ -332,6 +333,87 @@
             }
           });
 
+
+
+          function toDataURL(src, callback, outputFormat) {
+          var img = new Image();
+          img.crossOrigin = 'Anonymous';
+          img.onload = function() {
+            var canvas = document.createElement('CANVAS');
+            var ctx = canvas.getContext('2d');
+            var dataURL;
+            canvas.height = this.naturalHeight;
+            canvas.width = this.naturalWidth;
+            ctx.drawImage(this, 0, 0);
+            dataURL = canvas.toDataURL(outputFormat);
+            callback(dataURL);
+          };
+          img.src = src;
+          if (img.complete || img.complete === undefined) {
+            img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+            img.src = src;
+          }
+          }
+
+          toDataURL(
+            'https://cdn.filestackcontent.com/thJuSGTQdyMGXNIVymIq',
+            function(dataUrl) {
+              $('#bleh')
+                                  .attr('src',dataUrl)
+                                  .width(100)
+                                  .height(100);
+            }
+          )
+
+            toDataURL(
+            'https://cdn.filestackcontent.com/xrJ6m1ThSFGX8vPut433',
+            function(dataUrl) {
+              $('#bloh')
+                                  .attr('src',dataUrl)
+                                  .width(100)
+                                  .height(100);
+            }
+          )
+
+          toDataURL(
+            'https://cdn.filestackcontent.com/FJPi2nTQJConuxlJ77Wc',
+            function(dataUrl) {
+              $('#yoo')
+                                  .attr('src',dataUrl)
+                                  .width(100)
+                                  .height(100);
+            }
+          )
+
+          toDataURL(
+            'https://cdn.filestackcontent.com/mWzEgl8VS6KvFiRH2XEb',
+            function(dataUrl) {
+              $('#yee')
+                                  .attr('src',dataUrl)
+                                  .width(100)
+                                  .height(100);
+            }
+          )
+
+          toDataURL(
+            'https://cdn.filestackcontent.com/EyyS6XWYRyOMmCTdtFoO',
+            function(dataUrl) {
+              $('#breh')
+                                  .attr('src',dataUrl)
+                                  .width(100)
+                                  .height(100);
+            }
+          )
+
+          toDataURL(
+            'https://cdn.filestackcontent.com/hrRGnPfNTSe5ub06Fhpk',
+            function(dataUrl) {
+              $('#broh')
+                                  .attr('src',dataUrl)
+                                  .width(100)
+                                  .height(100);
+            }
+          )
           </script>
 
         </div>
@@ -355,9 +437,9 @@
 
           <img draggable="true" id="blah" src="#"  alt="" />
           <br>
-          <img draggable="true" src="https://cdn.filestackcontent.com/thJuSGTQdyMGXNIVymIq" width="100" height="100">
+          <img draggable="true" id="bleh" src="#" width="100" height="100">
           <br>
-          <img draggable="true" src="https://cdn.filestackcontent.com/xrJ6m1ThSFGX8vPut433" width="100" height="100">
+          <img draggable="true" id="bloh" src="#" width="100" height="100">
           <br>
           <img draggable="true" src="http://fabricjs.com/assets/1.svg" width="100" height="100">
           <br>
@@ -370,7 +452,7 @@
           <img draggable="true" src="http://fabricjs.com/assets/6.svg" width="100" height="100">
           <br>
 
-          <img draggable="true" src="https://cdn.filestackcontent.com/FJPi2nTQJConuxlJ77Wc" width="100" height="100">
+          <img draggable="true" id="yoo" src="#" width="100" height="100">
 
           </ul>
           <ul>
@@ -386,28 +468,21 @@
 
           <br>
 
-          <img draggable="true" src="https://cdn.filestackcontent.com/EyyS6XWYRyOMmCTdtFoO" width="100" height="100">
+          <img draggable="true" id="breh" src="#" width="100" height="100">
           <br>
-          <img draggable="true" src="https://cdn.filestackcontent.com/hrRGnPfNTSe5ub06Fhpk" width="100" height="100">
+          <img draggable="true" id="broh" src="#" width="100" height="100">
           <br>
-          <img draggable="true" src="https://cdn.filestackcontent.com/38EhcnNuTDS5sOH1krME" width="100" height="100">
+          <img draggable="true" id="yee" src="#" width="100" height="100">
           <br>
-          <img draggable="true" src="https://cdn.filestackcontent.com/2STUpwxmTAytOkWqB43h" width="100" height="100">
-          <br>
-          <img draggable="true" src="https://cdn.filestackcontent.com/GTw0N7egT3qbvp7REo0G" width="100" height="100">
-          <br>
-          <img draggable="true" src="https://cdn.filestackcontent.com/5cIDaNqRSDOVhqtKwLU9" width="100" height="100">
-          <br>
-          <img draggable="true" src="https://cdn.filestackcontent.com/mWzEgl8VS6KvFiRH2XEb" width="100" height="100">
-          <br>
-          <img draggable="true" src="http://fabricjs.com/assets/47.svg" width="100" height="100">
+          
 
-          </ul>
+          </ul>          
         </div>
       </div>
-      <div>
+      
+      <p>
       <input class="btn success go btn-lg" ui-sref-active="active"  ui-sref="walls.create"  type="submit" value = "Move on to Next Step" > 
-      </div>
+      </p>
     </div>
       
 </div>

@@ -37,15 +37,6 @@ describe('Users E2E Tests:', function () {
       element(by.id('signin')).click();
       expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/authentication/signin');
     });
-    it('should redirect to the mural-reqeust screen', function () {
-      element(by.id('startRequest')).click();
-      expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/mural-request-mural-select');
-    });
-    it('should redirect to view current request', function () {
-      element(by.id('startRequest')).click();
-      expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/walls/jobs');
-    });
-    
   /*it('should redirect to the botsy about page', function () {
     element(by.id('about')).click();
     expect(browser.getCurrentUrl()).toEqual('https://www.botsy.com/pages/about-us');
@@ -265,7 +256,7 @@ describe('Users E2E Tests:', function () {
       expect(element.all(by.css('.error-text')).get(0).getText()).toBe('The password must contain at least one special character.');
     });
 
-    it('Should Successfully register new user', function () {
+    /*it('Should Successfully register new user', function () {
       browser.get('http://localhost:3000/authentication/signup');
       // Enter FirstName
       element(by.model('credentials.firstName')).sendKeys(user1.firstName);
@@ -277,11 +268,10 @@ describe('Users E2E Tests:', function () {
       element(by.model('credentials.username')).sendKeys(user1.username);
       // Enter Password
       element(by.model('credentials.password')).sendKeys(user1.password);
+      // Click radio button
+      element(by.)
       // Click Submit button
-      element(by.id('user')).click();
-
-
-
+      element(by.css('button[type="submit"]')).click();
       expect(browser.getCurrentUrl()).toEqual('http://localhost:3000/');
     });
 
@@ -323,7 +313,7 @@ describe('Users E2E Tests:', function () {
       element(by.css('button[type=submit]')).click();
       // Password Error
       expect(element.all(by.css('strong')).get(0).getText()).toBe('Username already exists');
-    });
+    });*/
 
   });
 
