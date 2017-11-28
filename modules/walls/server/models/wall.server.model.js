@@ -157,12 +157,23 @@ var WallSchema = new Schema({
 
 
 
-  Artist: {
-    type: Schema.ObjectId,
-    ref: 'User'
+  Artist_info: {
+    firstName: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    lastName: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    ID: {
+      type: String,
+      required: false,
+      default: ''
+    }
   },
-
-
   updated: {
     type: Date
   }
