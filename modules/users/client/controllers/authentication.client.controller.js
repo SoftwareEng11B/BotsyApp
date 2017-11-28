@@ -22,6 +22,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         return false;
       }
 
+
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
@@ -101,11 +102,9 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       $http.post('/api/auth/contact-us', data).
         success(function(data, status, headers, config) {
-          console.log(1);
           $state.go('home', $state.previous.params);
         }).
         error(function(data, status, headers, config) {
-          console.log(0);
         });
 
     };

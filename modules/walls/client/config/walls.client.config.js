@@ -26,7 +26,7 @@
     menuService.addSubMenuItem('topbar', 'walls', {
       title: 'Create Wall',
       state: 'walls.create',
-      roles: ['admin']
+      roles: ['admin','user']
     });
   }
 }());
