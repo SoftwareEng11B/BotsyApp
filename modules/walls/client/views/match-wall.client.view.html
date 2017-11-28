@@ -81,14 +81,26 @@ h4{
       <div class="container col-md-12">
         <center><h3 ng-bind="'Project: ' + vm.wall.name"></h3></center>
         <center><h5 ng-bind="'Customer: ' + vm.wall.user.firstName + ' ' + vm.wall.user.lastName"></h5></center>
-        	<h4>Services Wanted </h4>
-            <h5> ng-bind="user.wall.serviceRequested"</h5>
-        	<h4>Project Specifications</h4>
-          	<h5 ng-bind="'Height: ' + vm.wall.wall_info.height"></h5>
-            <h5 ng-bind="'Width: ' + vm.wall.wall_info.length"></h5>
-            <h5 ng-bind="'Price: ' + vm.wall.price"></h5>
+          <h4>Services Wanted </h4> 
+            <h5 ng-bind="vm.wall.serviceRequested[0]"></h5> 
+          <h4>Project Specifications</h4>
+             <h5>Wall Address:</h5>
+            <h6 ng-bind="vm.wall.address" ></h6>
           <br>
-        	<center><h4>Image_of_wall.png</h4></center>
+          <h5>Wall Size:</h5>
+            <h6 ng-bind="'length: ' + vm.wall.wall_info.length">&nbsp</h6>
+            <h6 ng-bind="'width: ' + vm.wall.wall_info.width"></h6>
+          <br>
+            <h5>Wall material:</h5>
+            <h6 ng-bind="vm.wall.wall_info.material"></h6>
+        
+          <br>
+          <center>
+            
+              <img ng-src="{{vm.wall.picture}}">
+            
+          </center>
+          <br>
       </div>
     </div>
   </div>
@@ -149,3 +161,34 @@ h4{
   </table>
 </div>
 </div>
+
+
+
+<!--
+
+
+
+
+<h4>Services Wanted </h4> 
+            <!--h5 ng-bind="vm.wall.serviceRequested[0]"></h5--> 
+          <h4>Project Specifications</h4>
+             <h5>Wall Address</h5>
+            <!---h6 ng-bind="vm.wall.Address" ></h6-->
+          <br>
+          <h5>Wall Size</h5>
+            <h6 ng-bind="vm.wall.wall_info.length"></h6>
+            <h6 ng-bind="vm.wall.wall_info.length"></h6>
+          <br>
+            <h5>Wall material</h5>
+            <h6 ng-bind="vm.wall.materials"></h6>
+        
+          <br>
+          <center>
+            <p>
+              <img ng-src="{{vm.wall.picture}}">
+            </p>
+          </center>
+
+
+
+-->

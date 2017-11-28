@@ -27,19 +27,29 @@ var WallSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
-
+  serviceRequested: {
+    type: [{
+      type: String,
+      enum: ['Custom', 'Logo','DIY']
+    }],
+    default: ['Custom']
+  },
   wall_info: {
-
     length: {
       type: String,
       required: true,
       default:'1'
     },
 
-    Width: {
+    width: {
       type: String,
       required: true,
       default:'1'
+    },
+    address: {
+      type: String,
+      required: true,
+      default:''
     },
 
     loc_type: {
@@ -126,6 +136,10 @@ var WallSchema = new Schema({
     paid: {
       type: Boolean,
       default: false,
+    },
+    price: {
+      type: String,
+      default: ''
     },
 
     matched: {
