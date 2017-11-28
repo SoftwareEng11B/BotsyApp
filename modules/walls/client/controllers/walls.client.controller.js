@@ -22,18 +22,18 @@
     vm.userList = Users.query();
 
 
-    
-    
+
+
     vm.saveStatus =function(){
       vm.wall.$update();
-    }
+    };
 
     vm.saveHasQuote = function (){
       vm.wall.status.hasQuote = true;
       var wallToUpdate = vm.wall;
       wallToUpdate.$update();
-    
-    }
+
+    };
 
     // Remove existing Wall
     function remove() {
@@ -57,7 +57,7 @@
       }
 
       function matche(){
-        vm.wall.Artist
+        vm.wall.Artist;
       }
       function Quote(){}
       function completed(){}
@@ -67,7 +67,7 @@
        /* var user = new Users(vm.user1);
 
        comment: ""
-      
+
       Wall_Imges: Object
 
         if (user.wallList.length>0){
@@ -79,21 +79,21 @@
           user.wallList.push(res._id);
           user.$update();
           console.log("update");
-        } 
+        }
         vm.user1 = user;*/
-        
+
         $state.go('walls.view', {
           wallId: res._id
         });
       }
 
       // we will store all of our form data in this object
-    $scope.formData = {};
+      $scope.formData = {};
 
     // function to process the form
-    $scope.processForm = function() {
+      $scope.processForm = function() {
         alert('awesome!');
-    };
+      };
 
       function errorCallback(res) {
         vm.error = res.data.message;

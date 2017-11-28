@@ -7,7 +7,7 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
       $scope.buildPager();
     });
 
-     $scope.wall = WallsService.query();
+    $scope.wall = WallsService.query();
 
     $scope.buildPager = function () {
       $scope.pagedItems = [];
