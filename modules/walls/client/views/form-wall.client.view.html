@@ -1,3 +1,32 @@
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+.btn-primary {
+    border-radius: 15px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+.thumbnail img {
+    max-height: 400px;
+    max-width: 100%;
+    border-color: #ffffff;
+}
+body{
+  color: #52595d;
+}
+</style>
 <section>
         <!-- Angular files -->
         <!--<script src="./app.js"></script>-->
@@ -8,137 +37,129 @@
        <div class="col-md-12">
          <form name="vm.form.wallForm" class="form-horizontal" ng-submit="vm.save(vm.form.wallForm.$valid)" novalidate>
            <fieldset>
-
              <div class="row">
-
-                         <div class="form-group">
-                             <div data-ng-show="error" class="text-center text-danger">
-                                 <div class="alert alert-danger" role="alert">
-                                     <strong data-ng-bind="error"></strong>
-                                 </div>
-                             </div>
-                         </div>
-
-
-                         <!--<div class="col-sm-6 text-center">
-                             <img src="modules/walls/client/img/defaultWall.png">
-                         </div>-->
-                         <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
-                           <input name = "picture" input type="filepicker" ng-model = "vm.wall.picture" id="picture"
-                           data-fp-apikey="AkNtgum6eTd2rJ3dQA2y6z" required>
-
-
-
-                         <div class="col-sm-6">
-                             <div class="form-group" show-errors>
-                               <label class="control-label" for="name">Name</label>
-                               <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
-                                   <div ng-messages="vm.form.wallForm.name.$error" role="alert">
-                                     <p class="help-block error-text" ng-message="required">Wall name is required.</p>
-                                   </div>
-                             </div>
-                                    <!-- wall info -->
-                             <div class="form-group">
-                                 <label class="control-label" for="wall_info.length">Length</label>
-                                 <input name="wall_info" type="text" ng-model="vm.wall.wall_info.length" id="wall_info.length" class="form-control" placeholder="10', 3m, 108in" required>
-
-                             </div>
-
-                             <div class="form-group" >
-                                 <label class="control-label" for="wall_info.height">Height</label>
-                                 <input name="wall_info.height" type="text" ng-model="vm.wall.wall_info.height" id="wall_info.height" class="form-control" placeholder="7ft, 84in" required>
-                             </div>
-
-                             <div class="form-group">
-                                 <label class="control-label" for="loc_type">Location Type</label>
-                                 <input name="loc_type" type="text" ng-model="vm.wall.wall_info.loc_type" id="loc_type" class="form-control" placeholder="Business/Personal">
-                             </div>
-                           </div>
-                     </div>
-
-
-                     <div class="row">
-                         <div class="col-sm-3 col-sm-push-3">
-                             <div class="form-group">
-                                 <label class="control-label" for="material">Material</label>
-                                 <input name="material" type="text" ng-model="vm.wall.wall_info.material" id="material" class="form-control" placeholder="Brick, Concrete, Wood" required>
-                             </div>
-                             <div class="form-group">
-                                 <label class="control-label" for="finish">Finish</label>
-                                 <input name="finish" type="text" ng-model="vm.wall.wall_info.finish" id="finish" class="form-control" placeholder="Matte, Semi-Gloss, or Gloss" required>
-                             </div>
-                         </div>
-                         <div class="col-sm-3 col-sm-pull-3">
-                             <div class="form-group">
-                                   <label class="control-label" for="paint">Paint Brand/Name</label>
-                                 <input name="paint_name" type="text" ng-model="vm.wall.wall_info.paint_name" id="paint_name" class="form-control" required>
-                             </div>
-                             <div class="form-group">
-                                <label class="control-label" for="paint_type">Paint Type</label>
-                                 <input name="paint_type" type="text" ng-model="vm.wall.wall_info.paint_type" id="paint_type" class="form-control" required>
-                             </div>
-                         </div>
-                    </div>
-
-
-                     <div class="row">
-                         <div class="col-sm-6 col-sm-push-6">
-                             <div class="form-group">
-                                 <label class="control-label" for="prep_req">Preparation Required:</label>
-                                 <input name="prep_req" type="text" ng-model="vm.wall.wall_info.prep_req" id="prep_req" class="form-control" placeholder="Sanding, Scraping, etc. (or none)" required>
-                             </div>
-                         </div>
-                         <div class="col-sm-6 col-sm-pull-6">
-                             <div class="form-group">
-                                   <label class="control-label" for="paint_req">Repainting Required:</label>
-                                 <input name="paint_req" type="text" ng-model="vm.wall.wall_info.paint_req" id="paint_req" class="form-control" placeholder="yes/no" required>
-                             </div>
-                             <div class="form-group">
-                                <label class="control-label" for="recolor">Recolor:</label>
-                                 <input name="recolor" type="text" ng-model="vm.wall.wall_info.recolor" id="recolor" class="form-control" placeholder="Red, Blue, etc." required>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="row">
-                         <div class="col-sm-6">
-                             <div class="form-group">
-                                 <div class="form-group">
-                                 <label class="control-label" for="Wall_type">Type of Wall</label>
-                                 <input name="Wall_type" type="text" ng-model="vm.wall.Wall_type" id="Wall_type" class="form-control" placeholder="Wall_type" required>
-                             </div>
-                             </div>
-                         </div>
-                     </div>
-                      <div class="row">
-                         <div class="col-sm-6">
-                             <div class="form-group">
-                                 <div class="form-group">
-                                 <label class="control-label" for="Wall_address">Address, State & Zip</label>
-                                 <input name="wall_info.address" type="text" ng-model="vm.wall.wall_info.address" id="wall_info.address" class="form-control" placeholder="123 NW MAIN ST,NY ZIP">
-                             </div>
-                             </div>
-                         </div>
-                     </div>
-
-
-
-               <!--
-               <label class="control-label" for="name">Name</label>
-               <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
-               <label class="control-label" for="name">Name</label>
-               <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
-               <label class="control-label" for="name">Name</label>
-               <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
-               -->
-
-             <div class="form-group">
-               <button type="submit" class="btn btn-default">{{vm.wall._id ? 'Update' : 'Create'}}</button>
+                <div class="form-group">
+                   <div data-ng-show="error" class="text-center text-danger">
+                      <div class="alert alert-danger" role="alert">
+                          <strong data-ng-bind="error"></strong>
+                      </div>
+                   </div>
+                </div>
+              </div> <!-- added this div b/c spacing-->
+<div class = "row">
+   <div class="col-sm-5">
+       <div class="form-group" show-errors>
+         <label class="control-label" for="name">Name</label>
+         <input name="name" type="text" ng-model="vm.wall.name" id="name" class="form-control" placeholder="Name" required>
+             <div ng-messages="vm.form.wallForm.name.$error" role="alert">
+               <p class="help-block error-text" ng-message="required">Wall name is required.</p>
              </div>
-             <div ng-show="vm.error" class="text-danger">
-               <strong ng-bind="vm.error"></strong>
-             </div>
-
-           </fieldset>
-         </form>
        </div>
-     </section>
+              <!-- wall info -->
+       <div class="form-group">
+           <label class="control-label" for="wall_info.length">Length</label>
+           <input name="wall_info" type="text" ng-model="vm.wall.wall_info.length" id="wall_info.length" class="form-control" placeholder="10', 3m, 108in" required>
+
+       </div>
+
+       <div class="form-group" >
+           <label class="control-label" for="wall_info.width">Width</label>
+           <input name="wall_info.width" type="text" ng-model="vm.wall.wall_info.width" id="wall_info.width" class="form-control" placeholder="7ft, 84in" required>
+       </div>
+
+       <div class="form-group">
+           <label class="control-label" for="loc_type">Location Type</label>
+           <input name="loc_type" type="text" ng-model="vm.wall.wall_info.loc_type" id="loc_type" class="form-control" placeholder="Business/Personal">
+       </div>
+       <div class="form-group">
+           <label class="control-label" for="material">Material</label>
+           <input name="material" type="text" ng-model="vm.wall.wall_info.material" id="material" class="form-control" placeholder="Brick, Concrete, Wood" required>
+       </div>
+       <div class="form-group">
+           <label class="control-label" for="finish">Finish</label>
+           <input name="finish" type="text" ng-model="vm.wall.wall_info.finish" id="finish" class="form-control" placeholder="Matte, Semi-Gloss, or Gloss" required>
+       </div>
+   </div>
+   <div class = "col-sm-1"></div>
+   <div class = "col-sm-6">
+     <a class = "thumbnail">
+     <center> <img ng-src={{vm.wall.picture}}></center>
+     </a>
+      <br>
+      <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+      <center><input name = "picture" input type="filepicker" ng-model = "vm.wall.picture" id="picture"
+          data-fp-apikey="AkNtgum6eTd2rJ3dQA2y6z" required></center>
+   </div>
+</div>
+
+
+ <div class="row">
+     <div class="col-sm-5">
+      <div class="form-group">
+        <label class="control-label" for="paint">Paint Brand/Name</label>
+        <input name="paint_name" type="text" ng-model="vm.wall.wall_info.paint_name" id="paint_name" class="form-control" required>
+      </div>
+     </div>
+     <div class = "col-sm-2"></div>
+     <div class="col-sm-5">
+         <div class="form-group">
+            <label class="control-label" for="paint_type">Paint Type</label>
+            <input name="paint_type" type="text" ng-model="vm.wall.wall_info.paint_type" id="paint_type" class="form-control" required>
+         </div>
+     </div>
+</div>
+
+ <div class="row">
+     <div class="col-sm-5">
+        <div class="form-group">
+               <label class="control-label" for="paint_req">Repainting Required:</label>
+             <input name="paint_req" type="text" ng-model="vm.wall.wall_info.paint_req" id="paint_req" class="form-control" placeholder="yes/no" required>
+       </div>
+     </div>
+     <div class = "col-sm-2"></div>
+     <div class="col-sm-5">
+       <div class="form-group">
+             <label class="control-label" for="prep_req">Preparation Required:</label>
+             <input name="prep_req" type="text" ng-model="vm.wall.wall_info.prep_req" id="prep_req" class="form-control" placeholder="Sanding, Scraping, etc. (or none)" required>
+       </div>
+    </div>
+ </div>
+ <div class="row">
+  <div class ="col-sm-5">
+    <div class="form-group">
+      <label class="control-label" for="recolor">Recolor:</label>
+             <input name="recolor" type="text" ng-model="vm.wall.wall_info.recolor" id="recolor" class="form-control" placeholder="Red, Blue, etc." required>
+    </div>
+  </div>
+  <div class = "col-sm-2"></div>
+  <div class="col-sm-5">
+    <div class="form-group">
+        <label class="control-label" for="Wall_type">Type of Wall</label>
+        <input name="Wall_type" type="text" ng-model="vm.wall.Wall_type" id="Wall_type" class="form-control" placeholder="Wall_type" required>
+    </div>
+   </div>
+ </div>
+ <div class="row">
+   <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <div class="form-group">
+            <label class="control-label" for="Wall_address">City, State & Zip</label>
+            <center><input name="wall_info.address" type="text" ng-model="vm.wall.wall_info.address" id="wall_info.address" class="form-control" placeholder="Gainesville,FL ZIP"></center>
+            </div>
+         </div>
+     </div>
+    <div class="col-sm-6"></div>
+ </div>
+
+<div class="form-group">
+   <center><button type="submit" class="btn btn-primary">{{vm.wall._id ? 'Update' : 'Create'}}</button></center>
+</div>
+<div ng-show="vm.error" class="text-danger">
+<strong ng-bind="vm.error"></strong>
+</div>
+
+</fieldset>
+</form>
+</div>
+</section>
