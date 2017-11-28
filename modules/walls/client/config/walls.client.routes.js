@@ -24,7 +24,7 @@
         }
       })
       .state('walls.jobs', {
-        url: '',
+        url: '/jobs',
         templateUrl: 'modules/walls/client/views/list-jobs-walls.client.view.html',
         controller: 'WallsListController',
         controllerAs: 'vm',
