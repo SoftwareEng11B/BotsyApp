@@ -31,12 +31,43 @@
       padding-top: 20px;
       border: 1px solid #ccc;
         box-shadow: 0 0 5px 1px #dddddd;
+        border-radius: 10px;
     }
 
-    .button:hover{
-      background-color: green;
-      color: black;
+    .button{
+      border-radius: 40px;
+      background: #969b9d;
+      color: white;
+      box-shadow: 0 0 5px 1px #dddddd;
+
     }
+    .clear{
+      border-radius: 40px;
+      background: #e05e60;
+      color: white;
+      box-shadow: 0 0 5px 1px #dddddd;
+
+    }
+    .success{
+      border-radius: 40px;
+      background: #3ac397;
+      color: white;
+      box-shadow: 0 0 5px 1px #dddddd;
+
+    }
+    .success:hover{
+      background-color: #31aa84;
+      color: white;
+    }
+    .button:hover{
+      background-color: #7f8486;
+      color: white;
+    }
+    .clear:hover{
+      background-color: red;
+      color: white;
+    }
+
     [draggable] {
         -moz-user-select: none;
         -khtml-user-select: none;
@@ -51,6 +82,7 @@
     canvas {
         border: 1px solid #ccc;
         box-shadow: 0 0 5px 1px #dddddd;
+        border-radius: 10px;
     }
 
     #canvas,#canvas_back{
@@ -67,20 +99,19 @@
 
       <!-- <div class="col-md-1"></div> -->
       <div class="col-md-9">
-      <h4 style="color : #e05e60"> Upload Wall Image: <input class="btn btn-primary" type="file" id="fileUpload"/></h4>
-      <button class="button btn" id="addTextbox">Add textbox</button>
-      <button class="btn btn-danger" id="confirmClear">Clear canvas</button>  
+      <p style="color:#52595d">
+      <h4 style="color : #52595d"> Upload Wall Image: <input class="btn button" type="file" id="fileUpload"/></h4>
+      <h5 style="float: center">*Please use arrows and text boxes to dimension for reference*
+          <button class="button btn center" id="addTextbox" title="Use text box and arrows to dimension your wall!">Add textbox</button>
+          <button class="btn clear center" id="confirmClear">Clear canvas</button>
+      </h5>
+      </p> 
       <div id="canvas-container">
           
           
           <canvas id="canvas_back" width="950" height="700"></canvas>
           <canvas id="canvas" width="950" height="700"></canvas>
           <canvas id="canvas_out" width="950" height="700" hidden="true"></canvas>
-
-          <form id="canvs-options">
-            <label style="color:green">Finish Wall: </label>
-            <input class="btn btn-success" id="save" type="submit" value="Save">
-          </form>
 
           <script>
           function readURL(input) {
@@ -100,9 +131,6 @@
 
           var canvas = new fabric.Canvas('canvas');
           var currentlyDragging;
-
-          var canvas_options_form = $("canvas-options");
-
           var canvas_filename = $("canvas-filename");
           var cavos = document.getElementById("canvas");
           var ctx_front = cavos.getContext('2d');
@@ -278,42 +306,48 @@
           }
 
           $("#addTextbox").click(function () {
-    var text = 'Enter measurement here';
+            var text = 'Enter measurement here';
 
-    var textSample = new fabric.Textbox(text.slice(0, 22), {
-      fontSize: 20,
-      left: 10,
-      top: 10,
-      fontFamily: 'Lato',
-      angle: 0,
-      fill: 'red',
-      fontWeight: 'bold',
-      originX: 'left',
-      width: 300,
-      hasRotatingPoint: true,
-      centerTransform: true,
-      borderColor: '#969b9d'
-    });
+            var textSample = new fabric.Textbox(text.slice(0, 22), {
+              fontSize: 20,
+              left: 10,
+              top: 10,
+              fontFamily: 'Lato',
+              angle: 0,
+              fill: 'red',
+              fontWeight: 'bold',
+              originX: 'left',
+              width: 300,
+              hasRotatingPoint: true,
+              centerTransform: true,
+              borderColor: '#969b9d'
+            });
 
-    canvas.add(textSample);
-  });
+            canvas.add(textSample);
+          });
 
-  $("#confirmClear").click(function () {
-    if (confirm('Are you sure you would like to clear the canvas?')) {
-      canvas.clear();
-    }
-  });
+          $("#confirmClear").click(function () {
+            if (confirm('Are you sure you would like to clear the canvas?')) {
+              canvas.clear();
+            }
+          });
 
           </script>
 
         </div>
+
+
+      <h5>
+        <input class="btn-lg success" id="save" type="submit" value="Save Wall">
+      </h5>
+
       </div>
 
 
 
-      Upload Your Own design: <input type='file' onchange="readURL(this);" />
+      <h4 style="color : #52595d">Upload Your Own design: <input class="button btn" type='file' onchange="readURL(this);" /></h4>
       <h3>Select Designs:</h3>
-      <div id="right" class="col-md-3">
+      <div id="right" class="col-md-3" title="DRAG AND DROP DESIGNS ONTO YOUR WALL">
         
          <div id="images">
 
@@ -371,9 +405,9 @@
           </ul>
         </div>
       </div>
+      <div>
+      <input class="btn success go btn-lg" ui-sref-active="active"  ui-sref="walls.create"  type="submit" value = "Move on to Next Step" > 
       </div>
-      <input class="btn btn-lg" ui-sref-active="active"  ui-sref="walls.create"  type="submit"  style ="background-color: #2fc496;
-        color: white;
-        border-radius: 40px;
-        box-shadow: 0 1px 3px grey;" value = "Move on with Mural request process" > 
+    </div>
+      
 </div>
