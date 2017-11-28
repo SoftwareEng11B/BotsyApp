@@ -49,10 +49,11 @@ h4{
 }
 </style>
 <section>
-    <div class="page-header">
+    <div class="page-header" ng-submit="vm.email()">
       <h1 ng-bind="vm.wall.name"></h1>
+      <input type="submit" value ="Submit">
     </div>
-    
+
     <div class="pull-right"
          ng-show="vm.wall.isCurrentUserOwner">
       <a class="btn btn-primary"
@@ -100,4 +101,3 @@ h4{
       </p></center>
     </div>    
   </section>
-  
