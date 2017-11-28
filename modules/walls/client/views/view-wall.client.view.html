@@ -1,3 +1,53 @@
+<style>
+table {
+    font-family: lato;
+    color: #52595d;
+    border-collapse: collapse;
+    width: 100%;
+}
+form{
+  font-family: lato;
+  color: #52595d;
+}
+th{font-size: 20px;}
+
+td, th {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px
+}
+tr:nth-child(even) {
+    background-color: #f2f3f3;
+}
+td.redish{color: #e05e60;}
+td.mint{color: #3ac397;}
+
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+h4{
+  color:#52595d;
+}
+.btn-primary {
+    border-radius: 15px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+.thumbnail img {
+    max-height: 100%;
+    max-width: 100%;
+}
+</style>
 <section>
     <div class="page-header">
       <h1 ng-bind="vm.wall.name"></h1>
@@ -15,7 +65,7 @@
     </div>
     <small>
       <em class="text-muted">
-        Posted on
+        Created
         <span ng-bind="vm.wall.created | date:'mediumDate'"></span>
         by
         <span ng-if="vm.wall.user"
@@ -23,22 +73,31 @@
         <span ng-if="!vm.wall.user">Deleted User</span>
       </em>
     </small>
-    <p class="lead" ng-bind="vm.wall.content"></p>
-    <p>
-        <img ng-src="{{vm.wall.picture}}">
-    </p>
-    <p>
-      Length: {{vm.wall.wall_info.length}}<br>
-      Width: {{vm.wall.wall_info.width}}<br>
-      Type of Location: {{vm.wall.wall_info.loc_type}}<br>
-      Material: {{vm.wall.wall_info.material}}<br>
-      Finish: {{vm.wall.wall_info.finish}}<br>
-      Paint Name: {{vm.wall.wall_info.paint_name}}<br>
-      Required Preparation: {{vm.wall.wall_info.prep_req}}<br>
-      Required Paint: {{vm.wall.wall_info.paint_req}}<br>
-      Recoloring: {{vm.wall.wall_info.recolor}}<br>
-      Type of Wall: {{vm.wall.Wall_type}}<br>
-    </p>
-        
+    <div class = row>
+      <div class = "col-md-2">
+      </div>
+      <div class = "container">
+        <div class = "col-md-9">
+          <a class = "thumbnail">
+          <center><img ng-src="{{vm.wall.picture}}"></center>
+          </a>
+        </div>
+      </div>
+      <div class = "col-md-2">
+      </div>
+    </div>
+      <center><p>
+        <h4> Length: {{vm.wall.wall_info.length}}</h4>
+        <h4>Width: {{vm.wall.wall_info.width}}</h4>
+        <h4>Type of Location: {{vm.wall.wall_info.loc_type}}</h4>
+        <h4>Material: {{vm.wall.wall_info.material}}</h4>
+        <h4>Finish: {{vm.wall.wall_info.finish}}</h4>
+        <h4>Paint Name: {{vm.wall.wall_info.paint_name}}</h4>
+        <h4>Required Preparation: {{vm.wall.wall_info.prep_req}}</h4>
+        <h4>Required Paint: {{vm.wall.wall_info.paint_req}}</h4>
+        <h4>Recoloring: {{vm.wall.wall_info.recolor}}</h4>
+        <h4>Type of Wall: {{vm.wall.Wall_type}}</h4>
+      </p></center>
+    </div>    
   </section>
   
