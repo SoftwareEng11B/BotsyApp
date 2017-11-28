@@ -3,24 +3,9 @@
   <div class="page-header">
     <h1>Drag and Drop</h1>
   </div>
- 
-  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.19/fabric.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> -->
-  <!-- <script>
-  // window.Modernizr || document.write('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js">\x3C/script>')
-  // window.fabric || document.write('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.19/fabric.min.js">\x3C/script>')
-  // window.FileSaver || document.write('<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js">\x3C/script>')
-  window.dd_funct || document.wirte('<script type="text/javascript" src="dd_funct.js">\x3C/script>');
-  </script>
-   -->
+
   <style>
-  /* #canvas-container {
-    position: absolute;
-    width: 480px;
-    height: 500px;
-    margin: 10px 0px;
-    } */
+
     img {
       height: 100px;
       width: 100px;
@@ -29,6 +14,23 @@
 
     #images .img_dragging {
         opacity: 0.4;
+    }
+
+      #right{
+        position: relative;
+        height: 700px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        overflow-y: auto;
+        width: 15%;
+        align-content: center;
+        align-items: center;
+      /* height: 75%; */
+      background-color: rgb(192, 185, 185);
+      padding-top: 20px;
+      border: 1px solid #ccc;
+        box-shadow: 0 0 5px 1px #dddddd;
     }
 
     [draggable] {
@@ -49,29 +51,44 @@
 
     #canvas,#canvas_back{
             position:absolute;
-            width:900 px;
-            height:700px;
+            width:750 px;
+            height:650px;
     }
   </style>
-  <div>
+  <div class="container-fluid">
     <div class="row">
+
      
-      <div class="col-xs-1"></div>
-      <div class="col-xs-7">
-      <h4 style="color : blue"> Upload Wall Image: <input class="btn btn-primary" type="file" id="fileUpload"/></h4>
+      <!-- <div class="col-md-1"></div> -->
+      <div class="col-md-8">
+      <h4 style="color : #e05e60"> Upload Wall Image: <input class="btn btn-primary" type="file" id="fileUpload"/></h4>
         <div id="canvas-container">
-            <!-- {{message}} -->
+        
           
-          <canvas id="canvas_back" width="900" height="700"></canvas>
-          <canvas id="canvas" width="900" height="700"></canvas>
-          <canvas id="canvas_out" width="900" height="700" hidden="true"></canvas>
+          <canvas id="canvas_back" width="750" height="650"></canvas>
+          <canvas id="canvas" width="750" height="650"></canvas>
+          <canvas id="canvas_out" width="750" height="650" hidden="true"></canvas>
           <form id="canvs-options">
             <label style="color:green">Finish Wall: </label>
             <input class="btn btn-success" id="save" type="submit" value="Save">
           </form>
 
           <script>
-          
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(100)
+                        .height(100);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
           var canvas = new fabric.Canvas('canvas');
           var currentlyDragging;
 
@@ -221,7 +238,8 @@
             var blob = new Blob([b64toBlob(outcan.toDataURL('png').replace(/^data:image\/(png|jpg);base64,/, ""), "image/png")], { type: "image/png" });
             saveAs(blob, canvas_filename.value);
 
-            console.log("hit");
+
+            confirm('Please Save this image locally to use it in the following step');
 
           });
 
@@ -249,15 +267,54 @@
             var blob = new Blob(byteArrays, { type: contentType });
             return blob;
           }
+
+          $("#addTextbox").click(function () {
+    var text = 'Enter measurement here';
+
+    var textSample = new fabric.Textbox(text.slice(0, 22), {
+      fontSize: 20,
+      left: 10,
+      top: 10,
+      fontFamily: 'Lato',
+      angle: 0,
+      fill: '#00ff00',
+      fontWeight: '',
+      originX: 'left',
+      width: 300,
+      hasRotatingPoint: true,
+      centerTransform: true,
+      borderColor: '#969b9d'
+    });
+
+    canvas.add(textSample);
+  });
+
+  $("#confirmClear").click(function () {
+    if (confirm('Are you sure you would like to clear the canvas?')) {
+      canvas.clear();
+    }
+  });
+
           </script>
 
         </div>
       </div>
 
-      <div id="images" >
+
+
+      Upload Your Own design: <input type='file' onchange="readURL(this);" />
+      <button class="btn" id="addTextbox">Add textbox</button>
+      <button class="btn btn-danger clear" id="confirmClear">Clear canvas</button>
+      <h3>Select Designs:</h3>
+      <div id="right" class="col-md-2">
         
-      <ul>
-          <ul  class="col-xs-2">
+         <div id="images">
+            
+
+          <ul>
+                    
+          <img draggable="true" id="blah" src="#"  alt="" />
+          <br>
           <img draggable="true" src="http://fabricjs.com/assets/1.svg" width="100" height="100">
           <br>
           <img draggable="true" src="http://fabricjs.com/assets/3.svg" width="100" height="100">
@@ -268,10 +325,11 @@
           <br>
           <img draggable="true" src="http://fabricjs.com/assets/6.svg" width="100" height="100">
           <br>
-          <img draggable="true" src="http://fabricjs.com/assets/26.svg" width="100" height="100">
-        
+
+          <img draggable="true" src="https://cdn.filestackcontent.com/FJPi2nTQJConuxlJ77Wc" width="100" height="100">
+
           </ul>
-          <ul  class="col-xs-2">
+          <ul>
           <img draggable="true" src="http://fabricjs.com/assets/20.svg" width="100" height="100">
           <br>
           <img draggable="true" src="http://fabricjs.com/assets/28.svg" width="100" height="100">
@@ -281,13 +339,30 @@
           <img draggable="true" src="http://fabricjs.com/assets/68.svg" width="100" height="100">
           <br>
           <img draggable="true" src="http://fabricjs.com/assets/47.svg" width="100" height="100">
+
+          <br>
+
+          <img draggable="true" src="https://cdn.filestackcontent.com/EyyS6XWYRyOMmCTdtFoO" width="100" height="100">
+          <br>
+          <img draggable="true" src="https://cdn.filestackcontent.com/hrRGnPfNTSe5ub06Fhpk" width="100" height="100">
+          <br>
+          <img draggable="true" src="https://cdn.filestackcontent.com/38EhcnNuTDS5sOH1krME" width="100" height="100">
+          <br>
+          <img draggable="true" src="https://cdn.filestackcontent.com/2STUpwxmTAytOkWqB43h" width="100" height="100">
+          <br>
+          <img draggable="true" src="https://cdn.filestackcontent.com/GTw0N7egT3qbvp7REo0G" width="100" height="100">
+          <br>
+          <img draggable="true" src="https://cdn.filestackcontent.com/5cIDaNqRSDOVhqtKwLU9" width="100" height="100">
+          <br>
+          <img draggable="true" src="https://cdn.filestackcontent.com/mWzEgl8VS6KvFiRH2XEb" width="100" height="100">
+          <br>
+          <img draggable="true" src="http://fabricjs.com/assets/47.svg" width="100" height="100">
           
-        </ul>
-      </ul>
-        
-        
+          </ul>
+        </div>
         </div>
       </div>
 
-    <input ui-sref-active="active"  ui-sref="preview-request"  type="submit" value="Get a Custom Mural">
+
+    <input ui-sref-active="active"  ui-sref="walls.create"  type="submit" value="Get a Custom Mural">
 </div>

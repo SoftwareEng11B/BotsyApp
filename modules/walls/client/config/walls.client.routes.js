@@ -23,6 +23,16 @@
           pageTitle: 'Walls List'
         }
       })
+      .state('walls.jobs', {
+        url: '/jobs',
+        templateUrl: 'modules/walls/client/views/list-jobs-walls.client.view.html',
+        controller: 'WallsListController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['user', 'artist'],
+          pageTitle: 'Walls List'
+        }
+      })
       .state('walls.create', {
         url: '/create',
         templateUrl: 'modules/walls/client/views/form-wall.client.view.html',
@@ -100,7 +110,47 @@
         data: {
           pageTitle: 'Wall {{ wallResolve.name }}'
         }
+      })
+      .state('walls.quote', {
+        url: '/:wallId/quote',
+        templateUrl: 'modules/walls/client/views/quote-wall.client.view.html',
+        controller: 'WallsController',
+        controllerAs: 'vm',
+        resolve: {
+          wallResolve: getWall
+        },
+        data: {
+          pageTitle: 'Wall quote'
+        }
+      })
+
+      .state('walls.match', {
+        url:'/:wallId/match',
+        templateUrl: 'modules/walls/client/views/match-wall.client.view.html',
+        controller: 'WallsController',
+        controllerAs: 'vm',
+        resolve: {
+          wallResolve: getWall
+        },
+        data: {
+          pageTitle: 'Quote Project'
+        }
+      })
+      ;
+/*
+      .state('walls.match',{
+        url:'/walls/:wallId/match',
+        templateUrl: '/modules/walls/client/views/quote-wall.client.view.html',
+        controller: 'WallsController',
+        controllerAs: 'vm',
+        resolve:{
+          wallResolve: ['$stateParams', function($stateParams){
+            return get({wallId: $stateParams.wallId});
+          }]
+        }
       });
+Breaks entire wall section of menu, controller won't route properly
+*/
   }
 
   getWall.$inject = ['$stateParams', 'WallsService'];

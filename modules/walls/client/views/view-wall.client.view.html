@@ -1,28 +1,44 @@
 <section>
-  <div class="page-header">
-    <h1 ng-bind="vm.wall.name"></h1>
-  </div>
-  <div class="pull-right"
-       ng-show="vm.wall.isCurrentUserOwner">
-    <a class="btn btn-primary"
-       ui-sref="walls.edit({ wallId: vm.wall._id })">
-      <i class="glyphicon glyphicon-edit"></i>
-    </a>
-    <a class="btn btn-primary" ng-click="vm.remove()">
-      <i class="glyphicon glyphicon-trash"></i>
-    </a>
-  </div>
-  <small>
-    <em class="text-muted">
-      {{vm.wall.created}}
-      Posted on
-      {{vm.wall.user.provider}}
-      <span ng-bind="vm.wall.created | date:'mediumDate'"></span>
-      by
-      <span ng-if="vm.wall.user"
-            ng-bind="vm.wall.user.displayName"></span>
-      <span ng-if="!vm.wall.user">Deleted User</span>
-    </em>
-  </small>
-  <p class="lead" ng-bind="vm.wall.content"></p>
-</section>
+    <div class="page-header">
+      <h1 ng-bind="vm.wall.name"></h1>
+    </div>
+    
+    <div class="pull-right"
+         ng-show="vm.wall.isCurrentUserOwner">
+      <a class="btn btn-primary"
+         ui-sref="walls.edit({ wallId: vm.wall._id })">
+        <i class="glyphicon glyphicon-edit"></i>
+      </a>
+      <a class="btn btn-primary" ng-click="vm.remove()">
+        <i class="glyphicon glyphicon-trash"></i>
+      </a>
+    </div>
+    <small>
+      <em class="text-muted">
+        Posted on
+        <span ng-bind="vm.wall.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="vm.wall.user"
+              ng-bind="vm.wall.user.displayName"></span>
+        <span ng-if="!vm.wall.user">Deleted User</span>
+      </em>
+    </small>
+    <p class="lead" ng-bind="vm.wall.content"></p>
+    <p>
+        <img ng-src="{{vm.wall.picture}}">
+    </p>
+    <p>
+      Length: {{vm.wall.wall_info.length}}<br>
+      Width: {{vm.wall.wall_info.width}}<br>
+      Type of Location: {{vm.wall.wall_info.loc_type}}<br>
+      Material: {{vm.wall.wall_info.material}}<br>
+      Finish: {{vm.wall.wall_info.finish}}<br>
+      Paint Name: {{vm.wall.wall_info.paint_name}}<br>
+      Required Preparation: {{vm.wall.wall_info.prep_req}}<br>
+      Required Paint: {{vm.wall.wall_info.paint_req}}<br>
+      Recoloring: {{vm.wall.wall_info.recolor}}<br>
+      Type of Wall: {{vm.wall.Wall_type}}<br>
+    </p>
+        
+  </section>
+  

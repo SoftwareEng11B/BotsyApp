@@ -4,7 +4,7 @@
   // Walls controller
   angular
     .module('walls')
-    .controller('WallsController', WallsController);
+    .controller('WallsController', WallsController, ['$scope', '$filter']);
 
   WallsController.$inject = ['$scope', '$state', '$window', 'Users','Authentication', 'wallResolve'];
 
@@ -18,7 +18,9 @@
     vm.remove = remove;
     vm.save = save;
     vm.user1 = Authentication.user;
-    vm.usersList = Users.query();
+    vm.update = update;
+    vm.userList = Users.query();
+
 
     // Remove existing Wall
     function remove() {
@@ -72,6 +74,31 @@
       function errorCallback(res) {
         vm.error = res.data.message;
       }
+
+    }
+
+    //Update Wall
+    function update(isValid){
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'vm.form.wallForm');
+        return false;
+      }
+
+      // TODO: move create/update logic to service
+      if (vm.wall._id) {
+        vm.wall.$update(successCallback, errorCallback);
+      } else {
+        vm.wall.$save(successCallback, errorCallback);
+      }
+
+      function successCallback(res) {
+        $state.go('walls.list');
+      }
+
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
     }
   }
+
 }());

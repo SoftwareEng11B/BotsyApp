@@ -1,54 +1,129 @@
+<head>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+table {
+    font-family: lato;
+    color: #52595d;
+    border-collapse: collapse;
+    width: 100%;
+}
+th{font-size: 20px;}
+
+td, th {
+    border: 1px solid #52595d;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f3f3;
+}
+td.redish{color: #e05e60;}
+td.mint{color: #3ac397;}
+
+h1{
+  font-family: lato;
+  color: #52595d;
+  padding: 0px;
+}
+
+.btn-primary {
+    border-radius: 15px;
+    color: #fff;
+    background-color: #3ac397;
+    border-color: #3ac397;
+    background-image: none;
+}
+.btn:hover{
+  transition: background-color 0.3s ease;
+  background-color: #31aa84;
+  border-color: #31aa84;
+  background-image: none;
+}
+
+</style>
+</head>
+
 <section>
+  <div class = "page-header">
+    <h1>Projects Waiting to Be Quoted</h1>
+  </div>
+  <!-- <div class="span" style="margin-top: 2em">
+    <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
+  </div>
+  <br> -->
+  <table>
+    <tr>
+    <br>
+      <th>Client Name</th>
+      <th>Wall Name</th>
+      <th>Date Created</th>
+      <th><center>Quote</center></th>
+    </tr>
+
+    <tr ng-repeat="wall in vm.walls">
+      <td ng-bind="wall.user.displayName"></td>
+      <td ng-bind="wall.name"></td>
+      <td ng-bind="wall.created | date:'mediumDate'"></td>
+      <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
+      <td align = "center">
+      <center><a class="btn btn-primary btn-round-sm btn-sm" ui-sref="walls.quote({wallId: wall._id})">
+      Quote
+      </a></center>
+       </center> </td>
+    </tr>
+  </table>
+  <div class = "page-header">
+    <h1>Projects Waiting on an Artist Match</h1>
+  </div>
+  <table>
+    <tr>
+    <br>
+      <th>Client Name</th>
+      <th>Project Name</th>
+      <th>Date Created</th>
+      <th><center>Match</center></th>
+    </tr>
+
+    <tr ng-repeat="wall in vm.walls">
+      <td ng-bind="wall.user.displayName"></td>
+      <td ng-bind="wall.name"></td>
+      <td ng-bind="wall.created | date:'mediumDate'"></td>
+      <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
+      <td align = "center">
+      <center><a class="btn btn-primary btn-round-sm btn-sm" ui-sref="walls.match({wallId: wall._id})">
+      Match
+      </a></center>
+       </center> </td>
+    </tr>
+  </table>
+
   <div class="page-header">
-    <h1>Walls</h1>
+    <h1>All Walls</h1>
   </div>
-
-
-
-  <div class="list-group">
-   <div class="col-sm-6" data ng-repeat="wall in vm.walls">
-   <a ui-sref="walls.view({ wallId: wall._id })"
-       class="list-group-item">
-
-    <i class="glyphicon glyphicon-home"></i>
-      
-      <h4 class="list-group-item-heading" ng-bind="wall.name"></h4>
-      <small class="list-group-item-text text-muted">
-
-        Posted on
-        <span ng-bind="wall.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="wall.user" ng-bind="wall.user.displayName"></span>
-        <span ng-if="!wall.user">Deleted User</span>
-      </small>
-    </a>
+  <table>
+    <tr>
     <br>
-    </div>
-  </div>
+      <th>Client Name</th>
+      <th>Project Name</th>
+      <th>Date Created</th>
+      <th><center>View Details</center></th>
+    </tr>
 
-  <div class="list-group">
-   <div class="col-sm-6" data ng-repeat="user in vm.users">
-   <div
-       class="list-group-item">
-
-    <i class="glyphicon glyphicon-home"></i>
-      
-      <h4 class="list-group-item-heading" ng-bind="user.firstName"></h4>
-      <small class="list-group-item-text text-muted">
-
-        Posted on
-        <span ng-bind="user.created | date:'mediumDate'"></span>
-      </small>
-    </div>
-    <br>
-    </div>
-  </div>
-
-
-
+    <tr ng-repeat="wall in vm.walls">
+      <td ng-bind="wall.user.displayName"></td>
+      <td ng-bind="wall.name"></td>
+      <td ng-bind="wall.created | date:'mediumDate'"></td>
+      <!-- <td ui-sref="admin.user({userId: user._id})" ng-bind="user.status"></td> -->
+      <td align = "center">
+      <center><a class="btn btn-primary btn-round-sm btn-sm" ui-sref="walls.view({ wallId: wall._id})">
+      View
+      </a></center>
+       </center> </td>
+    </tr>
+  </table>
+  <br>
   <div class="alert alert-warning text-center" ng-if="vm.walls.$resolved && !vm.walls.length">
     No Walls yet, why don't you <a ui-sref="walls.create">create one</a>?
   </div>
 </section>
-
-

@@ -2,6 +2,20 @@
   <div class="page-header">
     <h1>{{vm.wall._id ? 'Edit Wall' : 'New Wall'}}</h1>
   </div>
+  <script>
+  function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#wall_image')
+                    .attr('src', e.target.result)
+                    .width(225)
+                    .height(225);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+  </script>
   <div class="col-md-12">
     <form name="vm.form.wallForm" class="form-horizontal" ng-submit="vm.save(vm.form.wallForm.$valid)" novalidate>
       <fieldset>
@@ -19,8 +33,8 @@
 
                     <div class="col-sm-6 text-center">
                         <p>Wall Image: </p>
-                        <img src="modules/walls/client/img/defaultWall.png">
-                        <input type="file" id="wall" accept="image/*" />
+                        <input type="file" accept="image/*" onchange="readURL(this)" />
+                        <img id="wall_image" src="modules/walls/client/img/defaultWall.png" alt="your image">
                     </div>
 
 
@@ -98,7 +112,7 @@
                 </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-default" ui-sref="mural-select">{{vm.wall._id ? 'Update' : 'Create'}}</button>
+          <button type="submit" class="btn btn-default" ui-sref="preview-request">{{vm.wall._id ? 'Update' : 'Create'}}</button>
         </div>
         <div ng-show="vm.error" class="text-danger">
           <strong ng-bind="vm.error"></strong>

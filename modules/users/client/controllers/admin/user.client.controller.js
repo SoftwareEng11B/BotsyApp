@@ -32,7 +32,6 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
     $scope.update = function (isValid) {
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'userForm');
-
         return false;
       }
 
@@ -53,5 +52,12 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
         });
       }
     }; 
+    $scope.quote = function(user) {
+      if(user){
+        $state.go('admin.quote', {
+          userId: user._id
+        });
+      }
+    };
   }
 ]);
