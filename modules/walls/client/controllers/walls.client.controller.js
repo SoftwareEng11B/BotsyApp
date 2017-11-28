@@ -6,9 +6,9 @@
     .module('walls')
     .controller('WallsController', WallsController, ['$scope', '$filter']);
 
-  WallsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'wallResolve', 'Users'];
+  WallsController.$inject = ['$scope', '$state', '$window', 'Users','Authentication', 'wallResolve'];
 
-  function WallsController ($scope, $state, $window, Authentication, wall, Users) {
+  function WallsController ($scope, $state, $window, Users,Authentication, wall) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -17,8 +17,10 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.user1 = Authentication.user;
     vm.update = update;
     vm.userList = Users.query();
+
 
     // Remove existing Wall
     function remove() {
@@ -42,10 +44,32 @@
       }
 
       function successCallback(res) {
+       /* var user = new Users(vm.user1);
+
+        if (user.wallList.length>0){
+          user.wallList = [res._id];
+          vm.wall.$save();
+          console.log("save");
+        }
+        if (user.wallList.length>0) {
+          user.wallList.push(res._id);
+          user.$update();
+          console.log("update");
+        } 
+        vm.user1 = user;*/
+        
         $state.go('walls.view', {
           wallId: res._id
         });
       }
+
+      // we will store all of our form data in this object
+    $scope.formData = {};
+
+    // function to process the form
+    $scope.processForm = function() {
+        alert('awesome!');
+    };
 
       function errorCallback(res) {
         vm.error = res.data.message;

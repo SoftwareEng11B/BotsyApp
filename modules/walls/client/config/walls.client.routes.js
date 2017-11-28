@@ -59,6 +59,46 @@
           pageTitle: 'Edit Wall {{ wallResolve.name }}'
         }
       })
+
+
+
+
+
+
+
+         // route to show our basic form (/form)
+        .state('form', {
+            url: '/form',
+            templateUrl: 'modules/walls/client/views/form-view/form.html'//,
+            //controller: 'formController'
+        })
+
+        // nested states 
+        // each of these sections will have their own view
+        // url will be nested (/form/profile)
+        .state('form.profile', {
+            url: '/profile',
+             templateUrl: 'modules/walls/client/views/form-view/form-profile.html'
+        })
+
+        // url will be /form/interests
+        .state('form.interests', {
+            url: '/interests',
+             templateUrl: 'modules/walls/client/views/form-view/form-interests.html'
+        })
+
+        // url will be /form/payment
+        .state('form.payment', {
+            url: '/payment',
+             templateUrl: 'modules/walls/client/views/form-view/form-payment.html'
+        })
+
+
+
+
+
+
+
       .state('walls.view', {
         url: '/:wallId',
         templateUrl: 'modules/walls/client/views/view-wall.client.view.html',
