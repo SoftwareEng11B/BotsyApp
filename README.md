@@ -39,6 +39,19 @@ Credit to:
  Drag and Drop : https://imgur.com/a/Ko0H8
  
  2. Then you continue to fill out information on the new wall page https://imgur.com/a/v213D
+	
+	
+	
+	How to run locally: 
+	1. Git clone the file  
+	2. Make sure you are on the master branch 
+	3. Grunt --force 
+	
+	Be sure that you npm, mongodb install 
+	Follow this for help: 
+	
+	
+	Database : 
  
  
  
