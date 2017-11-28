@@ -44,6 +44,12 @@ h4{
   border-color: #31aa84;
   background-image: none;
 }
+.thumbnail img {
+    max-height: 100%;
+    max-width: 100%;
+    border-color: #ffffff;
+
+}
 
 </style>
 
@@ -62,7 +68,17 @@ h4{
 
   <br>
   <br>
-  <h1>Image of wall with mural design here</h1>
+  <div class = "row">
+            <div class = "col-md-1">
+            </div>
+            <div class = "col-md-10">
+              <a class = "thumbnail">
+                <img ng-src="{{vm.wall.picture}}">
+              </a>
+            </div>
+            <div class = "col-md-1">
+            </div>
+          </div>
   <br>
   <br>
 
@@ -75,50 +91,45 @@ h4{
       <fieldset>
         <div class="form-group" >
           <center><label for="quote">Total Mural Cost</label></center>
-          
-          
-        
+
+
+
           <br>
-          
-          
-                
+
+
+
           <br>
 
           <span
           <label>hasQuote:
             <input type="checkbox" ng-model="vm.wall.status.hasQuote" ng-click="vm.saveStatus()">
           </label>
-          
+
 
           <label>paid:
             <input type="checkbox" ng-model="vm.wall.status.paid" ng-click="vm.saveStatus()">
           </label>
-          
+
           <label>matched:
             <input type="checkbox" ng-model="vm.wall.status.matched" ng-click="vm.saveStatus()">
           </label>
-          
+
 
           <label>completed:
             <input type="checkbox" ng-model="vm.wall.status.completed" ng-click="vm.saveStatus()">
           </label>
-            
+
             <label class="control-label"><input name="quote" type="radio" ng-model="vm.priceIsGood" ng-value="1" >Price is Good
           </label>
 
           <input type="text"  ng-model="vm.wall.price" id="price" class="form-control" placeholder="example: $180" required>
-          <button type="button" class="btn btn-primary" ng-click="vm.saveHasQuote()">Save Quotes
+          <button type="submit" class="btn btn-primary" ng-click="vm.saveHasQuote()">Save Quotes
           </button>
             </span>
 
           <br/>
           <br/>
           <hr >
-            <h3 style="color: red" >for testing remove later</h3>
-            <tt>completed = {{vm.wall.status.completed}}</tt><br/>
-            <tt>paid = {{vm.wall.status.paid}}</tt><br/> 
-            <tt>matched = {{vm.wall.status.matched}}</tt><br/>
-            <tt>hasQuote = {{vm.wall.status.hasQuote}}</tt><br/>                        
 
         </div>
         <div class="text-center form-group">

@@ -4,11 +4,11 @@
   // Walls controller
   angular
     .module('walls')
-    .controller('WallsController', WallsController, ['$scope', '$filter']);
+    .controller('WallsController', WallsController, ['$scope', '$filter','$http']);
 
-  WallsController.$inject = ['$scope', '$state', '$window', 'Users','Authentication', 'wallResolve'];
+  WallsController.$inject = ['$scope', '$state', '$window','$http', 'Users','Authentication', 'wallResolve'];
 
-  function WallsController ($scope, $state, $window, Users,Authentication, wall) {
+  function WallsController ($scope, $state, $window, $http, Users,Authentication, wall) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -19,11 +19,10 @@
     vm.save = save;
     vm.user1 = Authentication.user;
     vm.update = update;
-    vm.email = email;
     vm.userList = Users.query();
 
 
-
+    
 
     vm.saveStatus =function(){
       vm.wall.$update();
@@ -34,6 +33,34 @@
       var wallToUpdate = vm.wall;
       wallToUpdate.$update();
 
+    };
+
+    vm.email = function(){
+      console.log(5);
+
+      var data = ({
+        contactName : vm.wall.user.displayName,
+        contactEmail : vm.wall.user.email,
+        contactMsg : "  Wall name:    " + vm.wall.name +
+        "  Length:    " + vm.wall.wall_info.length +
+        "  Width  " + vm.wall.wall_info.width +
+        "  Type of Location:  " + vm.wall.wall_info.loc_type +
+        "  Material:  "+ vm.wall.wall_info.material +
+        "  Finish:  " +vm.wall.wall_info.finish +
+        "  Paint Name:  " +vm.wall.wall_info.paint_name +
+        "  Required Preparation:  " +vm.wall.wall_info.prep_req+
+        "  Required Paint:  " +vm.wall.wall_info.paint_req +
+        "  Recoloring:  "+ vm.wall.wall_info.recolor +
+        "  Type of Wall:  "+vm.wall.Wall_type,
+        contactPNG: vm.wall.picture
+      });
+
+      $http.post('/api/auth/contact-us', data).
+        success(function(data, status, headers, config) {
+          $state.go('home', $state.previous.params);
+        }).
+        error(function(data, status, headers, config) {
+        });
     };
 
     // Remove existing Wall
@@ -127,7 +154,7 @@
 
     function email(){
       console.log(5);
-      
+
       var data = ({
         contactName : vm.wall.user.displayName,
         contactEmail : vm.wall.user.email,
