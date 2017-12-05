@@ -4,6 +4,7 @@ table {
     color: #52595d;
     border-collapse: collapse;
     width: 100%;
+    font-size: 125%;
 }
 form{
   font-family: lato;
@@ -12,7 +13,7 @@ form{
 th{font-size: 20px;}
 
 td, th {
-    border: 1px solid #ffffff;
+    border: 1px solid transparent;
     text-align: left;
     padding: 8px
 }
@@ -87,19 +88,64 @@ h4{
       <div class = "col-md-2">
       </div>
     </div>
-      <center><p>
-        <h4> Length: {{vm.wall.wall_info.length}}</h4>
-        <h4>Width: {{vm.wall.wall_info.width}}</h4>
-        <h4>Type of Location: {{vm.wall.wall_info.loc_type}}</h4>
-        <h4>Material: {{vm.wall.wall_info.material}}</h4>
-        <h4>Finish: {{vm.wall.wall_info.finish}}</h4>
-        <h4>Paint Name: {{vm.wall.wall_info.paint_name}}</h4>
-        <h4>Required Preparation: {{vm.wall.wall_info.prep_req}}</h4>
-        <h4>Required Paint: {{vm.wall.wall_info.paint_req}}</h4>
-        <h4>Recoloring: {{vm.wall.wall_info.recolor}}</h4>
-        <h4>Type of Wall: {{vm.wall.Wall_type}}</h4>
-        <h4>Customer email: {{vm.wall.user.email}}</h4>
-        <h4>Customer Name : {{vm.wall.user.firstName}} {{vm.wall.user.lastName}}</h4>
-      </p></center>
-    </div>    
+    <div = "row">
+      <div class = "col-sm-2">
+      </div>
+      <div class = "col-sm-8">
+        <center><p>
+          <table>
+            <tr>
+              <th><center>Length: </center></th>
+              <th>{{vm.wall.wall_info.length}}</th>
+            </tr>
+            <tr>
+              <th><center>Width: </center></th>
+              <th>{{vm.wall.wall_info.width}}</th>
+            </tr>
+            <tr>
+              <th><center>Type of Location: </center></th>
+              <th>{{vm.wall.wall_info.loc_type}}</th>
+            </tr>
+            <tr>
+              <th><center>Material: </center></th>
+              <th>{{vm.wall.wall_info.material}}</th>
+            </tr>
+            <tr>
+              <th><center>Finish: </center></th>
+              <th>{{vm.wall.wall_info.finish}}</th>
+            </tr>
+            <tr>
+              <th><center>Paint Name: </center></th>
+              <th>{{vm.wall.wall_info.paint_name}}</th>
+            </tr>
+            <tr>
+              <th><center>Required Preparation: </center></th>
+              <th>{{vm.wall.wall_info.prep_req}}</th>
+            </tr>
+            <tr>
+              <th><center>Required Paint: </center></th>
+              <th>{{vm.wall.wall_info.paint_req}}</th>
+            </tr>
+            <tr>
+              <th><center>Recoloring: </center></th>
+              <th>{{vm.wall.wall_info.recolor}}</th>
+            </tr>
+            <tr>
+              <th><center>Type of Wall: </center></th>
+              <th>{{vm.wall.Wall_type}}</th>
+            </tr>
+            <tr>
+              <th><center>Customer Email: </center></th>
+              <th>{{vm.wall.user.email}}</th>
+            </tr>
+            <tr>
+              <th><center>Customer Name: </center></th>
+              <th>{{vm.wall.user.firstName}} {{vm.wall.user.lastName}}</th>
+            </tr>
+          </table>
+        </p></center>
+      </div>
+      <div class = "col-sm-6">
+      </div>
+    </div>
   </section>
