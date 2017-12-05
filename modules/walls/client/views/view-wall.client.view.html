@@ -47,6 +47,7 @@ h4{
 .thumbnail img {
     max-height: 100%;
     max-width: 100%;
+
 }
 </style>
 <section>
@@ -75,17 +76,21 @@ h4{
         <span ng-if="!vm.wall.user">Deleted User</span>
       </em>
     </small>
+    <div class = "row">
+    </div>
     <div class = row>
       <div class = "col-md-2">
+        <br>
       </div>
-      <div class = "container">
-        <div class = "col-md-10">
+        <div class = "col-sm-8">
+          <div class = "container-fluid center">
           <a class = "thumbnail">
           <center><img ng-src="{{vm.wall.picture}}"></center>
           </a>
         </div>
       </div>
       <div class = "col-md-2">
+        <br>
       </div>
     </div>
     <div = "row">
