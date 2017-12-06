@@ -4,6 +4,7 @@ table {
     font-family: lato;
     color: #52595d;
     border-collapse: collapse;
+    border-color: transparent;
     width: 100%;
 }
 form{
@@ -13,7 +14,7 @@ form{
 th{font-size: 20px;}
 
 td, th {
-    border: 1px solid #ffffff;
+    border: 1px solid transparent;
     text-align: left;
     padding: 8px
 }
@@ -55,19 +56,44 @@ h4{
 
   <div class="col-md-12 text-center">
     <center><h1 ng-bind= "'Quote for ' + vm.wall.name"></h1></center>
-
-
-  <div class= "row">
-  <br>
-  <h3 ng-bind="'Height:'+ vm.wall.wall_info.width "></h3>
-  <h3 ng-bind="'Width: ' + vm.wall.wall_info.length"></h3>
-  <h3 ng-bind="'Wall Type: ' + vm.wall.Wall_type"></h3>
-  <h3 ng-bind="'Paint Type: ' + vm.wall.wall_info.paint_type"></h3>
-  <h3 ng-bind="'Paint Prep: ' + vm.wall.wall_info.prep_req"></h3>
-  <h3 ng-bind="'Paint Recolor: ' + vm.wall.wall_info.recolor"></h3>
-
-  <br>
-  <br>
+  </div>
+  <div class = "row">
+    <div class = "col-sm-2">
+    </div>
+    <div class = "col-sm-8">
+      <center><p>
+        <table>
+          <tr>
+            <th><center>Height: </center></th>
+            <th>{{vm.wall.wall_info.length}}</th>
+          </tr>
+          <tr>
+            <th><center>Width: </center></th>
+            <th>{{vm.wall.wall_info.width}}</th>
+          </tr>
+          <tr>
+            <th><center>Wall Type: </center></th>
+            <th>{{vm.wall.Wall_type}}</th>
+          </tr>
+          <tr>
+            <th><center>Paint Type: </center></th>
+            <th>{{vm.wall.wall_info.paint_type}}</th>
+          </tr>
+          <tr>
+            <th><center>Required Preparation: </center></th>
+            <th>{{vm.wall.wall_info.prep_req}}</th>
+          </tr>
+          <tr>
+            <th><center>Recoloring: </center></th>
+            <th>{{vm.wall.wall_info.recolor}}</th>
+          </tr>
+          <tr>
+        </table>
+      </p></center>
+    </div>
+    <div class = "col-sm-2">
+    </div>
+  </div>
   <div class = "row">
             <div class = "col-md-1">
             </div>
@@ -91,40 +117,36 @@ h4{
       <fieldset>
         <div class="form-group" >
           <center><label for="quote">Total Mural Cost</label></center>
-
-
-
           <br>
-
-
-
-          <br>
-
+          <div class= "col-md-6"><center>
           <span
           <label>hasQuote:
             <input type="checkbox" ng-model="vm.wall.status.hasQuote" ng-click="vm.saveStatus()">
           </label>
-
+          <br>
 
           <label>paid:
             <input type="checkbox" ng-model="vm.wall.status.paid" ng-click="vm.saveStatus()">
           </label>
-
+          <br>
+        </div></center>
+          <div clas = "col-md-6"><center>
           <label>matched:
             <input type="checkbox" ng-model="vm.wall.status.matched" ng-click="vm.saveStatus()">
           </label>
-
+          <br>
 
           <label>completed:
             <input type="checkbox" ng-model="vm.wall.status.completed" ng-click="vm.saveStatus()">
           </label>
-
-            <label class="control-label"><input name="quote" type="radio" ng-model="vm.priceIsGood" ng-value="1" >Price is Good
-          </label>
-
+          <br>
+        </div></center><br>
+          <!--  <label class="control-label"><input name="quote" type="radio" ng-model="vm.priceIsGood" ng-value="1" >Price is Good
+          </label> -->
           <input type="text"  ng-model="vm.wall.price" id="price" class="form-control" placeholder="example: $180" required>
-          <button type="submit" class="btn btn-primary" ng-click="vm.saveHasQuote()">Save Quotes
-          </button>
+          <br>
+          <center><button type="submit" class="btn btn-primary" ng-click="vm.saveHasQuote()">Save Quotes
+          </button></center>
             </span>
 
           <br/>
