@@ -48,13 +48,6 @@ h1{
 
 </style>
 </head>
-
-
-<div class="row"  style="margin-top: 2em" >
-  <input class="form-control col-md-4" type="text" ng-model="searchText" placeholder="Search"/>
-</div>
-
-
 <section>
   <div class = "page-header">
     <h1>Projects Waiting to Be Quoted</h1>
@@ -71,7 +64,17 @@ h1{
     <td>{{friend.phone}}</td>
   </tr>
 </table-->
-
+<div class = "row" style= "padding-bottom: 10px">
+  <div class = "col-md-6">
+  </div>
+  <div class="col-md-6" align = "right">
+    <div class = "col-md-6">
+    </div>
+    <div align = "center">
+      <input class="col-sm-6" type="text" ng-model="searchText" placeholder="Search"/>
+    </div>
+  </div>
+</div>
   <div id="right">
   <table id="searchTextResults" >
     <tr>
@@ -98,6 +101,19 @@ h1{
   <div class = "page-header" >
     <h1>Projects Waiting on an Artist Match</h1>
   </div>
+
+  <div class = "row" style= "padding-bottom: 10px">
+    <div class = "col-md-6">
+    </div>
+    <div class="col-md-6" align = "right">
+      <div class = "col-md-6">
+      </div>
+      <div align = "center">
+        <input class="col-sm-6" type="text" ng-model="searchText" placeholder="Search"/>
+      </div>
+    </div>
+  </div>
+
   <div id="right">
   <table>
     <tr>
@@ -125,6 +141,18 @@ h1{
   <div class="page-header">
     <h1>All Walls</h1>
   </div>
+  <div class = "row" style= "padding-bottom: 10px">
+    <div class = "col-md-6">
+    </div>
+    <div class="col-md-6" align = "right">
+      <div class = "col-md-6">
+      </div>
+      <div align = "center">
+        <input class="col-sm-6" type="text" ng-model="searchText" placeholder="Search"/>
+      </div>
+    </div>
+  </div>
+
   <div id="right">
   <table>
     <tr>
