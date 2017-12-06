@@ -51,6 +51,12 @@ h4{
     border-color: #ffffff;
 
 }
+.twentyFiveText{
+  text.size: 125%;
+}
+.fiftyText{
+  text.size: 150%;
+}
 
 </style>
 
@@ -115,28 +121,28 @@ h4{
     <div class= "container col-md-6 col-md-offset-3">
     <form name="vm.form.quoteForm" ng-submit="vm.update(vm.form.quoteForm.$valid)" novalidate autocomplete="off">
       <fieldset>
-        <div class="form-group" >
-          <center><label for="quote">Total Mural Cost</label></center>
+        <div class="form-group"  >
+          <center><label for="quote"><h2>Total Mural Cost</h2></label></center>
           <br>
           <div class= "col-md-6"><center>
           <span
-          <label>hasQuote:
+          <label><h3>hasQuote: </h3>
             <input type="checkbox" ng-model="vm.wall.status.hasQuote" ng-click="vm.saveStatus()">
           </label>
           <br>
 
-          <label>paid:
+          <label><h3>paid: </h3>
             <input type="checkbox" ng-model="vm.wall.status.paid" ng-click="vm.saveStatus()">
           </label>
           <br>
         </div></center>
           <div clas = "col-md-6"><center>
-          <label>matched:
+          <label><h3>matched: </h3>
             <input type="checkbox" ng-model="vm.wall.status.matched" ng-click="vm.saveStatus()">
           </label>
           <br>
 
-          <label>completed:
+          <label><h3>completed: </h3>
             <input type="checkbox" ng-model="vm.wall.status.completed" ng-click="vm.saveStatus()">
           </label>
           <br>
