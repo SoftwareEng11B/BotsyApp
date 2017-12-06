@@ -1,3 +1,9 @@
+<style>
+.glyphicon {
+    font-size: 25px;
+}
+</style>
+
 <section>
   <div class="page-header">
     <h1>Walls</h1>
@@ -8,7 +14,7 @@
    <a ui-sref="walls.view({ wallId: wall._id })"
        class="list-group-item">
 
-    <i class="glyphicon glyphicon-home"></i>
+    <center><i class="glyphicon glyphicon-ok-circle"></i>
 
       <h4 class="list-group-item-heading" ng-bind="wall.name"></h4>
       <small class="list-group-item-text text-muted">
@@ -18,7 +24,7 @@
         by
         <span ng-if="wall.user" ng-bind="wall.user.displayName"></span>
         <span ng-if="!wall.user">Deleted User</span>
-      </small>
+      </small></center>
     </a>
     <br>
     </div>
