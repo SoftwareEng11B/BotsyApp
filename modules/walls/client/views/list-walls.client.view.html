@@ -40,9 +40,20 @@ h1{
   border-color: #31aa84;
   background-image: none;
 }
+#right{
+  position: relative;
+  height: 300px;
+  overflow-y: scroll;
+}
 
 </style>
 </head>
+
+
+<div class="row"  style="margin-top: 2em" >
+  <input class="form-control col-md-4" type="text" ng-model="searchText" placeholder="Search"/>
+</div>
+
 
 <section>
   <div class = "page-header">
@@ -52,7 +63,17 @@ h1{
     <input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />
   </div>
   <br> -->
-  <table>
+
+<!--table id="searchTextResults">
+  <tr><th>Name</th><th>Phone</th></tr>
+  <tr ng-repeat="friend in friends | filter:searchText">
+    <td>{{friend.name}}</td>
+    <td>{{friend.phone}}</td>
+  </tr>
+</table-->
+
+  <div id="right">
+  <table id="searchTextResults" >
     <tr>
     <br>
       <th>Client Name</th>
@@ -61,7 +82,7 @@ h1{
       <th><center>Quote</center></th>
     </tr>
 
-    <tr ng-repeat="wall in vm.walls" ng-show="wall.price <= 0">
+    <tr data ng-repeat="wall in vm.walls | filter:searchText" ng-show="wall.price <= 0">
       <td ng-bind="wall.user.displayName"></td>
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
@@ -73,9 +94,11 @@ h1{
        </center> </td>
     </tr>
   </table>
-  <div class = "page-header">
+</div>
+  <div class = "page-header" >
     <h1>Projects Waiting on an Artist Match</h1>
   </div>
+  <div id="right">
   <table>
     <tr>
     <br>
@@ -85,7 +108,7 @@ h1{
       <th><center>Match</center></th>
     </tr>
 
-    <tr ng-repeat="wall in vm.walls" ng-show = "wall.status.matched == false">
+    <tr ng-repeat="wall in vm.walls | filter:searchText" ng-show = "wall.status.matched == false">
       <td ng-bind="wall.user.displayName"></td>
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
@@ -97,10 +120,12 @@ h1{
        </center> </td>
     </tr>
   </table>
+</div>
 
   <div class="page-header">
     <h1>All Walls</h1>
   </div>
+  <div id="right">
   <table>
     <tr>
     <br>
@@ -110,7 +135,7 @@ h1{
       <th><center>View Details</center></th>
     </tr>
 
-    <tr ng-repeat="wall in vm.walls">
+    <tr ng-repeat="wall in vm.walls | filter:searchText">
       <td ng-bind="wall.user.displayName"></td>
       <td ng-bind="wall.name"></td>
       <td ng-bind="wall.created | date:'mediumDate'"></td>
@@ -122,6 +147,7 @@ h1{
        </center> </td>
     </tr>
   </table>
+</div>
   <br>
   <div class="alert alert-warning text-center" ng-if="vm.walls.$resolved && !vm.walls.length">
     No Walls yet, why don't you <a ui-sref="walls.create">create one</a>?

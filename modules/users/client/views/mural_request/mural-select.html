@@ -5,9 +5,10 @@
     article, aside, figure, footer, header, hgroup,
     menu, nav, section { display: block; }
   	.col-sm-3 {
-      background-color: #3ac397;
+      background-color: #2fc496;
   		width: 350px;
   		border: 25px;
+      border-radius: 25px;
   		padding: 25px;
   		margin: 25px;
   	}
@@ -15,40 +16,62 @@
       transition: background-color 0.3s ease;
       background-color: #31aa84;
   	}
+    .row{
+      background-color: white;
+    }
     h1 {
       font-family: 'Lato', sans-serif;
-      font-size: 32px;
+      font-size: 36px;
       font-weight: 700;
-      color: #e05e60;
+      color: white;
     }
     h2 {
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      color: white;
+    }
+    p {
       font-family: 'Lato', sans-serif;
       font-size: 16px;
       color: white;
     }
-    input {
+    y {
       font-family: 'Lato', sans-serif;
-      font-size: 14px;
+      font-size: 36px;
+      font-weight: 700;
+      color: #e05e60;
     }
-    p {
-      font-family: 'Lato', sans-serif;
-      font-size: 14px;
-      color: white;
+    .row.text-center > div {
+    display: inline-block;
+    float: none;
     }
+    .vertical-center{
+      min-height: 100%;
+      min-height: 100%;
+
+      display:flex;
+      align-items: center;
+    }
+
     </style>
   </head>
+  <div class = "vertical center">
   <header>
-      <h1>Which type of mural would you like to request?</h1><br>
+    <br><br><br>
+      <center><y>Which type of mural would you like to request?</y></center><br>
   </header>
-	<div class="col-sm-3" ui-sref="custom-form">
-	  <h2>Custom</h2>
-	  <p> Enter your room type, color scheme, and theme, and a Botsy Designer will create a mural for you!</p>
+  <div class="row text-center">
+  	<div class="col-sm-3" ui-sref="custom-form" style: "text-color: white">
+  	  <center><h1>Custom</h1></center>
+  	  <p> Enter your room type, color scheme, and theme, and a Botsy Designer will create a mural for you!</p>
+    </div>
+  	<div class="col-sm-3" ui-sref="DD-blank">
+  	  <center><h1>DIY</h1></center>
+  	  <p> Drag-and-Drop Clip Art and Symbols onto your wall for a design that is unique to your wall</p>
+    </div>
+  	<div class="col-sm-3" ui-sref="logo-page">
+  	  <center><h1>Logo</h1></center>
+  	  <p> Upload your company logo and Botsy will draw it in your office on the wall of your choice</p>
+    </div>
   </div>
-	<div class="col-sm-3" ui-sref="DD-blank">
-	  <h2>DIY</h2>
-	  <p> Drag-and-Drop Clip Art and Symbols onto your wall for a design that is unique to your wall</p>
-  </div>
-	<div class="col-sm-3" ui-sref="logo-page">
-	  <h2>Logo</h2>
-	  <p> Upload your company logo and Botsy can draw it on your office wall</p>
-  </div>
+</div>
