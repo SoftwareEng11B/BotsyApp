@@ -19,17 +19,17 @@
     vm.save = save;
     vm.user1 = Authentication.user;
     vm.update = update;
-    vm.userList = Users.query();
+    vm.userList = Users.query();//get user list
 
 
 
 
     vm.saveStatus =function(){
-      vm.wall.$update();
+      vm.wall.$update(); // update the database based on ui change from quote-wall client view
     };
 
     vm.saveHasQuote = function (){
-      vm.wall.status.hasQuote = true;
+      vm.wall.status.hasQuote = true; //saves quote of a wall and updates the database
       var wallToUpdate = vm.wall;
       wallToUpdate.$update();
 
@@ -87,9 +87,6 @@
       function matche(){
         vm.wall.Artist;
       }
-      function Quote(){}
-      function completed(){}
-      function paid(){}
 
       function successCallback(res) {
        /* var user = new Users(vm.user1);
