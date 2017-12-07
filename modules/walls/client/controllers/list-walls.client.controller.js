@@ -11,20 +11,8 @@
     var vm = this;
 
     vm.walls = WallsService.query();
-    vm.users = Users.query();
+    vm.users = Users.query();// to get users in the wall controller
   }
-  /*function($scope, $state, wallsResolve){
-  	$scope.walls = wallsResolve;
-
-  	$scope.match = function(walls) {
-  		if(walls){
-  			$state.go('match', {
-  				wallId: walls._id
-  			});
-  		}
-  	};
-  }
-  Breaks the table, items won't display
-  */
+  
   
 }());
