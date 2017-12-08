@@ -70,7 +70,7 @@ Not Implement Features:
 	
 	
 	
-	
+To change the nodemail to another email go to : BotsyApp/modules/users/server/controllers/users/users.authentication.server.controller.js on line 251-252 for a gmail account. 
  
  
  
