@@ -69,11 +69,18 @@ Not Implement Features:
 	
 	
 	
-	
+**** For Liza ******	
 To change the nodemail to another email go to : BotsyApp/modules/users/server/controllers/users/users.authentication.server.controller.js on line 251-252 for a gmail account. 
  
+ Then you must repush the information to heroku: 
+ Go to the location of the github code. 
+ Be sure to be on the master branch: git branch then it should highlight green master
+ Be sure to run: git pull 
+ Then run git remote -v 
+ Be sure to have heroku. 
+ Then run git push heroku master 
  
- 
+ If it doesnt work contact either Jon Legaspi or Kemley Nieva. 
  
  
  
